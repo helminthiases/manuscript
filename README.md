@@ -13,6 +13,10 @@ PC | Preventive Chemotherapy
 NTD | [Neglected Tropical Diseases](https://espen.afro.who.int/diseases)
 MDA | Mass Drug Administration
 JAP | Joint Application Package
+TF | Trachomatous inflammation, Follicular
+TI | Trachomatous inflammation, Intense
+TT | Trachomatous trichiasis
+IU | Implementation Unit
 
 <br>
 <br>
