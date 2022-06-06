@@ -50,10 +50,12 @@ Read "Writing R Extensions" for more information.
 
 <br>
 
-**Bookdown Configurations**
+**Bookdown**
 
 * [_bookdown.yml configuration](https://bookdown.org/yihui/bookdown/configuration.html)
 * [_output.yml configuration](https://github.com/rstudio/bookdown/blob/main/inst/examples/_output.yml)
+* [Texts](https://bookdown.org/yihui/rmarkdown/books.html)
+* [Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
 
 
 <br>
