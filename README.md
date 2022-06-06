@@ -48,6 +48,13 @@ IU | Implementation Unit
 
 Read "Writing R Extensions" for more information.
 
+<br>
+
+**Bookdown Book**
+
+* [_bookdown.yml configuration](https://bookdown.org/yihui/bookdown/configuration.html)
+* [_output.yml configuration](https://github.com/rstudio/bookdown/blob/main/inst/examples/_output.yml)
+
 
 <br>
 <br>
