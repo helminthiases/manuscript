@@ -77,3 +77,27 @@ header-includes:
 \renewcommand{\headrulewidth}{0pt} % Removes header rule
 }
 \pagestyle{custompagestyle}
+
+<!--- Global Settings --->
+```{r include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(knitr.table.format = 'latex')
+options(knitr.kable.NA = '')
+```
+
+
+```{r include = FALSE}
+library(xtable)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(stringr)
+
+library(magrittr)
+library(latex2exp)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+
+```
+
