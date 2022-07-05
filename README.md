@@ -29,8 +29,6 @@ A background reading/research discussion of
 * Methods for predicting STH prevalence.
 * Prediction guided STH field survey area selection.
 
-<br>
-
 #### DATA
 
 * The Data Sets
@@ -40,27 +38,19 @@ A background reading/research discussion of
  
 * Data Integration
 
-<br>
-
 #### EXPLORATORY DATA ANALYSIS
 
 An exploration of the relationships, if any, between historical prevalence values and
 * WASH variables.
 * any other variables.
 
-<br>
-
 #### MODELS
 
 Focusing on two, or more, geo-statistical models.
 
-<br>
-
 #### EVALUATION OF MODELS
 
 A comparative evaluation of the developed models, of their results.
-
-<br>
 
 #### DISCUSSION
 
@@ -73,8 +63,6 @@ A comparative evaluation of the developed models, of their results.
 * Limitations, biases, noise.
 
 * Assumptions.
-
-<br>
 
 #### CONCLUSIONS
 
