@@ -1,13 +1,7 @@
 
 <br>
 
-**Notes**
-
-<br>
-
-### Potential Structure
-
-<br>
+## Potential Structure
 
 #### ABSTRACT
 
@@ -71,6 +65,8 @@ A reflection.
 
 <br>
 <br>
+
+## Notes
 
 ### Acronyms
 
