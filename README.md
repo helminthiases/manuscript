@@ -7,13 +7,15 @@
 
 ### Potential Structure
 
-#### Abstract
+<br>
+
+#### ABSTRACT
 
 A single paragraph summarising the major aspects of the dissertation.
 
 <br>
 
-#### Introduction
+#### INTRODUCTION
 
 A discussion of
 
@@ -24,7 +26,7 @@ A discussion of
 
 <br>
 
-#### Background
+#### BACKGROUND
 
 A background reading/research discussion of
 
@@ -34,7 +36,7 @@ A background reading/research discussion of
 
 <br>
 
-#### Data
+#### DATA
 
 * The Data Sets
   * Soil Transmitted Helminths Infections Data: Including a section discussing missing data.
@@ -45,7 +47,7 @@ A background reading/research discussion of
 
 <br>
 
-#### Exploratory Analysis
+#### EXPLORATORY DATA ANALYSIS
 
 An exploration of the relationships, if any, between historical prevalence values and 
 
@@ -54,19 +56,19 @@ An exploration of the relationships, if any, between historical prevalence value
 
 <br>
 
-#### Models
+#### MODELS
 
 Focusing on two, or more, geo-statistical models.
 
 <br>
 
-#### Evaluation of Models
+#### EVALUATION OF MODELS
 
 A comparative evaluation of the developed models, of their results.
 
 <br>
 
-#### Discussion
+#### DISCUSSION
 
 * Validity and relevance to the research problem/question
   * External Validity: Sampling. The degree to which the study's conclusions can be generalised to the population.
@@ -78,7 +80,9 @@ A comparative evaluation of the developed models, of their results.
 
 * Assumptions.
 
-#### Conclusions
+<br>
+
+#### CONCLUSIONS
 
 A reflection.
 
