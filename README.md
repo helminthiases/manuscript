@@ -3,6 +3,8 @@
 
 ## Potential Structure
 
+<br>
+
 #### ABSTRACT
 
 A single paragraph summarising the major aspects of the dissertation.
@@ -62,11 +64,12 @@ A comparative evaluation of the developed models, of their results.
 
 A reflection.
 
-
 <br>
 <br>
 
 ## Notes
+
+<br>
 
 ### Acronyms
 
@@ -81,7 +84,6 @@ TI | Trachomatous inflammation, Intense
 TT | Trachomatous trichiasis
 IU | Implementation Unit
 
-<br>
 <br>
 
 ### References
