@@ -13,8 +13,6 @@
 
 A single paragraph summarising the major aspects of the dissertation.
 
-<br>
-
 #### INTRODUCTION
 
 A discussion of
@@ -24,12 +22,9 @@ A discussion of
 * Objectives
 * Manuscript Structure
 
-<br>
-
 #### BACKGROUND
 
 A background reading/research discussion of
-
 * Strategies that have guided STH (soil transmitted helminth) field survey area selection.
 * Methods for predicting STH prevalence.
 * Prediction guided STH field survey area selection.
@@ -49,8 +44,7 @@ A background reading/research discussion of
 
 #### EXPLORATORY DATA ANALYSIS
 
-An exploration of the relationships, if any, between historical prevalence values and 
-
+An exploration of the relationships, if any, between historical prevalence values and
 * WASH variables.
 * any other variables.
 
@@ -71,10 +65,10 @@ A comparative evaluation of the developed models, of their results.
 #### DISCUSSION
 
 * Validity and relevance to the research problem/question
-  * External Validity: Sampling. The degree to which the study's conclusions can be generalised to the population.
-  * Construct Validity:	Measurement. Is the operational setting, or are the measures, in line with the hypothesis construct?
-  * Internal Validity:	Inapplicable to this study. [Design. The degree to which a cause & effect relationship can be discerned between a set of factors and outcome variables.]
-  * Conclusion Validity:	Analysis. "... the degree to which conclusions we reach about relationships in our data are reasonable." ([Trochim 2015](https://conjointly.com/kb/conclusion-validity/))
+  * The degree to which the study's conclusions can be generalised to the population. [External Validity, Sampling]
+  * Is the operational setting, or are the measures, in line with the hypothesis construct?  [Construct Validity, Measurement]
+  * "... the degree to which conclusions we reach about relationships in our data are 
+    reasonable"<sup><a href="https://conjointly.com/kb/conclusion-validity/"> 1</a></sup>.  [Conclusion Validity, Analysis]
 
 * Limitations, biases, noise.
 
