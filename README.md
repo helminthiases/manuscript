@@ -7,33 +7,81 @@
 
 ### Potential Structure
 
-**Abstract**
+#### Abstract
 
-**Introduction**
->  * Problem
->  * Aim
->  * Objectives
->  * Manuscript Structure
+A single paragraph summarising the major aspects of the dissertation.
 
-**Review**
-> A review of approaches to applied prevalence prediction.
+<br>
 
-**Data**
-> * Data Groups
->   * Soil Transmitted Helminths Infections Data
->       + Missing Data Analysis
->   * Water, Sanitation, &Hygiene Data
->   * Environmental & Climatic Features
->  
-> * Data Integration
+#### Introduction
 
-**Exploratory Analysis**
+A discussion of
 
-**Modelling**
+* Motivation/Problem
+* Aim
+* Objectives
+* Manuscript Structure
 
-**Evaluation of Models**
+<br>
 
-**Discussion**
+#### Background
+
+A background reading/research discussion of
+
+* Strategies that have guided STH (soil transmitted helminth) field survey area selection.
+* Methods for predicting STH prevalence.
+* Prediction guided STH field survey area selection.
+
+<br>
+
+#### Data
+
+* The Data Sets
+  * Soil Transmitted Helminths Infections Data: Including a section discussing missing data.
+  * WASH (water, sanitation, and hygiene) Data
+  * Environmental & Climatic Features (MAYBE)
+ 
+* Data Integration
+
+<br>
+
+#### Exploratory Analysis
+
+An exploration of the relationships, if any, between historical prevalence values and 
+
+* WASH variables.
+* any other variables.
+
+<br>
+
+#### Models
+
+Focusing on two, or more, geo-statistical models.
+
+<br>
+
+#### Evaluation of Models
+
+A comparative evaluation of the developed models, of their results.
+
+<br>
+
+#### Discussion
+
+* Validity and relevance to the research problem/question
+  * External Validity: Sampling. The degree to which the study's conclusions can be generalised to the population.
+  * Construct Validity:	Measurement. Is the operational setting, or are the measures, in line with the hypothesis construct?
+  * Internal Validity:	Inapplicable to this study. [Design. The degree to which a cause & effect relationship can be discerned between a set of factors and outcome variables.]
+  * Conclusion Validity:	Analysis. "... the degree to which conclusions we reach about relationships in our data are reasonable." ([Trochim 2015](https://conjointly.com/kb/conclusion-validity/))
+
+* Limitations, biases, noise.
+
+* Assumptions.
+
+#### Conclusions
+
+A reflection.
+
 
 <br>
 <br>
