@@ -3,7 +3,7 @@
 
 ## Potential Structure
 
-<br>
+
 
 #### ABSTRACT
 
@@ -66,10 +66,10 @@ A reflection.
 
 <br>
 <br>
+<br>
 
 ## Notes
 
-<br>
 
 ### Acronyms
 
