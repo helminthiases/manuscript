@@ -23,3 +23,18 @@ terms %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "p{0.18\\\\linewidth}l") %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l")
 ```
+
+
+Notes (Brooker 2006)
+
+Environmental factors and prevalence spatial patterns
+* temperature
+* rainfall
+* altitude
+* soil moisture
+* relative atmospheric humidity
+* vegetation index
+
+Under certain conditions eggs my not embryonate
+* low humidity, $< 50%$: Ascaris lumbricoides, Trichuris trichiura
+
