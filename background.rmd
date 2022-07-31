@@ -4,6 +4,15 @@ sys.source(file = 'R/descriptions/STH.R', envir = knitr::knit_global())
 
 # Background
 
+A background reading/research discussion of
+
+* Strategies that have guided STH (soil transmitted helminth) field survey area selection.
+* Methods for predicting STH prevalence.
+* The selection of fields for STH surveys.
+* The biology, ecology, and transmission dynamics of geohelminths.
+
+<br>
+
 Herein, discuss helminthiases, and particularly focus on soil-transmitted helminth infections. School age children are children in the ae range 5 -- 14 years [@Montresor2011]
 
 ```{r}
