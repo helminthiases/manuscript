@@ -11,7 +11,7 @@ A background reading/research discussion of
 * The selection of fields for STH surveys.
 * The biology, ecology, and transmission dynamics of geohelminths.
 
-<br>
+\vspace{25pt}
 
 Herein, discuss helminthiases, and particularly focus on soil-transmitted helminth infections. School age children are children in the ae range 5 -- 14 years [@Montresor2011]
 
@@ -34,16 +34,12 @@ terms %>%
 ```
 
 
-Notes (Brooker 2006)
+\vspace{25pt}
 
-Environmental factors and prevalence spatial patterns
-* temperature
-* rainfall
-* altitude
-* soil moisture
-* relative atmospheric humidity
-* vegetation index
+There have been a variety of studies about the effects, or otherwise, of environmental factors, e.g., temperature,  rainfall, altitude, soil moisture, relative atmospheric humidity, etc., on geohelminths prevalence spatial patterns [Brooker 2006]
 
-Under certain conditions eggs my not embryonate
+\vspace{25pt}
+
+Under certain conditions eggs may not embryonate
 * low humidity, $< 50%$: Ascaris lumbricoides, Trichuris trichiura
 
