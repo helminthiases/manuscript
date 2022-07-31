@@ -1,1 +1,1 @@
-rmd_files: ['index.Rmd', 'abstract.Rmd', 'background.Rmd', 'references.Rmd']
+rmd_files: ['index.Rmd', 'abstract.Rmd', 'introduction.Rmd', 'background.Rmd', 'data.Rmd', 'modelling.Rmd', 'references.Rmd']
