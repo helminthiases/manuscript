@@ -1,0 +1,19 @@
+
+# Introduction
+
+A discussion of
+
+* Motivation/Problem
+* Aim
+* Objectives
+* Manuscript Structure
+
+## Burden
+
+The Lancet's annual survey: [Age Standardised DALY per 100K of a population](https://vizhub.healthdata.org/gbd-compare/)
+
+* All neglected tropical diseases during the years $[2000 2019]$
+* Intestinal Nematode Infections
+
+The latest [Global Burden of Disease](https://www.thelancet.com/journals/lancet/issue/vol396no10258/PIIS0140-6736(20)X0042-0) publication
+The [data](https://ghdx.healthdata.org/gbd-2019); registration fails.
