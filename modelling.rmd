@@ -1,0 +1,15 @@
+
+# Modelling
+
+In each case, the structure is
+
+> {exploratory graphing} $\rightarrow$ {model architecture} $\rightarrow$  {modelling}  $\rightarrow$
+> {model validation}/{model assumptions}
+> {prediction} $\rightarrow$ {evaluation of predictions}
+
+
+## Single Country: Togo
+
+### Exploratory Analysis
+
+The graphs of $\ldots$ illustrate that the distributions of the outcomes are not Gaussian. Additionally, the outcome, prevalence, is a proportion. Hence, the models of interest are Binomial.  The modelling section's focus is Binomial models.
