@@ -8,6 +8,8 @@ Development Notes
 
 ### Bookdown
 
+Document creation is via the command ``bookdown::render_book()``
+
 * [_bookdown.yml configuration](https://bookdown.org/yihui/bookdown/configuration.html)
 * [_output.yml configuration](https://github.com/rstudio/bookdown/blob/main/inst/examples/_output.yml)
 * [Texts](https://bookdown.org/yihui/rmarkdown/books.html)
