@@ -1,1 +1,3 @@
-rmd_files: ['index.Rmd', 'abstract.Rmd', 'introduction.Rmd', 'background.Rmd', 'data.Rmd', 'modelling.Rmd', 'references.Rmd']
+book_filename: 'manuscript.Rmd'
+rmd_files: ['R/index.Rmd', 'R/abstract.Rmd', 'R/introduction.Rmd', 'R/background.Rmd', 'R/data.Rmd', 'R/modelling.Rmd', 'R/references.Rmd']
+output_dir: 'R'
