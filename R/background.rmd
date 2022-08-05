@@ -1,5 +1,5 @@
 ```{r}
-sys.source(file = 'R/descriptions/STH.R', envir = knitr::knit_global())
+sys.source(file = 'descriptions/STH.R', envir = knitr::knit_global())
 ```
 
 # Background
