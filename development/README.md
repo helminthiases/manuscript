@@ -8,8 +8,13 @@ Development Notes
 
 ### Bookdown
 
-Document creation is via the command ``bookdown::render_book()``
+Document creation is via
 
+> * ``bookdown::render_book()`` 
+> 
+> * ``bookdown::render_book(input = 'R', output_file = 'manuscript.pdf', output_dir = '../', output_yaml = 'R/_output.yml')``
+
+References:
 * [_bookdown.yml configuration](https://bookdown.org/yihui/bookdown/configuration.html)
 * [_output.yml configuration](https://github.com/rstudio/bookdown/blob/main/inst/examples/_output.yml)
 * [Texts](https://bookdown.org/yihui/rmarkdown/books.html)
