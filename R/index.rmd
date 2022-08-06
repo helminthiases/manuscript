@@ -18,6 +18,9 @@ geometry:
   - twoside
   - hmargin = 0.85in
   - vmargin = 1.0in
+output:
+  bookdown::pdf_document2:
+    keep_tex: FALSE
 extra_dependencies:
   - booktabs
   - float
