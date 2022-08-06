@@ -1,4 +1,4 @@
-book_filename: _manuscript
-rmd_files: ['R/index.Rmd', 'R/abstract.Rmd', 'R/introduction.Rmd', 'R/background.Rmd', 'R/data.Rmd', 'R/modelling.Rmd', 'R/references.Rmd']
+book_filename: '_manuscript'
+rmd_files: ['index.Rmd', 'abstract.Rmd', 'introduction.Rmd', 'background.Rmd', 'data.Rmd', 'modelling.Rmd', 'references.Rmd']
 output_format: 'bookdown::pdf_document2'
 delete_merged_file: true
