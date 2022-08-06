@@ -1,0 +1,3 @@
+bookdown::pdf_document2:
+  keep_tex: FALSE
+  toc: TRUE
