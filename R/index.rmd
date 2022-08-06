@@ -71,9 +71,9 @@ header-includes:
 
 \fancypagestyle{custompagestyle}{%
 \fancyhf{}% Clear header/footer
-\fancyhead[OC]{\uppercase{River Blindness}} % Title on Odd pages, center.
+\fancyhead[OC]{\uppercase{Helminths}} % Title on Odd pages, center.
 \fancyhead[OR]{\thepage}
-\fancyhead[EC]{\uppercase{River Blindness}} % Title on Even page, center.
+\fancyhead[EC]{\uppercase{Helminths}} % Title on Even page, center.
 \fancyhead[EL]{\thepage}
 \fancyfoot[O]{}
 \fancyfoot[E]{}
