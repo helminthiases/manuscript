@@ -16,26 +16,6 @@ output:
 extra_dependencies:
   - booktabs
   - float
-header-includes:
-  - \usepackage{color}
-  - \usepackage{caption}
-  - \usepackage{bm}
-  - \usepackage{booktabs}
-  - \usepackage{graphicx}
-  - \usepackage{xcolor}
-  - \usepackage{titlesec}
-  - \usepackage{tikz}
-  - \usepackage{amsthm}
-  - \usepackage{hyperref}
-  - \usepackage[nameinlink, capitalize]{cleveref}
-  - \usepackage[utf8]{inputenc}
-  - \usepackage{ragged2e}
-  - \usepackage{units}
-  - \usepackage{fancyhdr}
-  - \usepackage{appendix}
-  - \usepackage{mathpazo}
-  - \usepackage{fpl}
-  - \usepackage{palatino}
 ---
 
 
