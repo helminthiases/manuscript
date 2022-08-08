@@ -1,3 +1,6 @@
 bookdown::pdf_document2:
+  includes:
+    in_header: latex/preamble.tex
+    before_body: latex/titlepage.tex
   keep_tex: FALSE
   toc: TRUE
