@@ -1,4 +1,4 @@
+delete_merged_file: true
 book_filename: '_manuscript'
 rmd_files: ['index.Rmd', '01-abstract.Rmd', '02-introduction.Rmd', '03-background.Rmd', '04-data.Rmd', '05-modelling.Rmd', 'references.Rmd']
-output_format: 'bookdown::pdf_document2'
-delete_merged_file: true
+output_format: 'bookdown::tufte_book2'
