@@ -1,21 +1,20 @@
 ---
+date: "`r Sys.Date()`"
+output:
+  bookdown::tufte_book2
+documentclass: book
 bibliography: bibliography/bibliography.bib
-biblio-style: siam
+csl: bibliography/cambridge-university-press-numeric.csl
 link-citations: yes
 urlcolor: olive
 linkcolor: brown
 citecolor: orange
 fontsize: 10pt
-documentclass:
-  - book
 classoption:
   - fleqn
-output:
-  bookdown::tufte_book2:
-    keep_tex: FALSE
 extra_dependencies:
-  - booktabs
   - float
+site: bookdown::bookdown_site
 ---
 
 
