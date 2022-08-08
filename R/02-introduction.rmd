@@ -1,7 +1,9 @@
 
 # Introduction
 
-Soil transmitted helminths (STH) are parasitic intestinal worms that cause intestinal nematode infections such as ascariasis, trichuriasis, and hookworm disease.  According to the Lancet's latest global burden of disease study [@Lancet2020, @IHME2020] , soil transmitted helminths infections are ^[It might be possible to [register for data access](https://ghdx.healthdata.org/gbd-2019); unsuccessful thus far]
+Soil transmitted helminths (STH) are parasitic intestinal worms that cause intestinal nematode infections such as ascariasis, trichuriasis, and hookworm disease.  According to the Lancet's latest global burden of disease study [@Lancet2020, @IHME2020] , soil transmitted helminths infections are \vspace{-7\baselineskip}\footnotetext{It might be possible to \href{https://ghdx.healthdata.org/gbd-2019}{register for data access}; unsuccessful thus far}\vspace{7\baselineskip}
+
+
 
 * Amongst the most burdensome neglected tropical diseases
   * graph: [data](https://vizhub.healthdata.org/gbd-compare/)
