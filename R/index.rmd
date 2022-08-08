@@ -1,0 +1,56 @@
+---
+date: "`r Sys.Date()`"
+output:
+  bookdown::tufte_book2
+documentclass: book
+bibliography: bibliography/bibliography.bib
+csl: bibliography/cambridge-university-press-numeric.csl
+link-citations: yes
+urlcolor: olive
+linkcolor: brown
+citecolor: orange
+fontsize: 10pt
+classoption:
+  - fleqn
+extra_dependencies:
+  - float
+site: bookdown::bookdown_site
+---
+
+
+<!--- Global Settings --->
+```{r include = FALSE}
+
+# Settings
+knitr::opts_chunk$set(echo = FALSE)
+options(knitr.table.format = 'latex')
+options(knitr.kable.NA = '')
+
+# Invalidate cache when the tufte version changes
+library(tufte)
+knitr::opts_chunk$set(cache.extra = packageVersion(pkg = 'tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+
+```{r include = FALSE}
+library(xtable)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(stringr)
+
+library(magrittr)
+library(latex2exp)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+
+```
+
+
+
+
+
+
+

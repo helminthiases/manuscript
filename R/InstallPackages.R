@@ -7,7 +7,7 @@
 #' Official packages
 InstallPackagesOfficial <- function (){
 
-  packages <- c('tidyverse', 'moments', 'rmarkdown', 'latex2exp', 'mapview',
+  packages <- c('tidyverse', 'moments', 'rmarkdown', 'latex2exp', 'mapview', 'tufte',
                 'roxygen2', 'kableExtra', 'bookdown', 'sf', 'raster', 'tmap', 'terra',
                 'spData', 'tidygeocoder', 'rnaturalearth', 'geodata', 'leaflet',
                 'splancs', 'paletteer', 'ggthemes', 'ggcorrplot')

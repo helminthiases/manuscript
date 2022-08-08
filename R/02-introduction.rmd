@@ -1,0 +1,33 @@
+
+# Introduction
+
+Soil transmitted helminths (STH) are parasitic intestinal worms that cause intestinal nematode infections such as ascariasis, trichuriasis, and hookworm disease.  According to the Lancet's latest global burden of disease study [@Lancet2020, @IHME2020] , soil transmitted helminths infections are
+
+* Amongst the most burdensome neglected tropical diseases.  [Upcoming: graph/[data](https://vizhub.healthdata.org/gbd-compare/)]
+* The most prevalent neglected tropical diseases.  [Upcoming: graph, [data](https://vizhub.healthdata.org/gbd-compare/)]
+
+<br>
+
+Therefore, STH infections are a focus of the World Health Organization.  Soil transmitted helminths prevention, control, and elimination activities depend on knowledge of prevalence [@Montresor2011].  Prevalence metrics depend on field surveys, which are rather expensive to conduct.  They are especially expensive when there are no measures to systematically/strategically direct field scientists to survey areas.  In the absence of systematic/strategic direction, the field scientists have to survey as wide an area as possible, albeit subject to financial, accessibility, etc., constraints.
+
+<br>
+
+Hence, this project's focus is STH prevalence prediction.  A key STH prevalence hypothesis, of domain experts, is that WASH (water, sanitation, and hygiene) variables might be critical prognostic factors.  Therefore, the project will focus on understanding the association between STH prevalence and WASH variables, and investigate whether they improve STH prevalence prediction.
+
+
+## Aim
+
+Understanding the association between STH (Soil Transmitted Helminth) prevalence and WASH (water, sanitation, and hygiene) variables, and their effect, or otherwise, on STH prevalence prediction.
+
+## Objectives
+
+Hence, the project's objectives are to
+
+* Understand the association between STH (Soil Transmitted Helminth) prevalence and WASH (water, sanitation, and hygiene) variables.
+* Determine the extent to which WASH variables aid STH prevalence prediction via geo-statistical models.
+
+
+## Manuscript Structure
+
+The manuscript's parts are ...
+
