@@ -26,7 +26,7 @@ terms %>%
     escape = FALSE,
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('species', 'name')),
-    caption = 'The soil-transmitted helminth\\\\species in focus') %>%
+    caption = 'The soil-transmitted helminth species in focus') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_footnote(label = '', notation = 'none')  %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "p{0.18\\\\linewidth}l") %>%
@@ -36,7 +36,7 @@ terms %>%
 
 \vspace{25pt}
 
-There have been a variety of studies about the effects, or otherwise, of environmental factors, e.g., temperature,  rainfall, altitude, soil moisture, relative atmospheric humidity, etc., on geohelminths prevalence spatial patterns [Brooker 2006]
+There have been a variety of studies about the effects, or otherwise, of environmental factors, e.g., temperature,  rainfall, altitude, soil moisture, relative atmospheric humidity, etc., on geohelminths prevalence spatial patterns [@Brooker2006]
 
 \vspace{25pt}
 
