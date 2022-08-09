@@ -2,7 +2,7 @@
 sys.source(file = 'descriptions/STH.R', envir = knitr::knit_global())
 ```
 
-# Background
+# *BACKGROUND*
 
 A background reading/research discussion of
 
