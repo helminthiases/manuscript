@@ -2,12 +2,12 @@
 # *DATA*
 
 
-## ESPEN
+## *ESPEN*
 
 * Soil Transmitted Helminths Infections Data: Including a section discussing missing data.
 
 
-## Extraneous
+## *Extraneous*
 
 * WASH (water, sanitation, and hygiene) Data
 * Population Density
