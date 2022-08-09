@@ -8,8 +8,8 @@ In each case, the structure is
 > {prediction} $\rightarrow$ {evaluation of predictions}
 
 
-## Single Country: Togo
+## *Single Country: Togo*
 
-### Exploratory Analysis
+### *Exploratory Analysis*
 
 The graphs of $\ldots$ illustrate that the distributions of the outcomes are not Gaussian. Additionally, the outcome, prevalence, is a proportion. Hence, the models of interest are Binomial.  The modelling section's focus is Binomial models.
