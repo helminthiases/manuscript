@@ -14,11 +14,11 @@ Therefore, STH infections are a focus of the World Health Organization.  Soil tr
 Hence, this project's focus is STH prevalence prediction.  A key STH prevalence hypothesis, of domain experts, is that WASH (water, sanitation, and hygiene) variables might be critical prognostic factors.  Therefore, the project will focus on understanding the association between STH prevalence and WASH variables, and investigate whether they improve STH prevalence prediction.
 
 
-## Aim
+## *Aim*
 
 Understanding the association between STH (Soil Transmitted Helminth) prevalence and WASH (water, sanitation, and hygiene) variables, and their effect, or otherwise, on STH prevalence prediction.
 
-## Objectives
+## *Objectives*
 
 Hence, the project's objectives are to
 
@@ -26,7 +26,7 @@ Hence, the project's objectives are to
 * Determine the extent to which WASH variables aid STH prevalence prediction via geo-statistical models.
 
 
-## Manuscript Structure
+## *Manuscript Structure*
 
 The manuscript's parts are ...
 
