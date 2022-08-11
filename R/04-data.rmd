@@ -1,13 +1,78 @@
 
+```{r}
+sys.source(file = 'descriptions/DescriptionESPEN.R', envir = knitr::knit_global())
+sys.source(file = 'descriptions/DescriptionExtraneous.R', envir = knitr::knit_global())
+```
+
 # *DATA*
 
 
 ## *ESPEN*
 
-* Soil Transmitted Helminths Infections Data: Including a section discussing missing data.
+The raw geohelminths infections data is courtesy of the **E**xpanded **S**pecial **P**roject for **E**limination of **N**eglected Tropical Diseases ([ESPEN](https://espen.afro.who.int)).  The project focuses on a set of African countries only.  \cref{tab:T0002} outlines a set of core variables present in each country's geohelminths infections examinations data set.
+
+```{r T0002}
+
+terms <- DescriptionESPEN()
+
+terms %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('variable', 'description')),
+    caption = 'The core ESPEN variables') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_footnote(label = c('hk: Hookworm disease', 'asc: Ascariasis', 'tt: Trichuriasis'), notation = 'number')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, width = '0.5cm', latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "m{0.465\\\\linewidth}l", latex_valign = 'm')
+
+```
 
 
-## *Extraneous*
+## *The Extraneous Variables*
 
-* WASH (water, sanitation, and hygiene) Data
-* Population Density
+\cref{tab:T0003} outlines the extraneous variables in focus.  The WaSH (water, sanitation, and hygiene) variables values are extracts from access percentage, i.e., fraction, maps.  The maps are courtesy of the Institute for Health Metrics and Evaluation (IHME), and are due to a Lancet Local Burden of Disease WaSH Collaborators study [@Deshpande2020].  There are $18$ maps per WaSH variable, one for each year spanning $[2000 \; 2017]$.  An ESPEN data set observation will have WaSH variable values if, and only if,
+
+a. The observation has valid geographic co&ouml;rdinates, and
+b. The WaSH variable map covers the area in question.
+
+The elevation data is courtesy of [WorldClim](https://worldclim.org/data/worldclim21.html) elevation maps [@Fick2017], which are derivations of the [Shuttle Radar Topography Mission's](https://lpdaac.usgs.gov/products/srtmgl1v003/) elevation maps.  The elevation value of each examination location, that has valid geographic co&ouml;rdinate values, is an extract of the [$30$ seconds elevation map](https://biogeo.ucdavis.edu/data/worldclim/v2.1/base/wc2.1_30s_elev.zip).
+
+
+Finally, the population density values are $\ldots$
+
+
+```{r T0003}
+
+terms <- DescriptionExtraneous()
+
+terms %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('variable', 'description')),
+    caption = 'The WaSH, elevation, and population density data variables.') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_footnote(label = '', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "m{0.465\\\\linewidth}l", latex_valign = 'm')
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
