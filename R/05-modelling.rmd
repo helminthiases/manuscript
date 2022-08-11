@@ -1,15 +1,49 @@
 
 # *MODELLING*
 
-In each case, the structure is
-
-> {exploratory graphing} $\rightarrow$ {model architecture} $\rightarrow$  {modelling}  $\rightarrow$
-> {model validation}/{model assumptions}
-> {prediction} $\rightarrow$ {evaluation of predictions}
+The predominant focus of this chapter is **explanatory modelling**, for determining whether a set of WASH (water, sanitation, and hygiene) variables, and population density have a significant impact on the prevalence of \textcolor{darkgrey}{Hookworm disease}.  An explanatory model determines which variables have a statistically significant impact on \textcolor{darkgrey}{Hookworm disease} prevalence, and their degree of impact.  Whether this project's set of statistically significant variables is sufficient for predictive modelling is a brief focus.
 
 
-## *Single Country: Togo*
 
-### *Exploratory Analysis*
+## Preliminary Investigation
+
+Foremost, an investigation of the possible existence of unknown explanatory variables via the empirical variogram.  The empirical variogram function determines the degree of spatial correlation in a stochastic process or random field [@Cressie1993, @Matheron1963].    Herein, we apply empirical variogram function to the residuals of a **preliminary model**.  The implicit assumption being $\rightarrow$ \textcolor{darkgrey}{evidence of the existence of unknown explanatory variables resides in the residuals}.  Subsequently, if the residuals do exhibit spatial correlation, and there are no other explanatory variables to consider, the unknown explanatory variables can be modelled as a stochastic process.
+
+The **preliminary model** is a **generalised linear mixed model** (GLMM):
+\begin{align}
+Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0001) \\
+\eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
+& = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + b_{i} + c_{i} \nonumber
+\end{align}
+wherein
+\begin{align}
+\mathbf{b} & \sim \mathcal{N}(0, \tau^{2}_{b}\mathbf{I}_{b}) (\#eq:0002) \\
+\mathbf{c} \sim \mathcal{N}(0, \tau^{2}_{c}\mathbf{I}_{c}) \nonumber
+\end{align}
+
+The focus is Binomial GLMM because the outcome values, prevalence, are proportions.  \cref{tab:T0002} defines the terms of each equation.  Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``location`` & ``year``, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
+
+\vspace{10pt}
+
+* Mutually independent, and identically distributed.
+
+* Normally distributed.
+
+\vspace{10pt}
+
+The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of distinct locations, whilst the diagonal length of $\mathbf{I}_{c}$ is the number of distinct years.
+
+The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on the independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients (\cref{tab:T0001}).  $\mathbf{\delta}(x_{i})$ is a function of zero or more independent variables.  In this investigation, the variables are the aforementioned WASH variables, population density, and elevation (\cref{tab:T0001}).
+
+The best GLMM model, according to deviance/AIC (Akaike Information Criterion) analysis, is
+\begin{align}
+\eta_{i} & = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + \mathbf{B}_{i} \nonumber \\
+& = \beta_{0} + \beta_{1}ln(AnnualPrecip(x_{i})) + \beta_{2} elevation.km(x_{i}) + \beta_{3} elevation.km(x_{i})^{2} + \mathbf{B}_{i} (\#eq:0004)
+\end{align}
+
+\cref{fig:F0004} is the empirical variogram of the  residuals due to \cref{eq:0004}.  There is strong evidence of residual spatial correlation.  Hence, a model that addresses the spatial correlation, and missing knowledge, is required.
+
+
+## Geographic
 
 The graphs of $\ldots$ illustrate that the distributions of the outcomes are not Gaussian. Additionally, the outcome, prevalence, is a proportion. Hence, the models of interest are Binomial.  The modelling section's focus is Binomial models.
