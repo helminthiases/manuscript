@@ -1,9 +1,9 @@
-# Title     : STH.R
-# Objective : TODO
+# Title     : DescriptionSpecies.R
+# Objective : The description of the species.
 # Created by: greyhypotheses
 # Created on: 07/06/2022
 
-STH <- function() {
+DescriptionSpecies <- function() {
 
   species <- c(
     'Ascaris lumbricoides', 'Ancylostoma duodenale, Necator americanus', 'Trichuris trichiura')
