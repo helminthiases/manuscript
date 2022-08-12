@@ -74,7 +74,7 @@ Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0006) \\
 \end{align}
 wherein
 \begin{equation}
-\mathbf{b} & \sim \mathcal{N}(0, \tau^{2}_{b}\mathbf{I}_{b}) (\#eq:0007)
+\mathbf{b} \sim \mathcal{N}(0, \tau^{2}_{b}\mathbf{I}_{b}) (\#eq:0007)
 \end{equation}
 models the data of a single year.
 
