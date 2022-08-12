@@ -42,7 +42,7 @@ Foremost, an investigation of the possible existence of unknown explanatory vari
 <br>
 <br>
 
-The **preliminary model** algorithm in focus is the **generalised linear mixed model** (GLMM) of the form:
+The **preliminary model** algorithm in focus is the **generalised linear mixed model** (GLMM) of structure
 \begin{align}
 Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0001) \\
 \eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
@@ -54,7 +54,9 @@ wherein
 \mathbf{c} & \sim \mathcal{N}(0, \tau^{2}_{c}\mathbf{I}_{c}) \nonumber
 \end{align}
 
-It is a Binomial GLMM because the outcome values, prevalence, are proportions.  \cref{tab:T0004} defines the terms of each equation.  Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``identifier`` & ``year``, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
+It is a Binomial GLMM because the outcome values, prevalence, are proportions.  \cref{tab:T0004} defines the terms of each equation.  The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients (\cref{tab:T0001}).  In this investigation, the independent variables are the aforementioned WaSH variables, population density, and elevation (\cref{tab:T0003}).
+
+Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``identifier`` & ``year``, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
 
 \vspace{10pt}
 
@@ -64,30 +66,50 @@ It is a Binomial GLMM because the outcome values, prevalence, are proportions.  
 
 \vspace{10pt}
 
-The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of distinct locations, whilst the diagonal length of $\mathbf{I}_{c}$ is the number of distinct years.
+The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of distinct locations, whilst the diagonal length of $\mathbf{I}_{c}$ is the number of distinct years.  A second  **generalised linear mixed model** (GLMM) structure
+\begin{align}
+Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0006) \\
+\eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
+& = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + b_{i} \nonumber
+\end{align}
+wherein
+\begin{equation}
+\mathbf{b} & \sim \mathcal{N}(0, \tau^{2}_{b}\mathbf{I}_{b}) (\#eq:0007)
+\end{equation}
+models the data of a single year.
 
-The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients (\cref{tab:T0001}).  In this investigation, the independent variables are the aforementioned WaSH variables, population density, and elevation (\cref{tab:T0003}).
+### Modes of Evaluation
 
 The assessment of each considered GLMM model is via the hypotheses
 
 \vspace{10pt}
 
-> $H_{0}: \beta_{i} = 0$
+> $H_{0}: \beta_{j} = 0$
 >
-> $H_{1}: \beta_{i} \neq 0$
+> $H_{1}: \beta_{j} \neq 0$
 
 \vspace{10pt}
 
-Let $0.05$ be the $p_{value}$ significance level, then there is evidence in favour of the alternative hypothesis, $H_{1}$, if the estimated coefficient's $p_{value} < 0.05$.  The comparison of the models is via deviance/AIC (Akaike Information Criterion).  The models are
+Let $0.05$ be the $p_{value}$ significance level, then there is evidence in favour of the alternative hypothesis, $H_{1}$, if the estimated coefficient's $p_{value} < 0.05$.  The comparison of the models, w.r.t. the same GLMM structure, is via deviance/AIC (Akaike Information Criterion).
 
+### The Best Models
+
+The fixed term vectors of the best models, wherein each $\beta_{j}$ is statistically significant across GLMM structures, are
 \begin{equation}
   \mathbf{\delta}(x_{i}) =
   \begin{cases}
-    [1, piped\underline{\hspace{0.125cm}}sewer, ] \\
-    [1, piped\underline{\hspace{0.125cm}}sewer, ]
+    [1, piped\underline{\hspace{0.125cm}}sewer, piped\underline{\hspace{0.125cm}}sewer^{2}, elevation.km] \\
+    [1, piped\underline{\hspace{0.125cm}}sewer, ln(p_density.k), elevation.km]
   \end{cases} (\#eq:0005)
 \end{equation}
 
+In the case of
+\begin{equation}
+\mathbf{\delta}(x_{i}) = [1, piped\underline{\hspace{0.125cm}}sewer, surface\underline{\hspace{0.125cm}}sewer, elevation.km]
+\end{equation}
+the coefficient of $surface\underline{\hspace{0.125cm}}sewer$ is not significant across GLMM structures.^[And, unsurprisingly, the coefficient is not significant in the geo-statistical models.]
+
+\vspace{25pt}
 
 \textcolor{wine}{In progress ...}
 
