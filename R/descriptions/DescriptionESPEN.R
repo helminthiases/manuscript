@@ -7,9 +7,9 @@
 DescriptionESPEN <- function () {
 
   terms <- c('georeliability', 'longitude, latitude', 'year',
-             'hk\\underline{\\hspace{0.125cm}}examined, hk\\underline{\\hspace{0.125cm}}positive',
-             'asc\\underline{\\hspace{0.125cm}}examined, asc\\underline{\\hspace{0.125cm}}positive',
-             'tt\\underline{\\hspace{0.125cm}}examined, tt\\underline{\\hspace{0.125cm}}positive')
+             '\\makecell[l]{hk\\underline{\\hspace{0.125cm}}examined,\\\\ hk\\underline{\\hspace{0.125cm}}positive}',
+             '\\makecell[l]{asc\\underline{\\hspace{0.125cm}}examined,\\\\ asc\\underline{\\hspace{0.125cm}}positive}',
+             '\\makecell[l]{tt\\underline{\\hspace{0.125cm}}examined,\\\\ tt\\underline{\\hspace{0.125cm}}positive}')
 
   descriptions <- c(
     "The reliability of an observation's geographic variables.",
