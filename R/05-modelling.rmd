@@ -8,7 +8,7 @@ sys.source(file = 'descriptions/DescriptionAlgorithms.R', envir = knitr::knit_gl
 
 The predominant focus of this chapter is **explanatory modelling**, for determining whether a set of WaSH (water, sanitation, and hygiene) variables, and population density, have a significant impact on the prevalence of \textcolor{darkgrey}{Hookworm disease}.  An explanatory model determines which variables have a statistically significant impact on *Hookworm disease* prevalence, and their degree of impact.  Additionally, whether this project's set of statistically significant variables is sufficient for predictive modelling is a brief focus.
 
-... summarises this chapter's common notations
+\cref{tab:T0004} summarises this chapter's common notations.
 
 ```{r T0004}
 
@@ -37,7 +37,7 @@ terms %>%
 
 ## Preliminary Investigation
 
-Foremost, an investigation of the possible existence of unknown explanatory variables via the empirical variogram.  The empirical variogram function determines the degree of spatial correlation in a stochastic process or random field [@Cressie1993, @Matheron1963].    Herein, we apply the empirical variogram function to the residuals of a **preliminary model**.  The implicit assumption being $\mapsto$ *evidence of the existence of unknown explanatory variables resides in the residuals*.  Subsequently, if the residuals do exhibit spatial correlation, and there are no other explanatory variables to consider, the unknown explanatory variables can be modelled as a stochastic process in a geo-statistical model.  To this end, this investigation serves a second purpose, the determination of plausible fixed term effects vectors for geo-statistical modelling.
+Foremost, an investigation of the possible existence of unknown explanatory variables via the empirical variogram.  The empirical variogram function determines the degree of spatial correlation in a stochastic process or random field [@Cressie1993], [@Matheron1963].    Herein, we apply the empirical variogram function to the residuals of a **preliminary model**.  The implicit assumption being $\mapsto$ *evidence of the existence of unknown explanatory variables resides in the residuals*.  Subsequently, if the residuals do exhibit spatial correlation, and there are no other explanatory variables to consider, the unknown explanatory variables can be modelled as a stochastic process in a geo-statistical model.  To this end, this investigation serves a second purpose, the determination of plausible fixed term effects vectors for geo-statistical modelling.
 
 <br>
 <br>
