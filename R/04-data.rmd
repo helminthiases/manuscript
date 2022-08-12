@@ -1,5 +1,5 @@
 
-```{r}
+```{r L0001}
 sys.source(file = 'descriptions/DescriptionESPEN.R', envir = knitr::knit_global())
 sys.source(file = 'descriptions/DescriptionExtraneous.R', envir = knitr::knit_global())
 ```
@@ -31,6 +31,7 @@ terms %>%
 
 ```
 
+The project adds an extra geographic field to each ESPEN data. It is named `identifier`.  Each set of observations that share the same co&ouml;rdinate values have the same `identifier` code; this is akin to a site identification code, it addresses the dearth of ESPEN `site_id` codes.
 
 ## *The Extraneous Variables*
 
