@@ -1,0 +1,6 @@
+# *EXPLORATORY ANALYSIS*
+
+This project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and number of observations.
+
+## The Sites
+
