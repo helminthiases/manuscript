@@ -135,19 +135,15 @@ The data, the exploratory analysis chapter, and the preliminary investigation, o
 
 Hence, a strong rationale for geo-statistical binomial logistics models.  This section explores *geo-statistical binomial logistics models* whereby the parameter estimates are either
 
-* Bayesian estimates, or
-* Monte Carlo Maximum Likelihood estimates
+* Monte Carlo Maximum Likelihood estimates, or
+* Bayesian estimates.
 
 In each case, the linear predictor is
 \begin{equation}
 \eta(x_{i}) = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + S(x_{i}) + U_{i} (\#eq:0018)
 \end{equation}
 
-Again, $\mathbf{\delta}(x_{i})$ is the $i^{th}$ vector of fixed terms - i.e., the $i^{th}$ row vector of the model's design matrix - it depends on zero or more independent variables. Whilst $\mathbf{\beta}$ is the vector of the concurrent fixed effects coefficients.
-
-$U_{i}$ are independent Normally distributed random variables.  $U_{i}$ capture *unstructured variation in $Y_{i}$*, i.e., capture the effects of unknown/unmeasured independent variables.  $U_{i} \sim \mathcal{N}(0, \nu^{2})$.
-
-$S(x_{i})$ is a stochastic process term, it models *unexplained spatial variation* [reference].  Herein, the assumption is that $S(\mathbf{x})$ is
+Again, $\mathbf{\delta}(x_{i})$ is the $i^{th}$ vector of fixed terms - i.e., the $i^{th}$ row vector of the model's design matrix - it depends on zero or more independent variables. Whilst $\mathbf{\beta}$ is the vector of the concurrent fixed effects coefficients.  $S(x_{i})$ is the stochastic process term, it models the *unexplained spatial variation* [@Diggle2019].  Herein, the assumption is that $S(\mathbf{x})$ is
 
 * A zero-mean gaussian process, i.e., the joint probability of ${S(x_{1}), \ldots, S(x_{n})}$ is multi-variate normal.
 * Stationary, i.e., it has a constant variance - denoted $\sigma^{2}$.
@@ -157,9 +153,15 @@ A consequence of these assumptions is that the covariance $\gamma(x_{i}, x_{j})$
 \begin{equation}
 \gamma(x_{i}, x_{j}) = \sigma^{2}\rho(\left\Vert x_{i} - x_{j} \right\Vert) (\#eq:0015)
 \end{equation}
-
 wherein $\rho(u) = \rho(\left\Vert x_{i} - x_{j} \right\Vert)$ is the correlation function; $u = \left\Vert \cdot \right\Vert$ denotes distance.  Throughout this paper correlation function in use is the *exponential correlation function* [@Diggle2019]
 \begin{equation}
 \rho(u; \phi) = e^{-u/\phi}, \qquad u \geq 0 (\#eq:0016)
 \end{equation}
 The term $\phi$ is the scale parameter.
+
+In contrast to $S(x_{i})$, $U_{i}$ are independent Normally distributed random variables that capture the effects of unknown/unmeasured independent variables, i.e., $U_{i}$ represent the *unstructured variation in $Y_{i}$* [@Diggle2019].^[$U_{i} \sim \mathcal{N}(0, \nu^{2})$]   The unknown variables either **(a)** lack a spatial structure, or **(b)** ``... are spatially varying but on a scale smaller than the minimum observed distance.'' [@Diggle2019].
+
+
+
+
+
