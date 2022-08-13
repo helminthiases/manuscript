@@ -121,3 +121,44 @@ The exploratory data analysis illustrates ... Further investigation highlighted 
 ## Geographic
 
 The graphs of $\ldots$ illustrate that the distributions of the outcomes are not Gaussian. Additionally, the outcome, prevalence, is a proportion. Hence, the models of interest are Binomial.  The modelling section's focus is Binomial models.
+
+## Geo-statistical binomial logistic models
+
+The data, the exploratory analysis chapter, and the preliminary investigation, outline a few important
+
+> * The outcomes - prevalence - are proportions, hence the project's focus is binomial models.
+>
+> * The exploratory data analysis illustrates a degree of **spatial** linear and/or non-linear relationship between prevalence levels and the extraneous variables^[Herein, extraneous variables are the variables that are not part of the original ESPEN geohelminths data variables].
+>
+> * The preliminary investigation outlines strong evidence of residual spatial correlation, within the residuals of a generalised linear mixed model (GLMM).
+
+
+Hence, a strong rationale for geo-statistical binomial logistics models.  This section explores *geo-statistical binomial logistics models* whereby the parameter estimates are either
+
+* Bayesian estimates, or
+* Monte Carlo Maximum Likelihood estimates
+
+In each case, the linear predictor is
+\begin{equation}
+\eta(x_{i}) = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + S(x_{i}) + U_{i} (\#eq:0018)
+\end{equation}
+
+Again, $\mathbf{\delta}(x_{i})$ is the $i^{th}$ vector of fixed terms - i.e., the $i^{th}$ row vector of the model's design matrix - it depends on zero or more independent variables.
+Whilst $\mathbf{\beta}$ is the vector of the concurrent fixed effects coefficients.  $U_{i}$ are independent Normally distributed random variables; $Z_{i} \sim \mathcal{N}(0, \tau^{2})$.
+
+$S(x_{i})$ is a stochastic process term, it models *unexplained spatial variation* [reference].  Herein, the assumption is that $S(\mathbf{x})$ is
+
+* A zero-mean gaussian process, i.e., the joint probability of ${S(x_{1}), \ldots, S(x_{n})}$ is multi-variate normal.
+* Stationary, i.e., it has a constant variance - denoted $\sigma^{2}$.
+* Isotropic, i.e., the correlation between $S(x_{i})$ & $S(x_{j})$ depends on the distance between $x_{i}$ & $x_{j}$ only.
+
+A consequence of these assumptions is that the covariance $\gamma(x_{i}, x_{j})$ is defined as
+\begin{equation}
+\gamma(x_{i}, x_{j}) = \sigma^{2}\rho(\left\Vert x_{i} - x_{j} \right\Vert) (\#eq:0015)
+\end{equation}
+
+wherein $\rho(u) = \rho(\left\Vert x_{i} - x_{j} \right\Vert)$ is the correlation function; $u = \left\Vert \cdot \right\Vert$ denotes distance.  Throughout this paper correlation function in use is the *exponential correlation function* [@Diggle2019]
+\begin{equation}
+\rho(u; \phi) = e^{-u/\phi}, \qquad u \geq 0 (\#eq:0016)
+\end{equation}
+The term $\phi$ is the scale parameter.
