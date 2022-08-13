@@ -143,9 +143,9 @@ In each case, the linear predictor is
 \eta(x_{i}) = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + S(x_{i}) + U_{i} (\#eq:0018)
 \end{equation}
 
-Again, $\mathbf{\delta}(x_{i})$ is the $i^{th}$ vector of fixed terms - i.e., the $i^{th}$ row vector of the model's design matrix - it depends on zero or more independent variables. Whilst $\mathbf{\beta}$ is the vector of the concurrent fixed effects coefficients.  $U_{i}$ are independent Normally distributed random variables.  It represents *unstructured variation in $Y_{i}$*, i.e., its purpose is capturing the effects of unknown/unmesured indepedent variables
+Again, $\mathbf{\delta}(x_{i})$ is the $i^{th}$ vector of fixed terms - i.e., the $i^{th}$ row vector of the model's design matrix - it depends on zero or more independent variables. Whilst $\mathbf{\beta}$ is the vector of the concurrent fixed effects coefficients.
 
-; $U_{i} \sim \mathcal{N}(0, \nu^{2})$.
+$U_{i}$ are independent Normally distributed random variables.  $U_{i}$ capture *unstructured variation in $Y_{i}$*, i.e., capture the effects of unknown/unmeasured independent variables.  $U_{i} \sim \mathcal{N}(0, \nu^{2})$.
 
 $S(x_{i})$ is a stochastic process term, it models *unexplained spatial variation* [reference].  Herein, the assumption is that $S(\mathbf{x})$ is
 
