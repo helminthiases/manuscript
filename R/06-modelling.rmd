@@ -92,7 +92,7 @@ The assessment of each considered GLMM model is via the hypotheses
 
 Let $0.05$ be the $p_{value}$ significance level, then there is evidence in favour of the alternative hypothesis, $H_{1}$, if the estimated coefficient's $p_{value} < 0.05$.  The comparison of the models, w.r.t. the same GLMM structure, is via deviance/AIC (Akaike Information Criterion).
 
-### The Best Models
+### The Best GLMM Models<br>The Prospective Fixed Terms
 
 The fixed term vectors of the best models, wherein each $\beta_{j}$ is statistically significant across GLMM structures, are
 \begin{equation}
@@ -102,20 +102,17 @@ The fixed term vectors of the best models, wherein each $\beta_{j}$ is statistic
     [1, piped\underline{\hspace{0.125cm}}sewer, ln(p_density.k), elevation.km]
   \end{cases} (\#eq:0005)
 \end{equation}
-
 In the case of
 \begin{equation}
 \mathbf{\delta}(x_{i}) = [1, piped\underline{\hspace{0.125cm}}sewer, surface\underline{\hspace{0.125cm}}sewer, elevation.km]
 \end{equation}
 the coefficient of $surface\underline{\hspace{0.125cm}}sewer$ is not significant across GLMM structures.^[And, unsurprisingly, the coefficient is not significant in the geo-statistical models.]
 
-\vspace{25pt}
 
-\textcolor{wine}{In progress ...}
+The exploratory data analysis illustrates ... years 2009 & 2015 only have 4 locations/sites in common.  Within the GLMM results table/s, the variance of random effect `year` is not negligible ... similar trend, varying degree?
 
-*Figure ...* is the empirical variogram of the residuals due to *Expression ...*.  There is strong evidence of residual spatial correlation.  Hence, a model that addresses the spatial correlation, and missing knowledge, is required.
 
-The exploratory data analysis illustrates ... Further investigation highlighted the important fact that the years 2009 & 2015 only have 4locations/sites in common.  Within the GLMM results table/s, the variance of the `year` suggests ...
+**Hence**, focusing on single year data, *Figure ...* is the empirical variogram of the residuals due to *Expression ...*.  There is strong evidence of residual spatial correlation.  Hence, a model that addresses the spatial correlation, and missing knowledge, is required.
 
 
 
@@ -159,6 +156,11 @@ The term $\phi$ is the scale parameter.
 In contrast to $S(x_{i})$, $U_{i}$ are independent Normally distributed random variables that capture the effects of unknown/unmeasured independent variables, i.e., $U_{i}$ represent the *unstructured variation in $Y_{i}$* [@Diggle2019].^[$U_{i} \sim \mathcal{N}(0, \nu^{2})$]   The unknown variables either **(a)** lack a spatial structure, or **(b)** ``... are spatially varying but on a scale smaller than the minimum observed distance.'' [@Diggle2019].
 
 
+### Evaluation
 
+We would like the developed models to
+
+* Have residuals that are free of spatial correlation: Determined via empirical variogram evaluation of standardised residuals
+* Be reliable explanatory variables of prevalence: [Bootstrap: Bias, root-mean-square analysis, coefficients].
 
 
