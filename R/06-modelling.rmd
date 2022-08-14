@@ -118,9 +118,6 @@ the coefficient of $surface\underline{\hspace{0.125cm}}sewer$ is not significant
 The exploratory data analysis illustrates ... Further investigation highlighted the important fact that the years 2009 & 2015 only have 4locations/sites in common.  Within the GLMM results table/s, the variance of the `year` suggests ...
 
 
-## Geographic
-
-The graphs of $\ldots$ illustrate that the distributions of the outcomes are not Gaussian. Additionally, the outcome, prevalence, is a proportion. Hence, the models of interest are Binomial.  The modelling section's focus is Binomial models.
 
 ## Geo-statistical binomial logistic models
 
