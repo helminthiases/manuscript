@@ -5,7 +5,7 @@ sys.source(file = 'descriptions/DescriptionAlgorithms.R', envir = knitr::knit_gl
 ```
 
 
-# Preliminary Investigation
+# *PRELIMINARY INVESTIGATION* \label{chapter:preliminary}
 
 The previous *Chapter* graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This *Chapter*, and the next one \autoref{chapter:geo}, focuses on plausible empirical relationships models.
 
