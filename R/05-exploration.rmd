@@ -1,6 +1,17 @@
-# *EXPLORATORY ANALYSIS*
 
-This project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and number of observations.
+# *EXPLORATORY ANALYSIS* \label{chapter:exploration}
 
-## The Sites
+This project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and the number of observations.
+
+## The Distribution of Examinations Points
+
+
+```{r mapDistributions, out.extra = 'trim=5 135 15 135,clip', out.height = '50%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections examinatios sites in Togo'}
+include_graphics(
+  path = file.path('..', 'warehouse', 'reference', 'distributions', 'mapDistributions.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
 
