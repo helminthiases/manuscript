@@ -3,10 +3,30 @@
 
 This project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and the number of observations.
 
+```{r T0007}
+T <- read.csv(file = file.path(dirname(getwd()), 'warehouse', 'reference', 'frequencies', 'timeFrequencies.csv'))
+
+T %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('year', 'N')),
+    caption = 'The number of records per geohelminths infections examinations year.') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_footnote(label = 'N: Number of records.', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "m{0.465\\\\linewidth}l", latex_valign = 'm')
+
+```
+
 ## The Distribution of Examinations Points
 
+\cref{fig:F0001} illustrates the distribution of examination sites across Togo.  The years $2009$ & $2015$ only have $4$ examination sites in common.  \textcolor{wine}{This observation has a bearing on the \autoref{chapter:preliminary}, which informs geostatistical modelling.}
 
-```{r mapDistributions, out.extra = 'trim=5 135 15 135,clip', out.height = '50%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections examinatios sites in Togo'}
+```{r F0001, out.extra = 'trim=5 135 15 135,clip', out.height = '50%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections examinatios sites in Togo; only 4 sites were examinations sites during both years.'}
 include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'distributions', 'mapDistributions.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
