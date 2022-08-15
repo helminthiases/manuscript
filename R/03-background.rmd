@@ -2,7 +2,7 @@
 sys.source(file = 'descriptions/DescriptionSpecies.R', envir = knitr::knit_global())
 ```
 
-# *BACKGROUND*
+# *BACKGROUND* \label{chapter:background}
 
 A background reading/research discussion of
 
