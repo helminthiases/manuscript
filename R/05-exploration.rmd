@@ -21,10 +21,10 @@ T %>%
 
 ```
 
-## The Distribution of Examinations Points
+## The Distribution of Examinations Sites
 
 ```{r F0001, fig.pos = 'h!', out.extra = 'trim=5 135 15 135,clip', out.height = '42.5%', dpi = 175, fig.align = 'center', fig.cap = 'The distribution of geohelminths infections examinations sites in Togo; only 4 sites were examinations sites during both years.'}
-include_graphics(
+knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'distributions', 'mapDistributions.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
   dpi = NULL,
@@ -32,16 +32,40 @@ include_graphics(
 )
 ```
 
-\cref{fig:F0001} illustrates the distribution of examination sites across Togo.  The years $2009$ & $2015$ only have $4$ examination sites in common.  This observation has a bearing on the Preliminary Investigation chapter (\Cref{chapter:preliminary}), which informs geostatistical modelling.
+\cref{fig:F0001} illustrates the distribution of examination sites across Togo.  The years $2009$ & $2015$ only have $4$ examination sites in common.  This observation has a bearing on the Preliminary Investigation chapter (\Cref{chapter:preliminary}), which informs geostatistical modelling. \textcolor{duskyblue}{[Discuss the rationale for using the data of the year 2015.]}
 
 
 ## Prevalence Distributions
 
 ```{r F0002, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections prevalence during the years 2009 and 2015'}
-include_graphics(
+knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'distributions', 'densityDistributions.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
   dpi = NULL,
   error = getOption(x = "knitr.graphics.error", default = TRUE)
 )
 ```
+
+
+## WaSH
+
+```{r F0003, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and sewage facilities access.  An access fraction of 1 means $100\\%$ of the population has access.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'reference', 'sewer', 'disaggregateSewerReal.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
