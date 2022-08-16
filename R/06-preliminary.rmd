@@ -128,18 +128,6 @@ were the viable models for geo-statistical extensions.
 
 ### Case A
 
-The vector of fixed terms
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
-\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] (\#eq:0009)
-\end{equation}
-\normalsize
-
-\vspace{10pt}
-
-The GLMM estimates ...
-
 ```{r T0008}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
 
@@ -162,10 +150,14 @@ estimations$fixed %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
-
-\vspace{10pt}
-
-The empirical variogram of the residuals ...
+\cref{tab:T0008} outlines the estimates of the coefficients of the generalised linear mixed model (\cref{eq:0006}) with fixed terms
+\small
+\begin{equation}
+\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
+\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] (\#eq:0009)
+\end{equation}
+\normalsize
+The empirical variogram of its residuals (\cref{fig:F0005}) illustrates evidence of residual spatial correlation.
 
 ```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The variogram w.r.t. \\textit{Case A}'}
 knitr::include_graphics(
@@ -179,20 +171,7 @@ knitr::include_graphics(
 
 \vspace{20pt}
 
-
 ### Case B
-
-The vector of fixed terms
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
-ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})] (\#eq:0011)
-\end{equation}
-\normalsize
-
-\vspace{10pt}
-
-The GLMM estimates ...
 
 ```{r T0009}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
@@ -216,8 +195,14 @@ estimations$fixed %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
-
-The empirical variogram of the residuals ...
+\cref{tab:T0009} outlines the estimates of the coefficients of the generalised linear mixed model (\cref{eq:0006}) with fixed terms
+\small
+\begin{equation}
+\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
+ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})] (\#eq:0011)
+\end{equation}
+\normalsize
+The empirical variogram of its residuals (\cref{fig:F0006}) also illustrates evidence of residual spatial correlation.
 
 ```{r F0006, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The variogram w.r.t. \\textit{Case B}'}
 knitr::include_graphics(
