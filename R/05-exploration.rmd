@@ -35,6 +35,8 @@ knitr::include_graphics(
 \cref{fig:F0001} illustrates the distribution of examination sites across Togo.  The years $2009$ & $2015$ only have $4$ examination sites in common.  This observation has a bearing on the Preliminary Investigation chapter (\Cref{chapter:preliminary}), which informs geostatistical modelling. \textcolor{duskyblue}{[Discuss the rationale for using the data of the year 2015.]}
 
 
+\vspace{25pt}
+
 ## Prevalence Distributions
 
 ```{r F0002, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections prevalence during the years 2009 and 2015'}
@@ -46,10 +48,11 @@ knitr::include_graphics(
 )
 ```
 
+\vspace{25pt}
 
 ## WaSH
 
-```{r F0003, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and sewage facilities access.  An access fraction of 1 means $100\\%$ of the population has access.'}
+```{r F0003, fig.pos = 'h!', out.width = '65%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and sewage facilities access.  An access fraction of 1 means $100\\%$ of the population has access.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'sewer', 'disaggregateSewerReal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
