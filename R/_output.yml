@@ -5,3 +5,4 @@ bookdown::tufte_book2:
   latex_engine: xelatex
   keep_tex: FALSE
   toc: TRUE
+

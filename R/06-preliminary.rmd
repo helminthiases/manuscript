@@ -1,0 +1,215 @@
+
+
+```{r L0002}
+sys.source(file = 'descriptions/DescriptionAlgorithms.R', envir = knitr::knit_global())
+```
+
+
+# *PRELIMINARY INVESTIGATION* \label{chapter:preliminary}
+
+The previous chapter graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This chapter explores plausible empirical relationships models.
+
+As noted before, this project's outcome of interest is *prevalence*, i.e., *Hookworm disease* prevalence.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.  In preparation for Binomial geostatistical modelling, the objective of this chapter is to
+
+> *investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between ``prevalence`` and ``zero or more extraneous independent variables``.*
+
+Each **preliminary model** is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field [@Cressie1993], [@Matheron1963].
+
+The models of the next chapter are derivations of the preliminary models that exhibit residual spatial correlation, i.e., an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
+
+
+\cref{tab:T0004} summarises this chapter's common notations.
+
+```{r T0004}
+
+terms <- DescriptionAlgorithms()
+
+terms %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('notation', 'description')),
+    caption = 'The notations used at various points of this chapter.') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_footnote(label = '', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "m{0.465\\\\linewidth}l", latex_valign = 'm')
+
+```
+
+\vspace{25pt}
+
+## The Generalised Linear Mixed Models
+
+The key assumptions of these models are
+
+> * The observations are independent.
+>
+> * The values of each independent variable are error free.
+
+\vspace{10pt}
+
+The **preliminary model** structure of interest is the **generalised linear mixed model** (GLMM) of structure
+\begin{align}
+Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0001) \\
+\eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
+& = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + b_{i} + c_{i} \nonumber
+\end{align}
+wherein
+\begin{align}
+\mathbf{b} & \sim \mathcal{N}(0, \tau^{2}_{b}\mathbf{I}_{b}) (\#eq:0002) \\
+\mathbf{c} & \sim \mathcal{N}(0, \tau^{2}_{c}\mathbf{I}_{c}) \nonumber
+\end{align}
+
+It is a Binomial GLMM because the outcome values, prevalence, are proportions.  \cref{tab:T0004} defines the terms of each equation.  The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients (\cref{tab:T0001}).  In this investigation, the independent variables are the aforementioned WaSH variables, population density, and elevation (\cref{tab:T0003}), i.e., the extraneous variables.
+
+Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``identifier`` & ``year``, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
+
+> * Mutually independent, and identically distributed.
+>
+> * Normally distributed.
+
+The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of distinct locations, whilst the diagonal length of $\mathbf{I}_{c}$ is the number of distinct years.
+
+\vspace{10pt}
+
+A second  **generalised linear mixed model** (GLMM) structure
+\begin{align}
+Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0006) \\
+\eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
+& = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + b_{i} \nonumber
+\end{align}
+wherein
+\begin{equation}
+\mathbf{b} \sim \mathcal{N}(0, \tau^{2}_{b}\mathbf{I}_{b}) (\#eq:0007)
+\end{equation}
+models the data of a single year.
+
+\vspace{25pt}
+
+## Modes of Evaluation
+
+The assessment of each considered GLMM model is via the hypotheses
+
+> $H_{0}: \beta_{j} = 0$
+>
+> $H_{1}: \beta_{j} \neq 0$
+
+Let $0.05$ be the $p_{value}$ significance level, then there is evidence in favour of the alternative hypothesis, $H_{1}$, if the estimated coefficient's $p_{value} < 0.05$.  The comparison of the models, w.r.t. the same GLMM structure, is via deviance/AIC (Akaike Information Criterion).
+
+
+\vspace{25pt}
+
+
+## The Viable Preliminary Models
+
+Togo's data set is a data set of two years: $2009$, $2015$.  Due to rank deficiency, insufficient data, in relation to \cref{eq:0001}, it is not possible to model the data of both years together.  Hence, the focus is a single year's data - $2015$; for modelling purposes, the $2009$ data set is rather small, relative to its spatial spread (\cref{fig:F0001}).
+
+\vspace{10pt}
+
+... the models with fixed term vectors
+\small
+\begin{equation}
+\mathbf{\delta}(x_{i}) =
+\begin{cases}
+[1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}), \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] \\
+[1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}), ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})]
+\end{cases} (\#eq:0005)
+\end{equation}
+\normalsize
+were the viable models for geo-statistical extensions.
+
+\clearpage
+
+### Case A
+
+\cref{tab:T0008} outlines the estimates of the coefficients of the generalised linear mixed model (\cref{eq:0006}) with fixed terms
+\small
+\begin{equation}
+\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
+\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] (\#eq:0009)
+\end{equation}
+\normalsize
+The empirical variogram of its residuals (\cref{fig:F0005}) illustrates evidence of residual spatial correlation.
+
+```{r T0008, fig.pos = 'h!'}
+estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
+
+estimations$fixed %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
+                                        'lower', 'upper', 's.e.', '$p_{value}$')),
+    caption = 'The estimated coefficients of the \\textit{Case A} GLMM Model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+\vspace{10pt}
+
+```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The \\textit{Case A} variogram'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'effects', 'architectures', 'A', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+\clearpage
+
+### Case B
+
+\cref{tab:T0009} outlines the estimates of the coefficients of the generalised linear mixed model (\cref{eq:0006}) with fixed terms
+\small
+\begin{equation}
+\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
+ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})] (\#eq:0011)
+\end{equation}
+\normalsize
+The empirical variogram of its residuals (\cref{fig:F0006}) also illustrates evidence of residual spatial correlation.
+
+```{r T0009}
+estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
+
+estimations$fixed %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
+                                        'lower', 'upper', 's.e.', '$p_{value}$')),
+    caption = 'The estimated coefficients of the \\textit{Case B} GLMM Model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+\vspace{10pt}
+
+```{r F0006, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The \\textit{Case B} variogram'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'effects', 'architectures', 'B', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```

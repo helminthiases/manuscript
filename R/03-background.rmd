@@ -1,22 +1,16 @@
-```{r}
-sys.source(file = 'descriptions/STH.R', envir = knitr::knit_global())
+```{r L0003}
+sys.source(file = 'descriptions/DescriptionSpecies.R', envir = knitr::knit_global())
 ```
 
-# Background
+# *BACKGROUND* \label{chapter:background}
 
-A background reading/research discussion of
+\textcolor{duskyblue}{The background reading/research notes about}
 
 * Strategies that have guided STH (soil transmitted helminth) field survey area selection.
-* Methods for predicting STH prevalence.
-* The selection of fields for STH surveys.
 * The biology, ecology, and transmission dynamics of geohelminths.
 
-\vspace{25pt}
-
-Herein, discuss helminthiases, and particularly focus on soil-transmitted helminth infections. School age children are children in the ae range 5 -- 14 years [@Montresor2011]
-
-```{r}
-terms <- STH()
+```{r T0001}
+terms <- DescriptionSpecies()
 
 terms %>%
   dplyr::mutate_all(linebreak) %>%
@@ -26,7 +20,7 @@ terms %>%
     escape = FALSE,
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('species', 'name')),
-    caption = 'The soil-transmitted helminth species in focus') %>%
+    caption = 'The core geohelminths species that the World Health Organization focuses on.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_footnote(label = '', notation = 'none')  %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "p{0.18\\\\linewidth}l") %>%
@@ -34,12 +28,4 @@ terms %>%
 ```
 
 
-\vspace{25pt}
-
-There have been a variety of studies about the effects, or otherwise, of environmental factors, e.g., temperature,  rainfall, altitude, soil moisture, relative atmospheric humidity, etc., on geohelminths prevalence spatial patterns [@Brooker2006]
-
-\vspace{25pt}
-
-Under certain conditions eggs may not embryonate
-* low humidity, $< 50%$: Ascaris lumbricoides, Trichuris trichiura
-
+\cref{tab:T0001} outlines the key geohelminths species [@Montresor2011].  There have been a variety of studies about the effects, or otherwise, of environmental factors, e.g., temperature, rainfall, altitude, soil moisture, relative atmospheric humidity, etc., on geohelminths infections prevalence patterns [@Brooker2006] ...
