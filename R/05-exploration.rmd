@@ -61,6 +61,31 @@ knitr::include_graphics(
 )
 ```
 
+\vspace{25pt}
+
+## Elevation & Population Density
+
+```{r F0007, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and (a) elevation, (b) population density.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'reference', 'miscellaneous', 'disaggregateMiscellaneousReal.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
