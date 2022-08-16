@@ -2,7 +2,9 @@
 
 # *GEOSTATISTICAL BINOMIAL LOGISTIC MODELS* \label{chapter:geo}
 
-The predominant focus of this chapter is **explanatory modelling**, for determining whether a set of WaSH (water, sanitation, and hygiene) variables, and population density, have a significant impact on the prevalence of \textcolor{darkgrey}{Hookworm disease}.  An explanatory model determines which variables have a statistically significant impact on *Hookworm disease* prevalence, and their degree of impact.  \textcolor{wine}{Additionally, the predictive weight of the identified variables is a brief focus.}
+The predominant focus of this chapter is **explanatory modelling**, for determining whether a set of WaSH (water, sanitation, and hygiene) variables, and population density, have a significant impact on the prevalence of *Hookworm disease*.  An explanatory model determines which variables have a statistically significant impact on *Hookworm disease* prevalence, and their degree of impact.  \textcolor{duskyblue}{Additionally, the prediction is a brief focus.}
+
+\vspace{10pt}
 
 The data, the exploratory analysis, and the preliminary investigation, outline a few important points
 
@@ -225,4 +227,32 @@ discrepancies %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
+
+
+
+
+## Bootstrapping: Case A Only [Time Permitting]
+
+This section's foci, in relation to
+
+\small
+\begin{equation}
+\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
+\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] \nonumber
+\end{equation}
+\normalsize
+
+are
+
+* Bootstrapped estimates via MCML (Monte Carlo Maximum Likelihood) estimation for the binomial logistic model.
+* Estimates via Bayesian estimation for the binomial logistic model.
+
+
+
+
+
+
+
+
+
 
