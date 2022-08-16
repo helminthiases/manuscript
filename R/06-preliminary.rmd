@@ -7,11 +7,11 @@ sys.source(file = 'descriptions/DescriptionAlgorithms.R', envir = knitr::knit_gl
 
 # *PRELIMINARY INVESTIGATION* \label{chapter:preliminary}
 
-The previous *Chapter* graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This *Chapter*, and the next one \autoref{chapter:geo}, focuses on plausible empirical relationships models.
+The previous chapter graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This chapter explores plausible empirical relationships models.
 
-As noted before, this project's outcome of interest is *prevalence*, i.e., *Hookworm disease* prevalence.  Hence, all empirical relationship model investigations - between *prevalence* and zero or more extraneous independent variables - are **Binomial model** investigations.  In preparation for Binomial geostatistical modelling, the objective of this chapter is to
+As noted before, this project's outcome of interest is *prevalence*, i.e., *Hookworm disease* prevalence.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.  In preparation for Binomial geostatistical modelling, the objective of this chapter is to
 
-> *investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between ``prevalence`` and zero or more ``extraneous independent variables``.*
+> *investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between ``prevalence`` and ``zero or more extraneous independent variables``.*
 
 Each **preliminary model** is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field [@Cressie1993], [@Matheron1963].
 
@@ -40,7 +40,7 @@ terms %>%
 
 ```
 
-
+\vspace{25pt}
 
 ## The Generalised Linear Mixed Models
 
@@ -52,7 +52,7 @@ The key assumptions of these models are
 
 \vspace{10pt}
 
-The **preliminary model** algorithm in focus is the **generalised linear mixed model** (GLMM) of structure
+The **preliminary model** structure of interest is the **generalised linear mixed model** (GLMM) of structure
 \begin{align}
 Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0001) \\
 \eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
@@ -68,15 +68,15 @@ It is a Binomial GLMM because the outcome values, prevalence, are proportions.  
 
 Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``identifier`` & ``year``, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
 
-\vspace{10pt}
-
 > * Mutually independent, and identically distributed.
 >
 > * Normally distributed.
 
+The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of distinct locations, whilst the diagonal length of $\mathbf{I}_{c}$ is the number of distinct years.
+
 \vspace{10pt}
 
-The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of distinct locations, whilst the diagonal length of $\mathbf{I}_{c}$ is the number of distinct years.  A second  **generalised linear mixed model** (GLMM) structure
+A second  **generalised linear mixed model** (GLMM) structure
 \begin{align}
 Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0006) \\
 \eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
@@ -88,46 +88,55 @@ wherein
 \end{equation}
 models the data of a single year.
 
+\vspace{25pt}
+
 ## Modes of Evaluation
 
 The assessment of each considered GLMM model is via the hypotheses
-
-\vspace{10pt}
 
 > $H_{0}: \beta_{j} = 0$
 >
 > $H_{1}: \beta_{j} \neq 0$
 
-\vspace{10pt}
-
 Let $0.05$ be the $p_{value}$ significance level, then there is evidence in favour of the alternative hypothesis, $H_{1}$, if the estimated coefficient's $p_{value} < 0.05$.  The comparison of the models, w.r.t. the same GLMM structure, is via deviance/AIC (Akaike Information Criterion).
+
+
+\vspace{25pt}
+
 
 ## The Viable Preliminary Models
 
-Togo's data set is a data set of two years: $2009$, $2015$.  Due to rank deficiency, insufficient data, in relation to \cref{eq:0001}, it is not possible to model the data of both years together.  Hence, the focus is a single year's data - $2015$^[For modelling purposes, the $2009$ data set is rather small, relative to its spatial spread (\cref{fig:F0001})].
+Togo's data set is a data set of two years: $2009$, $2015$.  Due to rank deficiency, insufficient data, in relation to \cref{eq:0001}, it is not possible to model the data of both years together.  Hence, the focus is a single year's data - $2015$; for modelling purposes, the $2009$ data set is rather small, relative to its spatial spread (\cref{fig:F0001}).
+
+\vspace{10pt}
 
 ... the models with fixed term vectors
+\small
 \begin{equation}
 \mathbf{\delta}(x_{i}) =
 \begin{cases}
-[1, piped\underline{\hspace{0.125cm}}sewer, piped\underline{\hspace{0.125cm}}sewer^{2}, elevation.km] \\
-[1, piped\underline{\hspace{0.125cm}}sewer, ln(p_density.k), elevation.km]
+[1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}), \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] \\
+[1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}), ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})]
 \end{cases} (\#eq:0005)
 \end{equation}
+\normalsize
 were the viable models for geo-statistical extensions.
 
 
-
+\vspace{20pt}
 
 
 ### Case A
 
 The vector of fixed terms
-
+\small
 \begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \text{piped}\underline{\hspace{0.125cm}}\text{sewer},
-\text{piped}\underline{\hspace{0.125cm}}\text{sewer}^{2}, \text{elevation.km}] (\#eq:0009)
+\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
+\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] (\#eq:0009)
 \end{equation}
+\normalsize
+
+\vspace{10pt}
 
 The GLMM estimates ...
 
@@ -153,6 +162,9 @@ estimations$fixed %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
+
+\vspace{10pt}
+
 The empirical variogram of the residuals ...
 
 ```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The variogram w.r.t. \\textit{Case A}'}
@@ -165,9 +177,53 @@ knitr::include_graphics(
 ```
 
 
+\vspace{20pt}
+
+
 ### Case B
+
+The vector of fixed terms
+\small
+\begin{equation}
+\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
+ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})] (\#eq:0011)
+\end{equation}
+\normalsize
+
+\vspace{10pt}
 
 The GLMM estimates ...
 
+```{r T0009}
+estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
+
+estimations$fixed %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
+                                        'lower', 'upper', 's.e.', '$p_{value}$')),
+    caption = 'The estimated coefficients of the \\textit{Case B} GLMM Model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
 
 The empirical variogram of the residuals ...
+
+```{r F0006, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The variogram w.r.t. \\textit{Case B}'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'effects', 'architectures', 'B', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
