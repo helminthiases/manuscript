@@ -36,7 +36,7 @@ Again, $\mathbf{\delta}(x_{i})$ is the $i^{th}$ vector of fixed terms - i.e., th
 
 A consequence of these assumptions is that the covariance $\gamma(x_{i}, x_{j})$ is defined as
 \begin{equation}
-\gamma(x_{i}, x_{j}) = \sigma^{2}\rho(\left\Vert x_{i} - x_{j} \right\Vert) (\#eq:0015)
+\gamma(x_{i}, x_{j}) = \sigma^{2}\rho(\left\Vert x_{i} - x_{j} \right\Vert) (\#eq:0025)
 \end{equation}
 wherein $\rho(u) = \rho(\left\Vert x_{i} - x_{j} \right\Vert)$ is the correlation function; $u = \left\Vert \cdot \right\Vert$ denotes distance.  Throughout this paper correlation function in use is the *exponential correlation function* [@Diggle2019]
 \begin{equation}
@@ -44,23 +44,35 @@ wherein $\rho(u) = \rho(\left\Vert x_{i} - x_{j} \right\Vert)$ is the correlatio
 \end{equation}
 The term $\phi$ is the scale parameter.
 
-In contrast to $S(x_{i})$, $U_{i}$ are independent Normally distributed random variables that capture the effects of unknown/unmeasured independent variables, i.e., $U_{i}$ represent the *unstructured variation in $Y_{i}$* [@Diggle2019].^[$U_{i} \sim \mathcal{N}(0, \nu^{2})$]   The unknown variables either **(a)** lack a spatial structure, or **(b)** ``... are spatially varying but on a scale smaller than the minimum observed distance.'' [@Diggle2019].
+In contrast to $S(x_{i})$, $U_{i}$ are independent Normally distributed random variables
+\begin{equation}
+U_{i} \sim \mathcal{N}(0, \nu^{2}) (\#eq:0023)
+\end{equation}
+that capture the effects of unknown/unmeasured independent variables, i.e., $U_{i}$ represent the *unstructured variation
+in $Y_{i}$* [@Diggle2019].  The unknown variables either **(a)** lack a spatial structure, or **(b)** ``... are spatially
+varying but on a scale smaller than the minimum observed distance.'' [@Diggle2019].
 
 
-## Evaluation
+### Evaluation
 
 We would like the developed models to
-
 * Have residuals that are free of spatial correlation: Determined via empirical variogram evaluation of standardised residuals
 * Be reliable explanatory variables of prevalence: \text{duskyblue}{[Consider bootstrapping.]}.
 
+\clearpage
 
-## The Cases
+## Case A
 
+\small
+\begin{equation}
+\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
+\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] (\#eq:0015)
+\end{equation}
+\normalsize
 
-### Case A
+\vspace{10pt}
 
-```{r T0011}
+```{r T0011, fig.pos = 'h!'}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
 
 coefficients <- estimations$coefficients
@@ -86,9 +98,9 @@ coefficients %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
-\vspace{10pt}
 
-```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram w.r.t. the \\textit{Case A} Binomial Geostatistical Model.'}
+
+```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the \\textit{Case A} Binomial Geostatistical Model.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'variogram.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -97,9 +109,9 @@ knitr::include_graphics(
 )
 ```
 
-\vspace{10pt}
 
-```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'Prevalence estimates \\textit{vs.} originals, w.r.t. the \\textit{Case A} Binomial Geostatistical Model.'}
+
+```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The \\textit{Case A} Binomial Geostatistical Model prevalence estimates and originals'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'diagonal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -107,3 +119,110 @@ knitr::include_graphics(
   error = getOption(x = "knitr.graphics.error", default = TRUE)
 )
 ```
+
+
+
+```{r T0013}
+discrepancies <- estimations$discrepancies
+discrepancies <- cbind(variable = row.names(discrepancies), discrepancies)
+row.names(discrepancies) <- NULL
+
+discrepancies %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'Bias', 'RMSE')),
+    caption = 'Bias and root mean square error w.r.t. the \\textit{Case A} Binomial Geostatistical Model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+
+\clearpage
+
+
+## Case B
+
+\small
+\begin{equation}
+\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
+ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})] (\#eq:0024)
+\end{equation}
+\normalsize
+
+\vspace{10pt}
+
+```{r T0012, fig.pos = 'h!'}
+estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'B', 'estimations.rds'))
+
+coefficients <- estimations$coefficients
+coefficients$variable <- c('1', 'piped\\underline{\\hspace{0.125cm}}sewer',
+                           'ln(p\\underline{\\hspace{0.125cm}}density.k)', 'elevation.km')
+
+coefficients %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
+                                        'lower', 'upper', 's.e.', '$p_{value}$')),
+    caption = 'The estimated coefficients of the \\textit{Case B} Binomial Geostatistical Model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+
+```{r F0011, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the \\textit{Case B} Binomial Geostatistical Model.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+
+```{r F0012, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The \\textit{Case B} Binomial Geostatistical Model prevalence estimates and originals'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'diagonal.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+
+```{r T0014}
+discrepancies <- estimations$discrepancies
+discrepancies <- cbind(variable = row.names(discrepancies), discrepancies)
+row.names(discrepancies) <- NULL
+
+discrepancies %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'Bias', 'RMSE')),
+    caption = 'Bias and root mean square error w.r.t. the \\textit{Case B} Binomial Geostatistical Model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
