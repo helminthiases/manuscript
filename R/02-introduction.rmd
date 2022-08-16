@@ -3,12 +3,8 @@
 
 Soil transmitted helminths (STH), or geohelminths, are parasitic intestinal worms that cause intestinal nematode infections such as ascariasis, trichuriasis, and hookworm disease.  According to the Lancet's latest global burden of disease study [@Lancet2020, @IHME2020] , soil transmitted helminths infections are
 
-<br>
-
 * Amongst the most burdensome neglected tropical diseases.  [Upcoming: graph/[data](https://vizhub.healthdata.org/gbd-compare/)]
 * The most prevalent neglected tropical diseases.  [Upcoming: graph, [data](https://vizhub.healthdata.org/gbd-compare/)]
-
-<br>
 
 Therefore, geohelminths infections are a focus of the World Health Organization (WHO).  Geohelminths infections prevention, control, and elimination activities depend on knowledge of prevalence [@Montresor2011], and prevalence metrics depend on field surveys, which are rather expensive to conduct.  They are especially expensive when there are no measures to systematically/strategically direct field scientists to survey areas.  In the absence of systematic/strategic direction, the field scientists have to survey as wide an area as possible, albeit subject to financial, accessibility, etc., constraints.
 
