@@ -13,9 +13,9 @@ As noted before, this project's outcome of interest is *prevalence*, i.e., *Hook
 
 > *investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between ``prevalence`` and zero or more ``extraneous independent variables``.*
 
-Each **preliminary model** is a Binomial generalised linear mixed model (GLMM).  The chapter tests for evidence of residual spatial correlation, per Binomial GLMM, via the empirical variogram.  The empirical variogram function determines the degree of spatial correlation in a stochastic process or random field [@Cressie1993], [@Matheron1963].
+Each **preliminary model** is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field [@Cressie1993], [@Matheron1963].
 
-The next chapter reconfigures each GLMM that exhibits evidence of residual spatial correlation; in each case the underlying algorithm becomes a Binomial geo-statistical model.  Hence, an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
+The models of the next chapter are derivations of the preliminary models that exhibit residual spatial correlation, i.e., an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
 
 
 \cref{tab:T0004} summarises this chapter's common notations.
@@ -64,15 +64,15 @@ wherein
 \mathbf{c} & \sim \mathcal{N}(0, \tau^{2}_{c}\mathbf{I}_{c}) \nonumber
 \end{align}
 
-It is a Binomial GLMM because the outcome values, prevalence, are proportions.  \cref{tab:T0004} defines the terms of each equation.  The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients (\cref{tab:T0001}).  In this investigation, the independent variables are the aforementioned WaSH variables, population density, and elevation (\cref{tab:T0003}).
+It is a Binomial GLMM because the outcome values, prevalence, are proportions.  \cref{tab:T0004} defines the terms of each equation.  The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients (\cref{tab:T0001}).  In this investigation, the independent variables are the aforementioned WaSH variables, population density, and elevation (\cref{tab:T0003}), i.e., the extraneous variables.
 
 Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``identifier`` & ``year``, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
 
 \vspace{10pt}
 
 > * Mutually independent, and identically distributed.
-
-* Normally distributed.
+>
+> * Normally distributed.
 
 \vspace{10pt}
 
@@ -95,16 +95,18 @@ The assessment of each considered GLMM model is via the hypotheses
 \vspace{10pt}
 
 > $H_{0}: \beta_{j} = 0$
-
-$H_{1}: \beta_{j} \neq 0$
+>
+> $H_{1}: \beta_{j} \neq 0$
 
 \vspace{10pt}
 
 Let $0.05$ be the $p_{value}$ significance level, then there is evidence in favour of the alternative hypothesis, $H_{1}$, if the estimated coefficient's $p_{value} < 0.05$.  The comparison of the models, w.r.t. the same GLMM structure, is via deviance/AIC (Akaike Information Criterion).
 
-## Prospective Models
+## The Viable Preliminary Models
 
-The fixed term vectors of the best models, wherein each $\beta_{j}$ is statistically significant across GLMM structures, are
+Togo's data set is a data set of two years: $2009$, $2015$.  Due to rank deficiency, insufficient data, in relation to \cref{eq:0001}, it is not possible to model the data of both years together.  Hence, the focus is a single year's data - $2015$^[For modelling purposes, the $2009$ data set is rather small, relative to its spatial spread (\cref{fig:F0001})].
+
+... the models with fixed term vectors
 \begin{equation}
 \mathbf{\delta}(x_{i}) =
 \begin{cases}
@@ -112,18 +114,60 @@ The fixed term vectors of the best models, wherein each $\beta_{j}$ is statistic
 [1, piped\underline{\hspace{0.125cm}}sewer, ln(p_density.k), elevation.km]
 \end{cases} (\#eq:0005)
 \end{equation}
-In the case of
+were the viable models for geo-statistical extensions.
+
+
+
+
+
+### Case A
+
+The vector of fixed terms
+
 \begin{equation}
-\mathbf{\delta}(x_{i}) = [1, piped\underline{\hspace{0.125cm}}sewer, surface\underline{\hspace{0.125cm}}sewer, elevation.km]
+\mathbf{\delta}(x_{i}) = [1, \text{piped}\underline{\hspace{0.125cm}}\text{sewer},
+\text{piped}\underline{\hspace{0.125cm}}\text{sewer}^{2}, \text{elevation.km}] (\#eq:0009)
 \end{equation}
-the coefficient of $surface\underline{\hspace{0.125cm}}sewer$ is not significant across GLMM structures.^[And, unsurprisingly, the coefficient is not significant in the geo-statistical models.]
+
+The GLMM estimates ...
+
+```{r T0008}
+estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
+
+estimations$fixed %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
+                                        'lower', 'upper', 's.e.', '$p_{value}$')),
+    caption = 'The estimated coefficients of the \\textit{Case A} GLMM Model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+The empirical variogram of the residuals ...
+
+```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The variogram w.r.t. \\textit{Case A}'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'effects', 'architectures', 'A', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
 
 
-The exploratory data analysis illustrates ... years 2009 & 2015 only have 4 locations/sites in common.  Within the GLMM results table/s, the variance of random effect `year` is not negligible ... similar trend, varying degree?
+### Case B
+
+The GLMM estimates ...
 
 
-## Prospective Models & Residual Spatial Correlation
-
-**Hence**, focusing on single year data, *Figure ...* is the empirical variogram of the residuals due to *Expression ...*.  There is strong evidence of residual spatial correlation.  Hence, a model that addresses the spatial correlation, and missing knowledge, is required.
-
-
+The empirical variogram of the residuals ...
