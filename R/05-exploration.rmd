@@ -52,7 +52,7 @@ knitr::include_graphics(
 
 ## WaSH
 
-```{r F0003, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and sewage facilities access.  An access fraction of 1 means $100\\%$ of the population has access.'}
+```{r F0003, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and access to sewage facilities$\\;$ an access fraction of 1 means $100\\%$ of the population has access.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'sewer', 'disaggregateSewerReal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -61,7 +61,7 @@ knitr::include_graphics(
 )
 ```
 
-\vspace{25pt}
+\clearpage
 
 ## Elevation & Population Density
 
