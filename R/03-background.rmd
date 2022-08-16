@@ -4,16 +4,10 @@ sys.source(file = 'descriptions/DescriptionSpecies.R', envir = knitr::knit_globa
 
 # *BACKGROUND* \label{chapter:background}
 
-A background reading/research discussion of
+\textcolor{duskyblue}{The background reading/research notes about}
 
 * Strategies that have guided STH (soil transmitted helminth) field survey area selection.
-* Methods for predicting STH prevalence.
-* The selection of fields for STH surveys.
 * The biology, ecology, and transmission dynamics of geohelminths.
-
-\vspace{25pt}
-
-  \cref{tab:T0001} outlines the key geohelminths species [@Montresor2011].
 
 ```{r T0001}
 terms <- DescriptionSpecies()
@@ -34,9 +28,4 @@ terms %>%
 ```
 
 
-\vspace{25pt}
-
-There have been a variety of studies about the effects, or otherwise, of environmental factors, e.g., temperature,  rainfall, altitude, soil moisture, relative atmospheric humidity, etc., on geohelminths infections prevalence spatial patterns [@Brooker2006].  A comparative discussion of the lifecycles of each species might hint at why $\ldots$.  For example
-
-* Under certain conditions eggs may not embryonate: Under low humidity conditions, $< 50%$, Ascaris lumbricoides and Trichuris trichiura eggs may not embryonate [@Brooker2006].
-
+\cref{tab:T0001} outlines the key geohelminths species [@Montresor2011].  There have been a variety of studies about the effects, or otherwise, of environmental factors, e.g., temperature, rainfall, altitude, soil moisture, relative atmospheric humidity, etc., on geohelminths infections prevalence patterns [@Brooker2006] ...
