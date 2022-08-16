@@ -52,6 +52,58 @@ In contrast to $S(x_{i})$, $U_{i}$ are independent Normally distributed random v
 We would like the developed models to
 
 * Have residuals that are free of spatial correlation: Determined via empirical variogram evaluation of standardised residuals
-* Be reliable explanatory variables of prevalence: [Bootstrap: Bias, root-mean-square analysis, coefficients].
+* Be reliable explanatory variables of prevalence: \text{duskyblue}{[Consider bootstrapping.]}.
 
 
+## The Cases
+
+
+### Case A
+
+```{r T0011}
+estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
+
+coefficients <- estimations$coefficients
+coefficients$variable <- c('1', 'piped\\underline{\\hspace{0.125cm}}sewer',
+                           'piped\\underline{\\hspace{0.125cm}}sewer$^{2}$', 'elevation.km')
+
+coefficients %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
+                                        'lower', 'upper', 's.e.', '$p_{value}$')),
+    caption = 'The estimated coefficients of the \\textit{Case A} Binomial Geostatistical Model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+\vspace{10pt}
+
+```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram w.r.t. the \\textit{Case A} Binomial Geostatistical Model.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+\vspace{10pt}
+
+```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'Prevalence estimates \\textit{vs.} originals, w.r.t. the \\textit{Case A} Binomial Geostatistical Model.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'diagonal.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
