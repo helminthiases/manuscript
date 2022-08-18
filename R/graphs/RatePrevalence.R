@@ -1,5 +1,5 @@
 # Title     : RatePrevalence.R
-# Objective : rates of prevalence
+# Objective : Rates of prevalence
 # Created by: greyhypotheses
 # Created on: 18/08/2022
 
@@ -14,8 +14,8 @@ RatePrevalence <- function () {
   # The top 9 only
   excerpt <- frame[frame$index < 10, ]
 
-  # The vertical strating points of the text; there are dynamic options
-  vertical <- c(7100, 450, 200, 2000, 1950, 750, 260, 220, 200)
+  # The vertical starting points of the text; there are dynamic options
+  # vertical <- c(7100, 450, 200, 2000, 1950, 750, 260, 220, 200)
 
   caption <- "INI: Intestinal Nematode Infections [geohelminths], NTD: Neglected Tropical
   Disease.  Data Source: Institute for Health Metrics & The Lancet Global Burden of Disease 2019."
@@ -35,5 +35,6 @@ RatePrevalence <- function () {
     xlab(label = '\ndisease\n') +
     ylab(label = expression(atop('\nprevalence cases per 100k', '('~log[10]~' scale)'))) +
     labs(caption = str_wrap(caption, width = 75) ) +
-    annotate(geom = 'text', x = 0.175 + excerpt$index, y = vertical, label = excerpt$disease, angle = 90, size = 3)
+    annotate(geom = 'text', x = 0.155 + excerpt$index, y = 100 + excerpt$prev_cases_per_100k,
+             label = excerpt$disease, angle = 90, size = 3, colour = 'black', alpha = 0.60)
 }
