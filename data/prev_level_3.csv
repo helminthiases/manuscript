@@ -1,20 +1,20 @@
-disease,prev_cases_per_100k,lower,upper
-Chagas disease,83.61,73.13,95.31
-Leishmaniasis,59.13,49.61,71.46
-African trypanosomiasis,0.049,0.022,0.096
-Schistosomiasis,1808.96,1514.35,2146.62
-Cysticercosis,62.43,45.37,83.65
-Cystic echinococcosis,11.63,7.65,17.44
-Lymphatic filariasis,928.63,759.52,1240.81
-Onchocerciasis,246.38,221.9,270.74
-Trachoma,24.37,18.9,30.96
-Dengue,43.87,28.1,78.13
-Yellow fever,0.039,0.015,0.087
-Rabies,0.007,0.003,0.011
-Intestinal nematode infections,11742.37,10919.41,12747.24
-Food-borne trematodiases,433.45,381.95,491.7
-Leprosy,6.82,5.82,8.01
-Ebola virus disease,0.021,0.0097,0.03
-Zika virus disease,0.059,0.045,0.08
-Guinea worm disease ,0.00029,0.00022,0.00039
-Other neglected tropical diseases,852.39,836.62,867.34
+"disease"	"prev_cases_per_100k"	"lower"	"upper"
+"Chagas disease"	83.61	73.13	95.31
+"Leishmaniasis"	59.13	49.61	71.46
+"African trypanosomiasis"	0.049	0.022	0.096
+"Schistosomiasis"	1808.96	1514.35	2146.62
+"Cysticercosis"	62.43	45.37	83.65
+"Cystic echinococcosis"	11.63	7.65	17.44
+"Lymphatic filariasis"	928.63	759.52	1240.81
+"Onchocerciasis"	246.38	221.9	270.74
+"Trachoma"	24.37	18.9	30.96
+"Dengue"	43.87	28.1	78.13
+"Yellow fever"	0.039	0.015	0.087
+"Rabies"	0.007	0.003	0.011
+"INI"	11742.37	10919.41	12747.24
+"Food-borne trematodiases"	433.45	381.95	491.7
+"Leprosy"	6.82	5.82	8.01
+"Ebola virus disease"	0.021	0.0097	0.03
+"Zika virus disease"	0.059	0.045	0.08
+"Guinea worm disease "	0.00029	0.00022	0.00039
+"Other NTD"	852.39	836.62	867.34
