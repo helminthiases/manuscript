@@ -1,7 +1,7 @@
 
 ```{r L0001}
-sys.source(file = 'descriptions/DescriptionESPEN.R', envir = knitr::knit_global())
-sys.source(file = 'descriptions/DescriptionExtraneous.R', envir = knitr::knit_global())
+sys.source(file = '../R/descriptions/DescriptionESPEN.R', envir = knitr::knit_global())
+sys.source(file = '../R/descriptions/DescriptionExtraneous.R', envir = knitr::knit_global())
 ```
 
 # *DATA* \label{chapter:data}
@@ -18,7 +18,7 @@ terms <- DescriptionESPEN()
 terms %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = 'latex',
+    format = '../R/latex',
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
@@ -55,7 +55,7 @@ terms <- DescriptionExtraneous()
 terms %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = 'latex',
+    format = '../R/latex',
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
