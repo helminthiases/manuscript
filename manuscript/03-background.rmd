@@ -15,7 +15,7 @@ terms <- DescriptionSpecies()
 terms %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = '../R/latex',
+    format = 'latex',
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
