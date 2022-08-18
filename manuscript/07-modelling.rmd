@@ -75,7 +75,7 @@ We would like the developed models to
 \vspace{10pt}
 
 ```{r T0011, fig.pos = 'h!'}
-estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
+estimations <- readRDS(file = file.path(dirname(getwd()), '../warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
 
 coefficients <- estimations$coefficients
 coefficients$variable <- c('1', 'piped\\underline{\\hspace{0.125cm}}sewer',
@@ -84,7 +84,7 @@ coefficients$variable <- c('1', 'piped\\underline{\\hspace{0.125cm}}sewer',
 coefficients %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = 'latex',
+    format = '../R/latex',
     digits = 3,
     booktabs = TRUE,
     escape = FALSE,
@@ -132,7 +132,7 @@ row.names(discrepancies) <- NULL
 discrepancies %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = 'latex',
+    format = '../R/latex',
     digits = 3,
     booktabs = TRUE,
     escape = FALSE,
@@ -161,7 +161,7 @@ ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})]
 \vspace{10pt}
 
 ```{r T0012, fig.pos = 'h!'}
-estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'B', 'estimations.rds'))
+estimations <- readRDS(file = file.path(dirname(getwd()), '../warehouse', 'models', 'nugget', 'blm', 'B', 'estimations.rds'))
 
 coefficients <- estimations$coefficients
 coefficients$variable <- c('1', 'piped\\underline{\\hspace{0.125cm}}sewer',
@@ -170,7 +170,7 @@ coefficients$variable <- c('1', 'piped\\underline{\\hspace{0.125cm}}sewer',
 coefficients %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = 'latex',
+    format = '../R/latex',
     digits = 3,
     booktabs = TRUE,
     escape = FALSE,
@@ -215,7 +215,7 @@ row.names(discrepancies) <- NULL
 discrepancies %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = 'latex',
+    format = '../R/latex',
     digits = 3,
     booktabs = TRUE,
     escape = FALSE,
