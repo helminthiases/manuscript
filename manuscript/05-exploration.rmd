@@ -4,12 +4,12 @@
 This project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and the number of observations.
 
 ```{r T0007}
-T <- read.csv(file = file.path(dirname(getwd()), '../warehouse', 'reference', 'frequencies', 'timeFrequencies.csv'))
+T <- read.csv(file = file.path(dirname(getwd()), 'warehouse', 'reference', 'frequencies', 'timeFrequencies.csv'))
 
 T %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = '../R/latex',
+    format = 'latex',
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
