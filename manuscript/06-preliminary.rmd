@@ -27,7 +27,7 @@ terms <- DescriptionAlgorithms()
 terms %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = '../R/latex',
+    format = 'latex',
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
@@ -136,12 +136,12 @@ were the viable models for geo-statistical extensions.
 The empirical variogram of its residuals (\cref{fig:F0005}) illustrates evidence of residual spatial correlation.
 
 ```{r T0008, fig.pos = 'h!'}
-estimations <- readRDS(file = file.path(dirname(getwd()), '../warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
+estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
 
 estimations$fixed %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
-    format = '../R/latex',
+    format = 'latex',
     digits = 3,
     booktabs = TRUE,
     escape = FALSE,
@@ -182,7 +182,7 @@ ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})]
 The empirical variogram of its residuals (\cref{fig:F0006}) also illustrates evidence of residual spatial correlation.
 
 ```{r T0009}
-estimations <- readRDS(file = file.path(dirname(getwd()), '../warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
+estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
 
 estimations$fixed %>%
   dplyr::mutate_all(linebreak) %>%
