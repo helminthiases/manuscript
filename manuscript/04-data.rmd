@@ -6,6 +6,7 @@ sys.source(file = '../R/descriptions/DescriptionExtraneous.R', envir = knitr::kn
 
 # *DATA* \label{chapter:data}
 
+Throughout this text the dependent variable is ... the independent variables are the extraneous data sets variables ... throughout this text they are ... extraneous independent variables
 
 ## *ESPEN*
 
