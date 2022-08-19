@@ -38,7 +38,7 @@ RateDALY <- function () {
              label = excerpt$disease, angle = 90, size = 3, colour = 'black', alpha = 0.6)
   print(diagram)
 
-  ggsave(filename = file.path(getwd(), 'R', 'graphs', 'RateDALY.pdf'), width = 625, height = 290, units = 'px',
+  ggsave(filename = file.path(getwd(), 'R', 'graphs', 'RateDALY.pdf'), width = 540, height = 290, units = 'px',
          plot = diagram, dpi = 95, scale = 1)
 
 }
