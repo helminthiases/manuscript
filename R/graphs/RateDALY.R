@@ -19,7 +19,7 @@ RateDALY <- function () {
   Disease.  Data Source: Institute for Health Metrics & The Lancet Global Burden of Disease 2019."
 
   # Graph
-  ggplot(data = excerpt, mapping = aes(x = index, y = daly_per_100k)) +
+  graph <- ggplot(data = excerpt, mapping = aes(x = index, y = daly_per_100k)) +
     geom_linerange(mapping = ggplot2::aes(ymin = lower, ymax = upper)) +
     geom_pointrange(mapping = aes(ymin = lower, ymax = upper)) +
     theme_minimal() +
@@ -35,6 +35,8 @@ RateDALY <- function () {
     ylim(-6.5, 60) +
     annotate(geom = 'text', x = 0.185 + excerpt$index, y = 7.5 + excerpt$daly_per_100k,
              label = excerpt$disease, angle = 90, size = 3, colour = 'black', alpha = 0.6)
+
+  return(graph)
 
 
 }
