@@ -1,7 +1,7 @@
 
 # *INTRODUCTION* \label{chapter:introduction}
 
-Soil transmitted helminths (STH), or geohelminths, are parasitic intestinal worms that cause intestinal nematode infections (INI) such as ascariasis, trichuriasis, and hookworm disease.  According to the Lancet's latest global burden of disease study [@Lancet2020, @IHME2020] , intestinal nematode infections are the most prevalent of the neglected tropical diseases (\cref{fig:F0014}).  Additionally, and as of 2019, INI are the second most burdensome neglected tropical diseases, after dengue.  Therefore, INI are a focus of the World Health Organization (WHO).
+Soil transmitted helminths (STH), or geohelminths, are parasitic intestinal worms that cause intestinal nematode infections (INI).  According to the Lancet's latest global burden of disease study [@Lancet2020, @IHME2020], as of 2019 intestinal nematode infections - comprising *ascariasis*, *trichuriasis*, and *hookworm disease* - are the most prevalent of the neglected tropical diseases (\cref{fig:F0014}).  Additionally, INI are the second most burdensome neglected tropical diseases, after dengue (\cref{tab:F0015}).  Therefore, INI are a focus of the World Health Organization (WHO).
 
 \vspace{10pt}
 
@@ -20,7 +20,7 @@ Intestinal nematode infections prevention, control, and elimination activities d
 
 <br>
 
-An option, in place of expensive field surveys, is INI prevalence predictions.  However, prediction models development depends on knowledge & understandings of probable risk factors [@Murray2020].   Thus, a key geohelminths infections prevalence hypothesis, of WHO experts, is that WaSH (water, sanitation, and hygiene) variables might be critical risk factors.  Hence, the project investigates the possibility that one or more WaSH variables are geohelminths infections risk factors that may aid geohelminths infections prevalence prediction.
+An option, in place of expensive field surveys, is INI prevalence predictions.  However, prediction models development depends on knowledge & understandings of probable risk factors [@Murray2020].   Accordingly, a key geohelminths infections prevalence hypothesis, of WHO experts, is that WaSH (water, sanitation, and hygiene) variables might be critical risk factors.  Hence, the project investigates the possibility that one or more WaSH variables are geohelminths infections risk factors that may aid geohelminths infections prevalence prediction.
 
 \vspace{10pt}
 
@@ -52,5 +52,8 @@ via geostatistical models.
 
 ## *Manuscript Structure*
 
-The manuscript's parts are ...
+The *background* chapter discusses the biology, ecology, and transmission dynamics of geohelminths; and a history of prevalence prediction. Next, the *data* chapter outlines the underlying data sets of this project.  This leads unto the *exploratory analysis* chapter, which explores the relationship, or otherwise, between the prevalence of a geohelminth infectious disease and independent variables. The *preliminary investigation* & *geostatistical binomial logistic models* chapters focus on explanatory modelling.  Finally, the *conclusion*/*discussion* chapter discusses the project's observations, findings, and limitations.
+
+In this text intestinal nematode infections (INI) & geohelminth infections are synonyms, and the comprising diseases are *ascariasis*, *trichuriasis*, and *hookworm disease*.
+
 
