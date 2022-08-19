@@ -14,7 +14,7 @@ RateDALY <- function () {
   # The top 9 only
   excerpt <- frame[frame$index < 10, ]
 
-  # Caption
+  # Caption, CML: Cutaneous and mucocutaneous leishmaniasis
   caption <- "INI: Intestinal Nematode Infections [geohelminths], NTD: Neglected Tropical
   Disease.  Data Source: Institute for Health Metrics & The Lancet Global Burden of Disease 2019."
 
