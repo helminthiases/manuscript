@@ -14,12 +14,11 @@ RatePrevalence <- function () {
   # The top 9 only
   excerpt <- frame[frame$index < 10, ]
 
-  # The vertical starting points of the text; there are dynamic options
-  # vertical <- c(7100, 450, 200, 2000, 1950, 750, 260, 220, 200)
-
+  # Caption
   caption <- "INI: Intestinal Nematode Infections [geohelminths], NTD: Neglected Tropical
   Disease.  Data Source: Institute for Health Metrics & The Lancet Global Burden of Disease 2019."
 
+  # Graph
   ggplot(data = excerpt, mapping = aes(x = index, y = prev_cases_per_100k)) +
     geom_linerange(mapping = ggplot2::aes(ymin = lower, ymax = upper)) +
     geom_pointrange(mapping = aes(ymin = lower, ymax = upper)) +
