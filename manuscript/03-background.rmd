@@ -6,8 +6,11 @@ sys.source(file = '../R/descriptions/DescriptionSpecies.R', envir = knitr::knit_
 
 An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors; subsequently, the veracity of a hypothesis proceeds via explanatory modelling.
 
+During their adult stage, geohelminths inhabit the human intestines
 
-Infection is via (a) the [accidental] ingestion of eggs in the cases of Ascaris lumbricoides (roundworm) & Trichuris trichuria (whipworm), (b) penetration of the skin via larvae - Necator americanus / Ancylostoma duodenale (hookworm)
+The eggs mature in the environment [@Montresor2011].  They   Subsequently
+
+Infection is via (a) the [accidental] ingestion of eggs in the cases of Ascaris lumbricoides (roundworm) & Trichuris trichuria (whipworm), (b) penetration of the skin via larvae - Necator americanus / Ancylostoma duodenale (hookworm) [@Bethony2006]
 
 ```{r T0001}
 terms <- DescriptionSpecies()
