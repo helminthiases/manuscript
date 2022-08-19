@@ -4,10 +4,10 @@ sys.source(file = '../R/descriptions/DescriptionSpecies.R', envir = knitr::knit_
 
 # *BACKGROUND* \label{chapter:background}
 
-\textcolor{duskyblue}{The background reading/research notes about}
+An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors; subsequently, the veracity of a hypothesis proceeds via explanatory modelling.
 
-* Strategies that have guided STH (soil transmitted helminth) field survey area selection.
-* The biology, ecology, and transmission dynamics of geohelminths.
+
+Infection is via (a) the [accidental] ingestion of eggs in the cases of Ascaris lumbricoides (roundworm) & Trichuris trichuria (whipworm), (b) penetration of the skin via larvae - Necator americanus / Ancylostoma duodenale (hookworm)
 
 ```{r T0001}
 terms <- DescriptionSpecies()
@@ -29,3 +29,14 @@ terms %>%
 
 
 \cref{tab:T0001} outlines the key geohelminths species [@Montresor2011].  There have been a variety of studies about the effects, or otherwise, of environmental factors, e.g., temperature, rainfall, altitude, soil moisture, relative atmospheric humidity, etc., on geohelminths infections prevalence patterns [@Brooker2006] ...
+
+
+
+
+Adult geohelminths reside in the
+
+
+In line with the World Health Organization's WaSH hypothesis, the studies by Mascarini-Serra et al. [@Serra2010],
+
+
+
