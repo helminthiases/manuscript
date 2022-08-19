@@ -12,7 +12,10 @@ Document creation is via
 
 > * ``bookdown::render_book()`` 
 > 
-> * ``bookdown::render_book(input = 'R', output_file = 'manuscript.pdf', output_dir = '../', output_yaml = 'R/_output.yml')``
+> 
+> * ``bookdown::render_book(input = 'manuscript', output_file = 'manuscript.pdf',
+>     output_dir = '../', output_yaml = 'manuscript/_output.yml')``
+> 
 
 References:
 * [_bookdown.yml configuration](https://bookdown.org/yihui/bookdown/configuration.html)

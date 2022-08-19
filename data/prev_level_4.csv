@@ -1,0 +1,23 @@
+disease,prev_cases_per_100k,lower,upper
+Chagas disease,83.61,73.13,95.31
+Visceral leishmaniasis,0.11,0.091,0.14
+CML,59.61,50.19,72.22
+African trypanosomiasis,0.049,0.022,0.096
+Schistosomiasis,1808.96,1514.35,2146.62
+Cysticercosis,62.43,45.37,83.65
+Cystic echinococcosis,11.63,7.65,17.44
+Lymphatic filariasis,928.63,759.52,1240.81
+Onchocerciasis,246.38,221.9,270.74
+Trachoma,24.37,18.9,30.96
+Dengue,43.87,28.1,78.13
+Yellow fever,0.039,0.015,0.087
+Rabies,0.007,0.003,0.011
+Hookworm disease,2229.84,2059.16,2413.79
+Ascariasis,5759.59,5095.11,6608.87
+Trichuriasis,4656.81,4088.06,5332.79
+Food-borne trematodiases,433.45,381.95,491.7
+Leprosy,6.82,5.82,8.01
+Ebola virus disease,0.021,0.0097,0.03
+Zika virus disease,0.059,0.045,0.08
+Guinea worm disease ,0.00029,0.00022,0.00039
+Other NTD,852.39,836.62,867.34
