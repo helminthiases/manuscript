@@ -32,7 +32,7 @@ RatePrevalence <- function () {
           panel.grid.major = element_line(size = 0.05),
           axis.text.x = element_blank(), axis.text.y = element_text(size = 9),
           axis.title.x = element_text(size = 11), axis.title.y = element_text(size = 11)) +
-    xlab(label = '\ndisease\n') +
+    xlab(label = '\nneglected tropical disease\n') +
     ylab(label = expression(atop('\nprevalence per 100k [2019]', '('~log[10]~' scale)'))) +
     labs(caption = str_wrap(caption, width = 75) ) +
     annotate(geom = 'text', x = 0.185 + excerpt$index, y = 100 + excerpt$prev_cases_per_100k,
