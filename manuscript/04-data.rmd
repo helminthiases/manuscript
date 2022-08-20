@@ -36,16 +36,16 @@ The project adds an extra geographic field to each ESPEN data set, named `identi
 
 ### Missing Data
 
-Aside from missing `site_id` codes, many ESPEN data sets are missing core variables values (\cref{tab:T0002}).  Hence, prior to deciding whether to use a data set it is important to understand the missing values patterns [@steyerberg2010]. Rubin [@rubin1976, @steyerberg2010, @little2019] outlines three fundamental missing data
+Aside from missing `site_id` codes, many ESPEN data sets are missing core variables values (\cref{tab:T0002}).  Hence, prior to deciding whether to use a data set it is important to understand the missing values patterns [@Steyerberg2010]. Rubin [@Rubin1976, @Steyerberg2010, @Little2019] outlines three fundamental missing data
 mechanisms
 
 > * Missing Completely at Random (MCAR): administrative errors, accident.
 > * Missing at Random (MAR): there's an association between a variable's missing data and available independent variables / outcomes.
 > * Missing Not at Random (MNAR): missing data associated with missing values of the factor/predictor in question or with unobserved predictors.
 
-If the missing values of a data set in question are *missing completely at random* (MCAR) then complete case analysis will suffice because the complete case excerpt is akin to a random sample from a complete population.  If MCAR does not hold, e.g., data is *missing at random*, then the complete case excerpt is not representative of the underlying population, therefore population inference is not possible via complete case analysis. [@steyerberg2010]
+If the missing values of a data set in question are *missing completely at random* (MCAR) then complete case analysis will suffice because the complete case excerpt is akin to a random sample from a complete population.  If MCAR does not hold, e.g., data is *missing at random*, then the complete case excerpt is not representative of the underlying population, therefore population inference is not possible via complete case analysis. [@Steyerberg2010]
 
-The project uses Steyerberg's method [@ , Section 7.7.1] to determine whether a data set's missing independent variables are MCAR.  In brief, the method's overarching hypotheses are
+The project uses Steyerberg's method [@Steyerberg2010, Section 7.7.1] to determine whether a data set's missing independent variables are MCAR.  In brief, the method's overarching hypotheses are
 
 > $$H_{0}$$: The missing values of an independent variable are not predictable via the dependent variables and other independent variables.
 
@@ -65,7 +65,7 @@ whereas dependent variables are the prevalence values vis-&agrave-vis ascariasis
 
 ### WaSH
 
-The WaSH (water, sanitation, and hygiene) variables values are extracts from **access percentage maps**.  The maps are courtesy of the Institute for Health Metrics and Evaluation (IHME), and are due to a Lancet Local Burden of Disease WaSH Collaborators study [@Deshpande2020]; the access percentages are estimates.  There are $18$ maps per WaSH variable, one for each year spanning $[2000 \; \; 2017]$.  An ESPEN data set observation will have WaSH variable values if, and only if,
+The WaSH (water, sanitation, and hygiene) variables values are extracts from **access percentage maps**.  The maps are courtesy of the Institute for Health Metrics and Evaluation (IHME), and are due to a Lancet Local Burden of Disease WaSH Collaborators study [@Deshpande2020]; the access percentages are estimates.  There are $18$ maps per WaSH variable, one for each year spanning $[2000 \quad 2017]$.  An ESPEN data set observation will have WaSH variable values if, and only if,
 
 > 1. The observation has valid geographic co&ouml;rdinates, and
 >
