@@ -4,13 +4,17 @@ sys.source(file = '../R/descriptions/DescriptionSpecies.R', envir = knitr::knit_
 
 # *BACKGROUND* \label{chapter:background}
 
-An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors.  As noted earlier, the geohelminths in focus are *Ascaris lumbricoides*, *Trichuris trichuria*, *Necator americanus / Ancylostoma duodenale* (*Table ...*).  During their adult stages these geohelminths inhabit different parts of the human intestines (*Table ...*) wherein they ``reproduce sexually and produce eggs'' [@Brooker2006]. These eggs exit humans via faeces, whist defaecating.  The eggs mature in the environment [@Montresor2011], and they either
+An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors.  Herein geohelminths infections comprises *ascariasis*, *trichuriasis*, & *hookworm disease*, and the underlying parasites are *A. lumbricoides*, *T. trichiura* & *A. duodenale / N. americanus*, respectively (\cref{tab:T0001}).
 
-> * mature into infective eggs, which infect humans when they are accidentally ingested: Ascaris lumbricoides (roundworm) & Trichuris trichuria (whipworm) [@Brooker2006]
+During their adult stages these geohelminth parasites inhabit different parts of the human intestines wherein they ``reproduce sexually and produce eggs'' [@Brooker2006]. The eggs exit humans via faeces, whilst defaecating, and mature in the environment [@Bethony2006, @Brooker2006, @Montresor2011] - they either
+
+> * mature into infective eggs, which infect humans when they are accidentally ingested: A. lumbricoides, T. trichuria
 >
-> * hatch into infective larvae in the environment, soil, which subsequently infect humans by penetrating the skin: Necator americanus / Ancylostoma duodenale (hookworm) [@Bethony2006]
+> * hatch into infective larvae in the environment, soil, which subsequently infect humans by penetrating the skin: N. americanus / A. duodenale
 
-Considering the transmission dynamics, the WaSH variables hypothesis is understandable.  A number  of factors aid the survival of the eggs, infective eggs, and infective larvae in the environment ...
+These transmission dynamics illustrate why WaSH variables are plausible risk factors.
+
+A number of factors aid the survival of the pre-infective eggs, infective eggs, and infective larvae in the environment.
 
 
 ```{r T0001}
