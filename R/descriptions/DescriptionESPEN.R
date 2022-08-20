@@ -6,13 +6,12 @@
 
 DescriptionESPEN <- function () {
 
-  terms <- c('georeliability', 'longitude, latitude', 'year',
+  terms <- c('longitude, latitude', 'year',
              '\\makecell[l]{hk\\underline{\\hspace{0.125cm}}examined, \\\\ hk\\underline{\\hspace{0.125cm}}positive}',
              '\\makecell[l]{asc\\underline{\\hspace{0.125cm}}examined, \\\\ asc\\underline{\\hspace{0.125cm}}positive}',
              '\\makecell[l]{tt\\underline{\\hspace{0.125cm}}examined, \\\\ tt\\underline{\\hspace{0.125cm}}positive}')
 
   descriptions <- c(
-    "The reliability of an observation's geographic variables.",
     "A site's longitude and latitude co$\\ddot{o}$rdinates.",
     "The observation's year.",
     "The number of individuals examined, and the number testing positive, respectively.$^{1}$.",
