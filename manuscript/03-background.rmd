@@ -4,13 +4,14 @@ sys.source(file = '../R/descriptions/DescriptionSpecies.R', envir = knitr::knit_
 
 # *BACKGROUND* \label{chapter:background}
 
-An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors; subsequently, the veracity of a hypothesis proceeds via explanatory modelling.
+An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors.  As noted earlier, the geohelminths in focus are *Ascaris lumbricoides*, *Trichuris trichuria*, *Necator americanus / Ancylostoma duodenale* (*Table ...*).  During their adult stages these geohelminths inhabit different parts of the human intestines (*Table ...*) wherein they ``reproduce sexually and produce eggs'' [@Brooker2006]. These eggs exit humans via faeces, whist defaecating.  The eggs mature in the environment [@Montresor2011], and they either
 
-During their adult stage, geohelminths inhabit the human intestines
+> * mature into infective eggs, which infect humans when they are accidentally ingested: Ascaris lumbricoides (roundworm) & Trichuris trichuria (whipworm) [@Brooker2006]
+>
+> * hatch into infective larvae in the environment, soil, which subsequently infect humans by penetrating the skin: Necator americanus / Ancylostoma duodenale (hookworm) [@Bethony2006]
 
-The eggs mature in the environment [@Montresor2011].  They   Subsequently
+Considering the transmission dynamics, the WaSH variables hypothesis is understandable.  A number  of factors aid the survival of the eggs, infective eggs, and infective larvae in the environment ...
 
-Infection is via (a) the [accidental] ingestion of eggs in the cases of Ascaris lumbricoides (roundworm) & Trichuris trichuria (whipworm), (b) penetration of the skin via larvae - Necator americanus / Ancylostoma duodenale (hookworm) [@Bethony2006]
 
 ```{r T0001}
 terms <- DescriptionSpecies()
@@ -31,15 +32,10 @@ terms %>%
 ```
 
 
-\cref{tab:T0001} outlines the key geohelminths species [@Montresor2011].  There have been a variety of studies about the effects, or otherwise, of environmental factors, e.g., temperature, rainfall, altitude, soil moisture, relative atmospheric humidity, etc., on geohelminths infections prevalence patterns [@Brooker2006] ...
-
-
-
-
-Adult geohelminths reside in the
-
-
 In line with the World Health Organization's WaSH hypothesis, the studies by Mascarini-Serra et al. [@Serra2010],
 
+Altogether, the transmission dynamics suggests that WaSH factors are possible risk factors, whereas the ecology of free-living eggs - infective & pre-infective - and free-living infective larvae hint at possible environmental & climatic risk factors.^[Free-living: living in the environment, outwith the human host.]
 
+This project predominantly focuses on WaSH factors, this means - most probably - an insufficient collection variables for a predictive model, but sufficient for an explanatory model that models/captures the missing knowledge.
 
+Because WaSH, climatic, geographic, etc., factors have rather different effects on each parasite's life cycle stages, this project focuses on a single parasite class: Hookworm.  It is the most burdensome of the three [Table: Prevalence & DALY]
