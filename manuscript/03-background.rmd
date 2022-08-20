@@ -4,17 +4,22 @@ sys.source(file = '../R/descriptions/DescriptionSpecies.R', envir = knitr::knit_
 
 # *BACKGROUND* \label{chapter:background}
 
-An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors.  Herein geohelminths infections comprises *ascariasis*, *trichuriasis*, & *hookworm disease*, and the underlying parasites are *A. lumbricoides*, *T. trichiura* & *A. duodenale / N. americanus*, respectively (\cref{tab:T0001}).
+An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors.  Herein, geohelminths infections comprises *ascariasis*, *trichuriasis*, & *hookworm disease*, and the underlying parasites are *A. lumbricoides*, *T. trichiura* & *A. duodenale / N. americanus*, respectively (\cref{tab:T0001}).
 
-During their adult stages these geohelminth parasites inhabit different parts of the human intestines wherein they ``reproduce sexually and produce eggs'' [@Brooker2006]. The eggs exit humans via faeces, whilst defaecating, and mature in the environment [@Bethony2006, @Brooker2006, @Montresor2011] - they either
+During their adult stages these geohelminth parasites inhabit different parts of the human intestines, \cref{tab:T0001}, wherein they ``reproduce sexually and produce eggs'' [@Brooker2006]. The eggs exit humans via faeces, whilst defaecating, and mature in the environment [@Bethony2006, @Montresor2011] - they either
 
 > * mature into infective eggs, which infect humans when they are accidentally ingested: A. lumbricoides, T. trichuria
 >
 > * hatch into infective larvae in the environment, soil, which subsequently infect humans by penetrating the skin: N. americanus / A. duodenale
 
-These transmission dynamics illustrate why WaSH variables are plausible risk factors.
+These transmission dynamics illustrate why WaSH variables are plausible risk factors, and a few studies, e.g., @Serra2010, @Norman2010, etc., suggests WaSH variables impact **(a)**geohelminths infections prevalence and incidence, and **(b)** incidences of enteric infections, including geohelminth infections.  However, the $2022$ systematic review & meta-analysis by Garn et al. [@Garn2022] - and by Freeman et al. [@Freeman2017] - suggests the impact evidence is patchy.  Garn et al. note that
 
-A number of factors aid the survival of the pre-infective eggs, infective eggs, and infective larvae in the environment.
+
+> *... The biological plausibility for improved access to WASH to interrupt transmission of STHs is clear, but WASH interventions as currently delivered have shown impacts that were lower than expected. There is a need for more rigorous and targeted implementation research and process evaluations in order that future WASH interventions can better provide benefit to users.*
+
+`r tufte::quote_footer('--- Garn et al. [@Garn2022]')`
+
+An issue to beware of is the quality of the evidence
 
 
 ```{r T0001}
@@ -35,8 +40,8 @@ terms %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l")
 ```
 
+A number of factors aid the survival of the pre-infective eggs, infective eggs, and infective larvae in the environment.  Brooker et al. [@Brooker2006] discuss the ecology of geohelminths, per developmental stage, in-depth.
 
-In line with the World Health Organization's WaSH hypothesis, the studies by Mascarini-Serra et al. [@Serra2010],
 
 Altogether, the transmission dynamics suggests that WaSH factors are possible risk factors, whereas the ecology of free-living eggs - infective & pre-infective - and free-living infective larvae hint at possible environmental & climatic risk factors.^[Free-living: living in the environment, outwith the human host.]
 
