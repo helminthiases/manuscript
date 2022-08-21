@@ -1,10 +1,15 @@
-```{r L0003}
 
-pathstr <- dirname(getwd())
-
+<!--- functions --->
+```{r background functions}
 sys.source(file = '../R/descriptions/DescriptionSpecies.R', envir = knitr::knit_global())
 sys.source(file = '../R/metrics/MetricsSpecies.R', envir = knit_global())
 ```
+
+<!--- settings --->
+```{r background settings}
+pathstr <- dirname(getwd())
+```
+
 
 # *BACKGROUND* \label{chapter:background}
 
