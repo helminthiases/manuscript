@@ -4,20 +4,9 @@ sys.source(file = '../R/descriptions/DescriptionSpecies.R', envir = knitr::knit_
 
 # *BACKGROUND* \label{chapter:background}
 
-An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors.  Herein, geohelminths infections comprises *ascariasis*, *trichuriasis*, & *hookworm disease*, and the underlying parasites are *A. lumbricoides*, *T. trichiura* & *A. duodenale / N. americanus*, respectively (\cref{tab:T0001}).
+An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors.  Herein, geohelminths infections comprises *ascariasis*, *trichuriasis*, & *hookworm disease*, and the underlying parasites are *A. lumbricoides*, *T. trichiura* & *A. duodenale/N. americanus*, respectively (\cref{tab:T0001}).
 
-During their adult stages these geohelminth parasites inhabit different parts of the human intestines, \cref{tab:T0001}, wherein they ``reproduce sexually and produce eggs'' [@Brooker2006]. The eggs exit humans via faeces, whilst defaecating, and mature in the environment [@Bethony2006, @Montresor2011] - they either
-
-> * mature into infective eggs, which infect humans when they are accidentally ingested: A. lumbricoides, T. trichuria
->
-> * hatch into infective larvae in the environment, soil, which subsequently infect humans by penetrating the skin: N. americanus / A. duodenale
-
-These transmission dynamics illustrate why WaSH variables are plausible risk factors, and a few studies, e.g., @Serra2010, @Norman2010, etc., suggests evidence of WaSH variables/interventions impacting **(a)** geohelminths infections prevalence and incidence, and **(b)** incidences of enteric infections, including geohelminth infections.  However, the $2022$ systematic review & meta-analysis by Garn et al. [@Garn2022] - and @Strunz2014, @Freeman2017 - suggests that the quality of the evidence is patchy.  Garn et al. note that
-
-> *... The biological plausibility for improved access to WASH to interrupt transmission of STHs is clear, but WASH interventions as currently delivered have shown impacts that were lower than expected. There is a need for more rigorous and targeted implementation research and process evaluations in order that future WASH interventions can better provide benefit to users.*
-
-`r tufte::quote_footer('--- Garn et al. [@Garn2022]')`
-
+\vspace{10pt}
 
 ```{r T0001}
 terms <- DescriptionSpecies()
@@ -29,15 +18,33 @@ terms %>%
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
-    col.names = kableExtra::linebreak(c('species', 'name')),
-    caption = 'The core geohelminths species that the World Health Organization focuses on.') %>%
+    col.names = kableExtra::linebreak(c('', 'ascariasis', 'trichuriasis', '\\makecell[l]{hookworm\\\\disease}')),
+    caption = 'The core geohelminths species that the World Health Organization focuses on.  In each case the infective stage organism lives in the environment/soil.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
-  kableExtra::add_footnote(label = '', notation = 'none')  %>%
-  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "p{0.18\\\\linewidth}l") %>%
-  kableExtra::column_spec(column = 2, latex_column_spec = "l")
+  kableExtra::add_footnote(label = 'abbrv: abbreviation', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 4, latex_column_spec = "m{0.18\\\\linewidth}l", latex_valign = 'm')
 ```
 
-In the environment, soil, a number of environmental factors aid or affect the survival of the pre-infective eggs, infective eggs (*A. lumbricoides*, *T. trichiura*), and infective larvae (*A. duodenale / N. americanus*).  Brooker et al. [@Brooker2006, @Brooker2000] discuss/review probable and known (a) environmental factors, (b) ecological associations between geohelminths distributions and a variety of environmental factors.  The factors include temperature, soil moisture, relative atmospheric humidity, altitude, and more.  A rather critical observation of these studies is that each species has a different, particular, spectrum of relationships with environmental factors.  For this reason, this project focuses on a single species - Hookworm; it is the most burdensome of the three [Table: Prevalence & DALY].
+\vspace{10pt}
+
+During their adult stages the geohelminths parasites inhabit different parts of the human intestines, \cref{tab:T0001}, wherein they `reproduce sexually and produce eggs' [@Brooker2006]. The eggs exit humans via faeces, whilst defaecating, and mature in the environment.  Therein, they either (@Bethony2006, @Montresor2011)
+
+> * Mature into infective eggs, which infect humans when they are accidentally ingested. This applies to A. lumbricoides and T. trichuria.
+
+> * Hatch into infective larvae in the environment, soil.  The larvae subsequently infect humans by penetrating the skin.  This applies to N. americanus/A. duodenale.
+
+These transmission dynamics illustrate why WaSH variables are plausible risk factors, and a few studies suggests evidence of WaSH interventions impacting **(a)** geohelminths infections prevalence and incidence, and **(b)** incidences of enteric infections, including geohelminth infections (@Serra2010, @Norman2010).  However, a few systematic reviews & meta-analyses suggests that the quality of the evidence is patchy (@Garn2022,  @Strunz2014, @Freeman2017).  The 2022 systematic review & meta-analysis by Garn et al. notes that
+
+> *... The biological plausibility for improved access to WASH to interrupt transmission of STHs is clear, but WASH interventions as currently delivered have shown impacts that were lower than expected. There is a need for more rigorous and targeted implementation research and process evaluations in order that future WASH interventions can better provide benefit to users.*
+
+`r tufte::quote_footer('--- Garn et al. [@Garn2022]')`
+
+\vspace{10pt}
+
+In the environment, soil, a number of environmental factors aid or affect the survival of the pre-infective eggs, infective eggs (*A. lumbricoides*, *T. trichiura*), and infective larvae (*A. duodenale/N. americanus*).  Brooker et al. [@Brooker2006, @Brooker2000] review probable and known **(a)** environmental factors, **(b)** ecological associations between geohelminths distributions and a variety of environmental factors.  The factors include temperature, soil moisture, relative atmospheric humidity, altitude, and more.  A rather critical observation of these studies is that each species has a different, particular, spectrum of relationships with environmental factors.  For this reason, this project focuses on a single species - Hookworm; it is the most burdensome of the three [Table: Prevalence & DALY].
 
 Altogether, the transmission dynamics suggests that WaSH factors are possible risk factors, whereas the ecological associations between geohelminths distributions and a variety of environmental factors suggests that a mix of climatic, topographic, and edaphic factors are also possible risk factors.  This project predominantly focuses on WaSH factors, this means - most probably - an insufficient collection variables for a predictive model, but sufficient for an explanatory model that models/captures the missing knowledge.
 
