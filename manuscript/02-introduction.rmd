@@ -1,20 +1,42 @@
 
-# *INTRODUCTION* \label{chapter:introduction}
-
-Soil transmitted helminths (STH), or geohelminths, are parasitic intestinal worms that cause intestinal nematode infections (INI).  According to the Lancet's latest global burden of disease study (@Lancet2020, @IHME2020), as of 2019 intestinal nematode infections - comprising *ascariasis*, *trichuriasis*, and *hookworm disease* - are the most prevalent of the neglected tropical diseases (\cref{fig:F0014}).  Additionally, INI are the second most burdensome neglected tropical diseases, after dengue (\cref{fig:F0015}).  Therefore, INI are a focus of the World Health Organization (WHO).
-
-\vspace{10pt}
-
-```{r F0014, fig.pos = 'h!', out.width = '85%', out.height = '85%', fig.align = 'center', fig.cap = 'The nine most prevalent neglected tropical diseases as of 2019.  Herein INI (Intestinal Nematode Infections) refers to the three core geohelminths infections: Ascariasis, Trichuriasis, and Hookworm Disease.'}
-knitr::include_graphics(
-  path = file.path('..', 'R', 'graphs', 'RatePrevalence.pdf'),
-  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
-  dpi = NULL,
-  error = getOption(x = "knitr.graphics.error", default = TRUE)
-)
+```{r introduction functions}
+sys.source(file = '../R/metrics/DiseasePrevalence.R', envir = knitr::knit_global())
 ```
 
+```{r introduction settings}
+pathstr <- dirname(getwd())
+```
+
+
+# *INTRODUCTION* \label{chapter:introduction}
+
+Soil transmitted helminths (STH), or geohelminths, are parasitic intestinal worms that cause intestinal nematode infections (INI).  According to the Lancet's latest global burden of disease study [@Lancet2020, @IHME2020], as of 2019 INI - comprising *ascariasis*, *trichuriasis*, and *hookworm disease* - are the most prevalent of the neglected tropical diseases \cref{tab:T0023}.  Additionally, INI are the second most burdensome neglected tropical diseases, after dengue (\cref{fig:F0015}).  Therefore, intestinal nematode infections are a focus of the World Health Organization (WHO).
+
 \vspace{10pt}
+
+
+```{r T0023}
+
+terms <- DiseasePrevalence(pathstr = pathstr)
+
+terms %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    format.args = list(big.mark = ','),
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'prev.\n per\n $100k$', 'lower', 'upper')),
+    caption = 'The five most prevalent neglected tropical diseases during the year 2019.  The unit of measure is prevalence per $100k$ inhabitants.  Data Source: \\href{https://vizhub.healthdata.org/gbd-compare/}{Institute for Health Metrics} $\\&$ \\href{https://www.thelancet.com/journals/lancet/issue/vol396no10258/PIIS0140-6736(20)X0042-0}{The Lancet Global Burden of Disease 2019}') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = 'prev.: prevalence', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, latex_column_spec = "l")
+```
+
+
 
 Intestinal nematode infections prevention, control, and elimination activities depend on knowledge of prevalence [@Montresor2011], and prevalence metrics depend on field surveys, which are rather expensive to conduct.  They are especially expensive when there are no measures to systematically/strategically direct field scientists to survey areas [@Brooker2006].  In the absence of systematic/strategic direction, the field scientists have to survey as wide an area as possible, albeit subject to financial, accessibility, etc., constraints.
 
