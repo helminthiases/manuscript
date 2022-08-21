@@ -1,5 +1,9 @@
 ```{r L0003}
+
+pathstr <- dirname(getwd())
+
 sys.source(file = '../R/descriptions/DescriptionSpecies.R', envir = knitr::knit_global())
+sys.source(file = '../R/metrics/MetricsSpecies.R', envir = knit_global())
 ```
 
 # *BACKGROUND* \label{chapter:background}
@@ -44,7 +48,30 @@ These transmission dynamics illustrate why WaSH variables are plausible risk fac
 
 \vspace{10pt}
 
-In the environment, soil, a number of environmental factors aid or affect the survival of the pre-infective eggs, infective eggs (*A. lumbricoides*, *T. trichiura*), and infective larvae (*A. duodenale/N. americanus*).  Brooker et al. [@Brooker2006, @Brooker2000] review probable and known **(a)** environmental factors, **(b)** ecological associations between geohelminths distributions and a variety of environmental factors.  The factors include temperature, soil moisture, relative atmospheric humidity, altitude, and more.  A rather critical observation of these studies is that each species has a different, particular, spectrum of relationships with environmental factors.  For this reason, this project focuses on a single species - Hookworm; it is the most burdensome of the three [Table: Prevalence & DALY].
+In the environment, soil, a number of environmental factors aid or affect the survival of the pre-infective eggs, infective eggs (*A. lumbricoides*, *T. trichiura*), and infective larvae (*A. duodenale/N. americanus*).  Brooker et al. (@Brooker2006, @Brooker2000) review probable and known **(a)** environmental factors, **(b)** ecological associations between geohelminths distributions and a variety of environmental factors.  The factors include temperature, soil moisture, relative atmospheric humidity, altitude, and more.  A rather critical observation of these reviews is that each species has a different, particular, spectrum of relationships with environmental factors.  Hence, this project focuses on Hookworm disease only, it is the most burdensome of the three diseases (\cref{tab:T0010}).
 
-Altogether, the transmission dynamics suggests that WaSH factors are possible risk factors, whereas the ecological associations between geohelminths distributions and a variety of environmental factors suggests that a mix of climatic, topographic, and edaphic factors are also possible risk factors.  This project predominantly focuses on WaSH factors, this means - most probably - an insufficient collection variables for a predictive model, but sufficient for an explanatory model that models/captures the missing knowledge.
+\vspace{10pt}
+
+```{r T0010}
+terms <- MetricsSpecies(pathstr = pathstr)
+
+terms %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'DALY\n per\n 100k', 'lower', 'upper', 'prev.\n per\n $100k$', 'lower', 'upper')),
+    caption = 'The disability adjusted life years(DALY) per $100k$ inhabitants, and disease prevalence per $100k$ inhabitants.  Data Source: \\href{https://vizhub.healthdata.org/gbd-compare/}{Institute for Health Metrics} $\\&$ \\href{https://www.thelancet.com/journals/lancet/issue/vol396no10258/PIIS0140-6736(20)X0042-0}{The Lancet Global Burden of Disease 2019}') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2, '', 'confidence\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = 'prev.: prevalence', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, latex_column_spec = "l")
+```
+
+\vspace{10pt}
+
+Altogether, the transmission dynamics suggests that WaSH factors are possible risk factors, whereas the ecological associations between geohelminths distributions and a variety of environmental factors suggests that a mix of climatic, topographic, and edaphic factors are also possible risk factors.  This project predominantly focuses on WaSH factors, this means - most probably - an insufficient collection variables for a predictive model, but sufficient for an explanatory model that models the association between a dependent variable and independent variables and concurrently models missing knowledge.
 
