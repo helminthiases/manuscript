@@ -14,7 +14,7 @@ DescriptionESPEN <- function () {
   descriptions <- c(
     "A site's longitude and latitude co$\\ddot{o}$rdinates.",
     "The observation's year.",
-    "The number of individuals examined, and the number testing positive, respectively.$^{1}$.",
+    "The number of individuals examined, and the number testing positive, respectively.$^{1}$",
     "$ditto^{2}$",
     "$ditto^{3}$" )
 
