@@ -59,7 +59,7 @@ terms %>%
     escape = FALSE,
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'DALY\n per\n $100k$', 'lower', 'upper')),
-    caption = 'The five most burdensome neglected tropical diseases during the year 2019.  The unit of measure is disability adjusted life years (DALY) per $100k$ inhabitants, i.e., the number of years lost to disability, ill-health, or early death per 100,000 inhabitants.  Data Source: \\href{https://vizhub.healthdata.org/gbd-compare/}{Institute for Health Metrics} $\\&$ \\href{https://www.thelancet.com/journals/lancet/issue/vol396no10258/PIIS0140-6736(20)X0042-0}{The Lancet Global Burden of Disease 2019}') %>%
+    caption = 'The five most burdensome neglected tropical diseases during the year 2019.  The unit of measure is disability adjusted life years (DALY) per $100k$ inhabitants, i.e., the number of years lost to disability, ill-health, or early death per $100k$ inhabitants.  Data Source: \\href{https://vizhub.healthdata.org/gbd-compare/}{Institute for Health Metrics} $\\&$ \\href{https://www.thelancet.com/journals/lancet/issue/vol396no10258/PIIS0140-6736(20)X0042-0}{The Lancet Global Burden of Disease 2019}') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2)) %>%
   kableExtra::add_footnote(label = 'DALY: disability adjusted life years', notation = 'none')  %>%
