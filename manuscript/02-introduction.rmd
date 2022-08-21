@@ -42,7 +42,7 @@ Intestinal nematode infections prevention, control, and elimination activities d
 
 <br>
 
-An option, in place of expensive field surveys, is INI prevalence predictions.  However, prediction models development depends on knowledge & understandings of probable risk factors (@Murray2020).   Accordingly, a key geohelminths infections prevalence hypothesis, of WHO experts, is that WaSH (water, sanitation, and hygiene) variables might be critical risk factors.  Hence, the project investigates the possibility that one or more WaSH variables are geohelminths infections risk factors that may aid geohelminths infections prevalence prediction.
+An option, in place of expensive field surveys, is INI prevalence predictions.  Prediction model development depends on probable risk factors knowledge & understandings (@Murray2020).   In relation to geohelminths infections, WaSH (water, sanitation, and hygiene) variables are amongst the sets of probable risk factors (@Albonico2006).  However, although there have been a few studies suggesting WaSH variables are geohelminths infections risk factors, the evidence is contentious (@Garn2022, @Freeman2017,  @Strunz2014).  This project investigates the possibility that one or more WaSH variables are geohelminths infections risk factors.
 
 \vspace{10pt}
 
