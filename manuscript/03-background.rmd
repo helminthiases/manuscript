@@ -13,7 +13,7 @@ pathstr <- dirname(getwd())
 
 # *BACKGROUND* \label{chapter:background}
 
-An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to positing possible prevalence risk factors.  Herein, geohelminths infections comprises *ascariasis*, *trichuriasis*, & *hookworm disease*, and the underlying parasites are *A. lumbricoides*, *T. trichiura* & *A. duodenale/N. americanus*, respectively (\cref{tab:T0001}).
+An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to proposing possible prevalence risk factors.  Herein, geohelminths infections comprises *ascariasis*, *trichuriasis*, & *hookworm disease*, and the underlying parasites are *A. lumbricoides*, *T. trichiura* & *A. duodenale/N. americanus*, respectively (\cref{tab:T0001}).
 
 \vspace{10pt}
 
