@@ -1,7 +1,7 @@
 
 # *EXPLORATORY ANALYSIS* \label{chapter:exploration}
 
-This project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records.
+The \nameref{chapter:background} chapter notes that this project focuses on *Hookworm disease*.  In terms of data, the project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records.
 
 
 ```{r T0007}
@@ -23,22 +23,27 @@ T %>%
 ```
 
 
-## The Distribution
+## The Distribution of Survey Experiments Sites & Prevalence Values
 
 \cref{fig:F0001} illustrates the distribution of survey experiments sites across Togo.  The data set's survey experiments occurred during the years $2009$ & $2015$.  However, the years only have $4$ survey experiments sites in common, hence the questions
 
-> * How similar or dissimilar are the characteristics of the probable risk factors of proximal survey experiment sites?
+\vspace{10pt}
+
+> * How similar or dissimilar are proximal survey experiment sites vis-&agrave;-vis probable risk factors?
 >
 > * Is it possible to infer the $2009$ prevalence of a site, which was only surveyed in $2015$, via the prevalence of proximal $2009$ locations - and vice versa?
 >
-> * Are there sufficient data points for determining possible patterns of association between *prevalence* and *probable risk factors* - considering the disparate distribution of sites across the years?
+> * Are there sufficient data points for determining possible patterns of association between *prevalence* & *probable risk factors* - considering the disparate distribution of sites across the years?
+
+\vspace{10pt}
 
 These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.
 
 \vspace{10pt}
 
-\cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.  Regardless of the sites, do the distributions reflect patterns of prevalence distributions overtime, due to interventions?    Unclear.  Yes, successful interventions will reduce prevalence over time, but its improbable that all interventions have been successful, and patterns of prevalence distribution probably depend on starting prevalence values.
+\cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.  Regardless of the sites, do the distributions reflect patterns of prevalence distributions overtime, due to interventions?    Unclear.  Yes, the aim of interventions is the reduction of INI prevalence over time, but it is improbable that all interventions have been successful, and patterns of prevalence distribution probably depend on starting prevalence values.
 
+\vspace{15pt}
 
 <!--- survey experiments sites
       trim: left bottom right top --->
@@ -51,6 +56,7 @@ knitr::include_graphics(
 )
 ```
 
+\vspace{15pt}
 
 <!--- prevalence --->
 ```{r F0002, fig.pos = 'h!', out.width = '65%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections prevalence during the years 2009 and 2015'}
