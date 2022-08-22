@@ -1,6 +1,6 @@
 
 
-```{r L0002}
+```{r preliminary functions}
 sys.source(file = '../R/descriptions/DescriptionAlgorithms.R', envir = knitr::knit_global())
 ```
 
