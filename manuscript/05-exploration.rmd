@@ -14,11 +14,11 @@ T %>%
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
-    col.names = kableExtra::linebreak(c('year', 'N')),
-    caption = 'A tally of Togo\'s geohelminths infections survey experiments records. N denotes number of records.') %>%
+    col.names = kableExtra::linebreak(c('year', 'number of\nrecords')),
+    caption = 'A tally of Togo\'s geohelminths infections survey experiments records.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
-  kableExtra::column_spec(column = 2, latex_column_spec = "m{0.235\\\\linewidth}l", latex_valign = 'm')
+  kableExtra::column_spec(column = 2, latex_column_spec = "m{0.135\\\\linewidth}l", latex_valign = 'm')
 
 ```
 
@@ -28,15 +28,21 @@ T %>%
 \cref{fig:F0001} illustrates the distribution of survey experiments sites across Togo.  The data set's survey experiments occurred during the years $2009$ & $2015$.  However, the years only have $4$ survey experiments sites in common, hence the questions
 
 > * How similar or dissimilar are the characteristics of the probable risk factors of proximal survey experiment sites?
+>
 > * Is it possible to infer the $2009$ prevalence of a site, which was only surveyed in $2015$, via the prevalence of proximal $2009$ locations - and vice versa?
-> * Are there enough data points to determine possible patterns of association between *prevalence* and *probable risk factors* - considering the disparate distribution of sites across the years?
+>
+> * Are there sufficient data points for determining possible patterns of association between *prevalence* and *probable risk factors* - considering the disparate distribution of sites across the years?
 
-These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.  \cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.  Regardless of the sites, do the distributions reflect patterns of prevalence distributions overtime, due to interventions?    Unclear.  Yes, successful interventions will reduce prevalence over time, but its improbable that all interventions have been successful, and patterns of prevalence distribution probably depend on starting prevalence values.
+These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.
+
+\vspace{10pt}
+
+\cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.  Regardless of the sites, do the distributions reflect patterns of prevalence distributions overtime, due to interventions?    Unclear.  Yes, successful interventions will reduce prevalence over time, but its improbable that all interventions have been successful, and patterns of prevalence distribution probably depend on starting prevalence values.
 
 
 <!--- survey experiments sites
       trim: left bottom right top --->
-```{r F0001, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '85%', out.width = '85%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections examinations sites in Togo; only 4 sites were examinations sites during both years.'}
+```{r F0001, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '85%', out.width = '85%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections survey experiments sites in Togo during the years $2009$ $\\&$ $2015$; the years only have 4 sites in common.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'distributions', 'mapDistributions.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
