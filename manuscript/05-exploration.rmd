@@ -1,7 +1,7 @@
 
 # *EXPLORATORY ANALYSIS* \label{chapter:exploration}
 
-The \nameref{chapter:background} chapter notes that this project focuses on *Hookworm disease*.  In terms of data, the project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records.
+The \hyperref[chapter:background]{Background} chapter notes that this project focuses on *Hookworm disease*.  In terms of data, the project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records.
 
 
 ```{r T0007}
@@ -14,7 +14,7 @@ T %>%
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
-    col.names = kableExtra::linebreak(c('year', 'number of\nrecords')),
+    col.names = kableExtra::linebreak(c('year', '\\makecell[l]{number of \\\\ records}')),
     caption = 'A tally of Togo\'s geohelminths infections survey experiments records.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
@@ -41,7 +41,7 @@ These questions have a bearing on explanatory model development, and partly defi
 
 \vspace{10pt}
 
-\cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.  Regardless of the sites, do the distributions reflect patterns of prevalence distributions overtime, due to interventions?    Unclear.  Yes, the aim of interventions is the reduction of INI prevalence over time, but it is improbable that all interventions have been successful, and patterns of prevalence distribution probably depend on starting prevalence values.
+\cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.  Setting aside the disparate $2009$ & $2015$ sites, do the prevalence distributions reflect *generic patterns of prevalence distributions overtime due to interventions*?    Unclear.  Yes, the aim of interventions is the reduction of INI prevalence over time, but it is improbable that all interventions have been successful, and patterns of prevalence distribution probably depend on starting prevalence values.
 
 \vspace{15pt}
 
