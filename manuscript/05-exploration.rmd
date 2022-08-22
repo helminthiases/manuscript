@@ -23,7 +23,8 @@ T %>%
 
 ## The Distribution of Examinations Sites
 
-```{r F0001, fig.pos = 'h!', out.extra = 'trim=5 135 15 135,clip', out.height = '42.5%', dpi = 175, fig.align = 'center', fig.cap = 'The distribution of geohelminths infections examinations sites in Togo; only 4 sites were examinations sites during both years.'}
+<!---trim: left bottom right top --->
+```{r F0001, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '85%', out.width = '85%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections examinations sites in Togo; only 4 sites were examinations sites during both years.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'distributions', 'mapDistributions.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
