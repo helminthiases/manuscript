@@ -13,7 +13,11 @@ The previous chapter graphically explores empirical relationships between *Hookw
 
 In preparation for Binomial geostatistical modelling, the objective of this chapter is to
 
+\vspace{5pt}
+
 > *investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between ``prevalence`` and ``zero or more extraneous independent variables``.*
+
+\vspace{5pt}
 
 \noindent Each *preliminary empirical relationship model*, henceforth *preliminary model*, is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field (@Cressie1993, @Matheron1963).  The models of the \hyperref[chapter:geo]{geostatistical binomial logistic models} chapter are derivations of the preliminary models that exhibit residual spatial correlation, i.e., an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
 
@@ -45,13 +49,7 @@ terms %>%
 
 ## A Generalised Linear Mixed Model with Multiple Random Effects
 
-In general, the key assumptions of generalised linear mixed models are
-
-> * The observations are independent.
->
-> * The values of each independent variable are error free.
-
-\noindent Initially, the preliminary model structure of interest is the GLMM
+In general, the key assumptions of generalised linear mixed models are **(a)** the observations are independent, and **(b)** the values of each independent variable are error free.  Initially, the preliminary model structure of interest is the GLMM
 \begin{align}
 Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0001) \\
 \eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
@@ -79,10 +77,13 @@ The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of 
 
 There is a key challenge in relation to the GLMM of \cref{eq:0001} and Togo's *Hookworm disease* data:
 
+\vspace{5pt}
+
 > *The residual spatial correlation tests of each preliminary model is inconclusive.  In each case the design, i.e., fixed-effect, matrix is rank deficient due to insufficient data.*
 
-\noindent The linear predictors $\eta_{i}$ of two of the preliminary models in question are
+\vspace{5pt}
 
+\noindent The linear predictors $\eta_{i}$ of two of the preliminary models in question are
 \begin{align}
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0029) \\
          & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
@@ -92,18 +93,24 @@ and
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density)}(x_{i}) (\#eq:0030) \\
 & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
 \end{align}
-Each reflects the sometimes inconclusive relationships, between *prevalence* & *extraneous independent variables*, outlined within the \hyperref[chapter:exploration]{exploratory analysis} chapter (\cref{fig:F0003,fig:F0013,fig:F007}). In each case, and in accordance with the hypotheses
+Each reflects the sometimes inconclusive relationships, between *prevalence* & *extraneous independent variables*, outlined within the \hyperref[chapter:exploration]{exploratory analysis} chapter (\cref{fig:F0003,F0013,F007}).
+
+In terms of the models' coefficients, in accordance with the hypotheses
+
+\vspace{5pt}
 
 > $H_{0}: \beta_{j} = 0$
 >
 > $H_{1}: \beta_{j} \neq 0$
 
-\noindent there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at the significance level $0.05$.  The stability of these observations, in the presence of sufficient data, is uncertain.  Hence, **the project proceeds modelling via the single year data sets**.
+\vspace{5pt}
+
+\noindent there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at the significance level $0.05$.  However, the stability of these observations, in the presence of sufficient data, is uncertain.  Hence, **the project proceeds modelling via the single year data sets**.
 
 
 ## A Generalised Linear Mixed Model with a Single Random Effect
 
-I the case of single year data sets, the GLMM becomes
+In the case of single year data sets, the GLMM becomes
 \begin{align}
 Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0006) \\
 \eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
@@ -113,20 +120,19 @@ wherein
 \begin{equation}
 \mathbf{b} \sim \mathcal{N}(0, \tau^{2}_{b}\mathbf{I}_{b}) (\#eq:0007)
 \end{equation}
-The difference between this model and  \cref{eq:0001} is the absence of a year random effects term in this model.  The definition of each term remains the same.
+The difference between this model and  \cref{eq:0001} is the absence of a *year* random effects term in this model.  The definition of each term remains the same.
 
+Leading on from the aforementioned preliminary models, with linear predictors \cref{eq:0029,0030}, this section focuses on models with linear predictors
 
-... the models with fixed term vectors
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) =
-\begin{cases}
-[1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}), \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] \\
-[1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}), ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})]
-\end{cases} (\#eq:0005)
-\end{equation}
-\normalsize
-were the viable models for geo-statistical extensions.
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0031) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
+\end{align}
+and
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density)}(x_{i}) (\#eq:0032) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
+\end{align}
 
 \clearpage
 
