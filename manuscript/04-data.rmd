@@ -54,7 +54,7 @@ The project uses Steyerberg's method (@Steyerberg2010, Section 7.7.1) to determi
 
 > $\mathbf{H_{1}}$: It is quite probable that the missing values of the independent variable are predictable via the dependent variables and other independent variables.
 
-The implication of rejecting the null hypothesis $H_{0}$ is that the missing values **are not missing completely at random**.  In the terms of the ESPEN project, particularly the core values of \cref{tab:T0002}, the independent variables are $year$ & $co\ddot{o}rdinates$, whereby
+\noindent The implication of rejecting the null hypothesis $H_{0}$ is that the missing values **are not missing completely at random**.  In the terms of the ESPEN project, particularly the core values of \cref{tab:T0002}, the independent variables are $year$ & $co\ddot{o}rdinates$, whereby
 
 > $$\textit{co\"{o}rdinates} = (\textit{longitude}, \textit{latitude})$$
 
