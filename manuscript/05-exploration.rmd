@@ -99,7 +99,7 @@ knitr::include_graphics(
 
 ## Elevation
 
-\cref{fig:F0007} illustrates the relationship between *prevalence* & *elevation*.  Again, a definitive relationship is not discernible.
+\cref{fig:F0007} illustrates the relationship between *prevalence* & *elevation*.  A definitive relationship is not discernible.
 
 ```{r F0007, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between $\\textit{Hookworm disease}$ prevalence and elevation.  The fitted lines are for pattern observation purposes, and the fitting functions are $y = mx + c$ $\\&$ $\\textit{cubic splines}$, dashed lines $\\&$' solid lines, respectively.'}
 knitr::include_graphics(
@@ -110,26 +110,15 @@ knitr::include_graphics(
 )
 ```
 
+## Population Density
 
+\cref{fig:F0013} illustrates the relationship between *prevalence* & *population density*.  Again, a definitive relationship is not discernible.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```{r F0013, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between $\\textit{Hookworm disease}$ prevalence and population density.  The fitted lines are for pattern observation purposes, and the fitting functions are $y = mx + c$ $\\&$ $\\textit{cubic splines}$, dashed lines $\\&$' solid lines, respectively.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'reference', 'extraneous', 'disaggregatePopulationDensityReal.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
