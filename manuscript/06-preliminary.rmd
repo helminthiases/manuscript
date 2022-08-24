@@ -93,7 +93,13 @@ and
 & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
 \end{align}
 
-Hence, the project proceeds modelling via the single year data sets.
+Each reflects the sometimes inconclusive relationships, between *prevalence* & *extraneous independent variables*, outlined within the \hyperref[chapter:exploration]{exploratory analysis} chapter (\cref{fig:F0003, fig:F0013, fig:F007}). In each case, and in accordance with the hypotheses
+
+> $H_{0}: \beta_{j} = 0$
+>
+> $H_{1}: \beta_{j} \neq 0$
+
+there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall j$, at the significance level $0.05$.  The stability of these observations, in the presence of sufficient data, is uncertain.  Hence, **the project proceeds modelling via the single year data sets**.
 
 
 ## A Generalised Linear Mixed Model with a Single Random Effect
