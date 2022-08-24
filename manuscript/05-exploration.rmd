@@ -1,8 +1,7 @@
 
 # *EXPLORATORY ANALYSIS* \label{chapter:exploration}
 
-The \hyperref[chapter:background]{Background} chapter notes that this project focuses on *Hookworm disease*.  In terms of data, the project's underlying data set is the Togo data set; it is the best vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records.
-
+The \hyperref[chapter:background]{background} chapter notes that this project focuses on *Hookworm disease*, henceforth all data explorations, modelling, and analysis are in relation to *Hookworm disease*.  In terms of data, the project's underlying data set is the Togo data set.  It is the best data set vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records; the missing data pattern is *missing completely at random*.
 
 ```{r T0007}
 T <- read.csv(file = file.path(dirname(getwd()), 'warehouse', 'reference', 'frequencies', 'timeFrequencies.csv'))
@@ -23,7 +22,7 @@ T %>%
 ```
 
 
-## The Distribution of Survey Experiments Sites & Prevalence Values
+## Geohelminths Infections Survey Experiments: Distributions of Sites & Prevalence
 
 \cref{fig:F0001} illustrates the distribution of survey experiments sites across Togo.  The data set's survey experiments occurred during the years $2009$ & $2015$.  However, the years only have $4$ survey experiments sites in common, hence the questions
 
@@ -71,6 +70,22 @@ knitr::include_graphics(
 
 ## WaSH
 
+\cref{fig:F0003} illustrates the relationship between $prevalence$ & the access values of three WaSH (water, sanitation, and hygiene) variables: $piped\;sewer$, $unpiped\;sewer$, and *surface sewer*, i.e., open defaecation.  Each graph's prevalence values are actually *empirical logit*(*prevalence*) values:
+\begin{equation}
+\textit{empirical} \textit{logit}(\textit{prevalence}) = \frac{p + 0.5}{n + 0.5} (\#eq:0023)
+\end{equation}
+wherein
+\begin{align}
+  p: & \text{\# of inhabitants that test positive} \nonumber \\
+  n: & \text{\# of inhabitants that test negative} \nonumber
+\end{align}
+in acknowledgement of the fact that the project's focus is Binomial models.  The fitted lines are for pattern investigation purposes, the fitting functions, throughout this chapter, are
+> * dashed lines: $y = mx + c$
+>
+> * solid lines: cubic splines
+
+It is difficult to suggest the relationship patterns of \cref{fig:F0003}.  Only the $piped \; sewer$ graph illustrates a similar relationship pattern between $prevalence$ & $piped \; sewer$ across the years.
+
 ```{r F0003, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and access to sewage facilities$\\;$ an access fraction of 1 means $100\\%$ of the population has access.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'sewer', 'disaggregateSewerReal.pdf'),
@@ -81,11 +96,11 @@ knitr::include_graphics(
 ```
 
 
-## Elevation & Population Density
+## Elevation
 
-```{r F0007, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and (a) elevation, (b) population density.'}
+```{r F0007, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and elevation.'}
 knitr::include_graphics(
-  path = file.path('..', 'warehouse', 'reference', 'miscellaneous', 'disaggregateMiscellaneousReal.pdf'),
+  path = file.path('..', 'warehouse', 'reference', 'extraneous', 'disaggregateElevationReal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
   dpi = NULL,
   error = getOption(x = "knitr.graphics.error", default = TRUE)
