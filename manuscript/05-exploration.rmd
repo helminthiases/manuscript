@@ -76,17 +76,18 @@ knitr::include_graphics(
 \end{equation}
 wherein
 \begin{align}
-  p: & \text{\# of inhabitants that test positive} \nonumber \\
-  n: & \text{\# of inhabitants that test negative} \nonumber
+  p: & \; \text{\# of inhabitants that test positive} \nonumber \\
+  n: & \; \text{\# of inhabitants that test negative} \nonumber
 \end{align}
-in acknowledgement of the fact that the project's focus is Binomial models.  The fitted lines are for pattern investigation purposes, the fitting functions, throughout this chapter, are
+in acknowledgement of the fact that the project's focus is Binomial models.  The fitted lines are for pattern investigation purposes, and the fitting functions, throughout this chapter, are
+
 > * dashed lines: $y = mx + c$
 >
 > * solid lines: cubic splines
 
-It is difficult to suggest the relationship patterns of \cref{fig:F0003}.  Only the $piped \; sewer$ graph illustrates a similar relationship pattern between $prevalence$ & $piped \; sewer$ across the years.
+It is difficult to definitively state the relationship patterns of \cref{fig:F0003}.  On the other hand, only the $piped \; sewer$ graph illustrates a similar relationship pattern between $prevalence$ & $piped \; sewer$ across the years.
 
-```{r F0003, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and access to sewage facilities$\\;$ an access fraction of 1 means $100\\%$ of the population has access.'}
+```{r F0003, fig.pos = 'h!', out.height = '65%', fig.align = 'center', fig.cap = 'The relationships between $\\textit{Hookworm disease}$ prevalence $\\&$ access to sewage facilities$\\;$ $1 \equiv 100\\%$, which means $100%$ of the population has access.  The fitted lines are for pattern observation purposes, and the fitting functions are $y = mx + c$ $\\&$ $\\textit{cubic splines}$, dashed lines $\\&$' solid lines, respectively.}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'sewer', 'disaggregateSewerReal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -97,6 +98,8 @@ knitr::include_graphics(
 
 
 ## Elevation
+
+
 
 ```{r F0007, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and elevation.'}
 knitr::include_graphics(
