@@ -7,16 +7,17 @@ sys.source(file = '../R/descriptions/DescriptionAlgorithms.R', envir = knitr::kn
 
 # *PRELIMINARY INVESTIGATION* \label{chapter:preliminary}
 
-The previous chapter graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This chapter explores plausible empirical relationships models.
+The previous chapter graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This chapter explores plausible empirical relationships models.  As noted before, this project's outcome of interest is [*Hookworm disease*] *prevalence*, which is a proportion value.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.
 
-As noted before, this project's outcome of interest is *prevalence*, i.e., *Hookworm disease* prevalence, which is a proportion value.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.  In preparation for Binomial geostatistical modelling, the objective of this chapter is to
+\vspace{10pt}
+
+In preparation for Binomial geostatistical modelling, the objective of this chapter is to
 
 > *investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between ``prevalence`` and ``zero or more extraneous independent variables``.*
 
-Each **preliminary model** is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field [@Cressie1993], [@Matheron1963].
+\noindent Each *preliminary empirical relationship model*, henceforth *preliminary model*, is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field (@Cressie1993, @Matheron1963).  The models of the \hyperref[chapter:geo]{geostatistical binomial logistic models} chapter are derivations of the preliminary models that exhibit residual spatial correlation, i.e., an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
 
-The models of the next chapter are derivations of the preliminary models that exhibit residual spatial correlation, i.e., an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
-
+\vspace{10pt}
 
 \cref{tab:T0004} summarises this chapter's common notations.
 
@@ -32,7 +33,7 @@ terms %>%
     escape = FALSE,
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('notation', 'description')),
-    caption = 'The notations used at various points of this chapter.') %>%
+    caption = 'The notations used at various points of this chapter, ad subsequent chapters.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_footnote(label = '', notation = 'none')  %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
@@ -42,17 +43,15 @@ terms %>%
 
 \vspace{25pt}
 
-## The Generalised Linear Mixed Models
+## A Generalised Linear Mixed Model with Multiple Random Effects
 
-The key assumptions of these models are
+In general, the key assumptions of generalised linear mixed models are
 
 > * The observations are independent.
 >
 > * The values of each independent variable are error free.
 
-\vspace{10pt}
-
-The **preliminary model** structure of interest is the **generalised linear mixed model** (GLMM) of structure
+\noindent Initially, the preliminary model structure of interest is the GLMM
 \begin{align}
 Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0001) \\
 \eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
@@ -64,9 +63,11 @@ wherein
 \mathbf{c} & \sim \mathcal{N}(0, \tau^{2}_{c}\mathbf{I}_{c}) \nonumber
 \end{align}
 
-It is a Binomial GLMM because the outcome values, prevalence, are proportions.  \cref{tab:T0004} defines the terms of each equation.  The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients (\cref{tab:T0001}).  In this investigation, the independent variables are the aforementioned WaSH variables, population density, and elevation (\cref{tab:T0003}), i.e., the extraneous variables.
+\noindent It is a Binomial GLMM because the prevalence values are proportions.  \cref{tab:T0004} defines most of the terms of the equations.  The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients.  The independent variables are one or more of the extraneous variables(\cref{tab:T0003}).
 
-Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``identifier`` & ``year``, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
+\vspace{10pt}
+
+Additionally, $b_{i}$ & $c_{i}$ are the random effects terms, in relation to *identifier* & *year*, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
 
 > * Mutually independent, and identically distributed.
 >
@@ -74,7 +75,28 @@ Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``id
 
 The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of distinct locations, whilst the diagonal length of $\mathbf{I}_{c}$ is the number of distinct years.
 
-\vspace{10pt}
+### Limitations
+
+There is a key challenge in relation to the GLMM of \cref{eq:0001} and Togo's *Hookworm disease* data:
+
+> *The residual spatial correlation tests of each preliminary model is inconclusive.  In each case the design, i.e., fixed-effect, matrix is rank deficient due to insufficient data.*
+
+\noindent The linear predictors $\eta_{i}$ of two of the preliminary models in question are
+
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0029) \\
+         & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
+\end{align}
+and
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density)}(x_{i}) (\#eq:0030) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
+\end{align}
+
+Hence, the project proceeds modelling via the single year data sets.
+
+
+## A Generalised Linear Mixed Model with a Single Random Effect
 
 A second  **generalised linear mixed model** (GLMM) structure
 \begin{align}
@@ -90,7 +112,6 @@ models the data of a single year.
 
 \vspace{25pt}
 
-## Modes of Evaluation
 
 The assessment of each considered GLMM model is via the hypotheses
 
@@ -103,8 +124,6 @@ Let $0.05$ be the $p_{value}$ significance level, then there is evidence in favo
 
 \vspace{25pt}
 
-
-## The Viable Preliminary Models
 
 Togo's data set is a data set of two years: $2009$, $2015$.  Due to rank deficiency, insufficient data, in relation to \cref{eq:0001}, it is not possible to model the data of both years together.  Hence, the focus is a single year's data - $2015$; for modelling purposes, the $2009$ data set is rather small, relative to its spatial spread (\cref{fig:F0001}).
 
