@@ -92,19 +92,18 @@ and
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density)}(x_{i}) (\#eq:0030) \\
 & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
 \end{align}
-
-Each reflects the sometimes inconclusive relationships, between *prevalence* & *extraneous independent variables*, outlined within the \hyperref[chapter:exploration]{exploratory analysis} chapter (\cref{fig:F0003, fig:F0013, fig:F007}). In each case, and in accordance with the hypotheses
+Each reflects the sometimes inconclusive relationships, between *prevalence* & *extraneous independent variables*, outlined within the \hyperref[chapter:exploration]{exploratory analysis} chapter (\cref{fig:F0003,fig:F0013,fig:F007}). In each case, and in accordance with the hypotheses
 
 > $H_{0}: \beta_{j} = 0$
 >
 > $H_{1}: \beta_{j} \neq 0$
 
-there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall j$, at the significance level $0.05$.  The stability of these observations, in the presence of sufficient data, is uncertain.  Hence, **the project proceeds modelling via the single year data sets**.
+\noindent there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at the significance level $0.05$.  The stability of these observations, in the presence of sufficient data, is uncertain.  Hence, **the project proceeds modelling via the single year data sets**.
 
 
 ## A Generalised Linear Mixed Model with a Single Random Effect
 
-A second  **generalised linear mixed model** (GLMM) structure
+I the case of single year data sets, the GLMM becomes
 \begin{align}
 Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0006) \\
 \eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
@@ -114,26 +113,8 @@ wherein
 \begin{equation}
 \mathbf{b} \sim \mathcal{N}(0, \tau^{2}_{b}\mathbf{I}_{b}) (\#eq:0007)
 \end{equation}
-models the data of a single year.
+The difference between this model and  \cref{eq:0001} is the absence of a year random effects term in this model.  The definition of each term remains the same.
 
-\vspace{25pt}
-
-
-The assessment of each considered GLMM model is via the hypotheses
-
-> $H_{0}: \beta_{j} = 0$
->
-> $H_{1}: \beta_{j} \neq 0$
-
-Let $0.05$ be the $p_{value}$ significance level, then there is evidence in favour of the alternative hypothesis, $H_{1}$, if the estimated coefficient's $p_{value} < 0.05$.  The comparison of the models, w.r.t. the same GLMM structure, is via deviance/AIC (Akaike Information Criterion).
-
-
-\vspace{25pt}
-
-
-Togo's data set is a data set of two years: $2009$, $2015$.  Due to rank deficiency, insufficient data, in relation to \cref{eq:0001}, it is not possible to model the data of both years together.  Hence, the focus is a single year's data - $2015$; for modelling purposes, the $2009$ data set is rather small, relative to its spatial spread (\cref{fig:F0001}).
-
-\vspace{10pt}
 
 ... the models with fixed term vectors
 \small
