@@ -26,7 +26,7 @@ T %>%
 
 \cref{fig:F0001} illustrates the distribution of survey experiments sites across Togo.  The data set's survey experiments occurred during the years $2009$ & $2015$.  However, the years only have $4$ survey experiments sites in common, hence the questions
 
-\vspace{10pt}
+\vspace{5pt}
 
 > * How similar or dissimilar are proximal survey experiment sites vis-&agrave;-vis probable risk factors?
 >
@@ -34,9 +34,9 @@ T %>%
 >
 > * Are there sufficient data points for determining possible patterns of association between *prevalence* & *probable risk factors* - considering the disparate distribution of sites across the years?
 
-\vspace{10pt}
+\vspace{5pt}
 
-These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.
+\noindent These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.
 
 \vspace{10pt}
 
@@ -83,9 +83,11 @@ wherein
   p: & \; \text{\# of inhabitants that test positive} \nonumber \\
   n: & \; \text{\# of inhabitants that test negative} \nonumber
 \end{align}
-in acknowledgement of the fact that the project's focus is Binomial models.  The fitted lines are for pattern investigation purposes, and the fitting functions, throughout this chapter, are **(a)** dashed lines: $y = mx + c$, and **(b)** solid lines: cubic splines.
+in acknowledgement of the fact that the project's focus is Binomial models.  The fitted lines are for pattern investigation purposes, and the fitting functions, throughout this chapter, are **(a)** dashed lines: $y = mx + c$,^[$y = mx + c$ is the equation of a straight line wherein $m$ is the gradient, and $c$ is the intercept.] and **(b)** solid lines: cubic splines.
 
-It is difficult to definitively state the relationship patterns of \cref{fig:F0003}.  On the other hand, only the $piped \; sewer$ graph illustrates a similar relationship pattern between $prevalence$ & $piped \; sewer$ across the years.
+\vspace{10pt}
+
+It is difficult to definitively state the relationship patterns of \cref{fig:F0003}.  The $piped \; sewer$ graph exhibits the strongest relationship pattern  - according to the fitting function $y = mx + c$, each year's prevalence decreases with increasing access to piped sewers.
 
 ```{r F0003, fig.pos = 'h!', out.height = '77.5%', out.width = '77.5%', fig.align = 'center', fig.cap = 'The relationships between $\\textit{Hookworm disease}$ prevalence $\\&$ access to sewage facilities; $1 \\equiv 100\\%$, which means $100\\%$ of the population has access.  The fitted lines are for pattern observation purposes, and the fitting functions are $y = mx + c$ $\\&$ $\\textit{cubic splines}$, dashed lines $\\&$ solid lines, respectively.'}
 knitr::include_graphics(
@@ -100,7 +102,7 @@ knitr::include_graphics(
 
 ## Elevation
 
-\cref{fig:F0007} illustrates the relationship between *prevalence* & *elevation*.  A definitive relationship is not discernible.
+\cref{fig:F0007} illustrates the relationship between *prevalence* & *elevation*.  A definitive relationship is not discernible.  Each year, to varying degrees, the graph suggests an inverse relationship between prevalence and elevation.
 
 ```{r F0007, fig.pos = 'h!', out.height = '65%', out.width = '65%', fig.align = 'center', fig.cap = 'The relationships between $\\textit{Hookworm disease}$ prevalence and elevation.  The fitted lines are for pattern observation purposes, and the fitting functions are $y = mx + c$ $\\&$ $\\textit{cubic splines}$, dashed lines $\\&$ solid lines, respectively.'}
 knitr::include_graphics(
@@ -113,11 +115,11 @@ knitr::include_graphics(
 
 ## Population Density
 
-\cref{fig:F0013} illustrates the relationship between *prevalence* & *population density*.  Again, a definitive relationship is not discernible.
+\cref{fig:F0013} illustrates the relationship between *prevalence* & *population density*.  Again, a definitive relationship is not discernible, but it is possible that prevalence is inversely proportional to population density.
 
 ```{r F0013, fig.pos = 'h!', out.height = '65%', out.width = '65%', fig.align = 'center', fig.cap = 'The relationships between $\\textit{Hookworm disease}$ prevalence and population density.  The fitted lines are for pattern observation purposes, and the fitting functions are $y = mx + c$ $\\&$ $\\textit{cubic splines}$, dashed lines $\\&$ solid lines, respectively.'}
 knitr::include_graphics(
-  path = file.path('..', 'warehouse', 'reference', 'extraneous', 'disaggregatePopulationDensityReal.pdf'),
+  path = file.path('..', 'warehouse', 'reference', 'extraneous', 'disaggregatePopulationDensityLN.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
   dpi = NULL,
   error = getOption(x = "knitr.graphics.error", default = TRUE)
