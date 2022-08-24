@@ -99,9 +99,9 @@ knitr::include_graphics(
 
 ## Elevation
 
+\cref{fig:F0007} illustrates the relationship between *prevalence* & *elevation*.  Again, a definitive relationship is not discernible.
 
-
-```{r F0007, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between Hookworm disease infections prevalence and elevation.'}
+```{r F0007, fig.pos = 'h!', out.height = '85%', fig.align = 'center', fig.cap = 'The relationships between $\\textit{Hookworm disease}$ prevalence and elevation.  The fitted lines are for pattern observation purposes, and the fitting functions are $y = mx + c$ $\\&$ $\\textit{cubic splines}$, dashed lines $\\&$' solid lines, respectively.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'extraneous', 'disaggregateElevationReal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
