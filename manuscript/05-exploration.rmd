@@ -1,7 +1,7 @@
 
 # *EXPLORATORY ANALYSIS* \label{chapter:exploration}
 
-The \hyperref[chapter:background]{background} chapter notes that this project focuses on *Hookworm disease*, henceforth all data explorations, modelling, and analysis are in relation to *Hookworm disease*.  In terms of data, the project's underlying data set is the Togo data set.  It is the best data set vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records; the missing data pattern is *missing completely at random*.
+The \hyperref[chapter:background]{background} chapter notes that this project focuses on *Hookworm disease*, henceforth all data explorations, modelling, and analysis are in relation to *Hookworm disease*, and prevalence is the dependent/outcome variable in every case.  In terms of data, the project's underlying data set is the Togo data set.  It is the best data set vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records; the missing data pattern is *missing completely at random*.
 
 ```{r T0007}
 T <- read.csv(file = file.path(dirname(getwd()), 'warehouse', 'reference', 'frequencies', 'timeFrequencies.csv'))
@@ -50,7 +50,7 @@ Setting aside the disparate $2009$ & $2015$ sites, do the prevalence distributio
 
 <!--- survey experiments sites
       trim: left bottom right top --->
-```{r F0001, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '85%', out.width = '85%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections survey experiments sites in Togo during the years $2009$ $\\&$ $2015$; the years only have 4 sites in common.'}
+```{r F0001, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '80%', out.width = '80%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections survey experiments sites in Togo during the years $2009$ $\\&$ $2015$; the years only have 4 sites in common.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'distributions', 'mapDistributions.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
