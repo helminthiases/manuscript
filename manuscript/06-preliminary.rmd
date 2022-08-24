@@ -9,7 +9,7 @@ sys.source(file = '../R/descriptions/DescriptionAlgorithms.R', envir = knitr::kn
 
 The previous chapter graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This chapter explores plausible empirical relationships models.
 
-As noted before, this project's outcome of interest is *prevalence*, i.e., *Hookworm disease* prevalence.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.  In preparation for Binomial geostatistical modelling, the objective of this chapter is to
+As noted before, this project's outcome of interest is *prevalence*, i.e., *Hookworm disease* prevalence, which is a proportion value.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.  In preparation for Binomial geostatistical modelling, the objective of this chapter is to
 
 > *investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between ``prevalence`` and ``zero or more extraneous independent variables``.*
 
