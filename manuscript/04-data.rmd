@@ -1,15 +1,18 @@
 
-```{r L0001}
+```{r data functions}
 sys.source(file = '../R/descriptions/DescriptionESPEN.R', envir = knitr::knit_global())
 sys.source(file = '../R/descriptions/DescriptionExtraneous.R', envir = knitr::knit_global())
 ```
 
 # *DATA* \label{chapter:data}
 
+The chapter discusses the data sets of this project, and their variables.  The data sets fall into two groups.  Foremost, the geohelminths infections survey experiments data sets.  The key details in these data sets are the geographic co&ouml;rdinates of the survey experiments locations, the number of tests/examinations conducted per location, and the year each set of tests occurred.
 
-## *ESPEN*
+The second group of data sets are raster maps of probable risk factors.  The raster maps comprise measures or estimates that are independent of the survey experiments, i.e., they are extraneous data maps of extraneous independent variables.  An extraneous independent variable value at a survey experiments' location depends on the location's geographic co&ouml;rdinates.
 
-The raw geohelminths infections data is courtesy of the **E**xpanded **S**pecial **P**roject for **E**limination of **N**eglected Tropical Diseases ([ESPEN](https://espen.afro.who.int)).  The project focuses on a set of African countries only.  \cref{tab:T0002} outlines a set of core variables present in each country's geohelminths infections examinations data set.
+## Geohelminths Infections Survey Experiments Data
+
+The raw geohelminths infections data is courtesy of the [**E**xpanded **S**pecial **P**roject for **E**limination of **N**eglected Tropical Diseases](https://espen.afro.who.int) (ESPEN).  ESPEN focuses on a set of African countries only.  \cref{tab:T0002} outlines the set of core variables present in each country's geohelminths infections examinations data set.
 
 ```{r T0002}
 
@@ -23,7 +26,7 @@ terms %>%
     escape = FALSE,
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('variable', 'description')),
-    caption = 'The core ESPEN variables') %>%
+    caption = 'The core variables of the geohelminths infections survey experiments data sets. Data Source: \\href{https://espen.afro.who.int}{ESPEN} (Expanded Special Project for Elimination of Neglected Tropical Diseases)') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_footnote(label = c('hk: Hookworm disease', 'asc: Ascariasis', 'tt: Trichuriasis'), notation = 'number')  %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
@@ -31,24 +34,36 @@ terms %>%
 
 ```
 
-The project adds an extra geographic field to each ESPEN data set, named `identifier`.  Each set of observations that share the same co&ouml;rdinate values have the same `identifier` code; this is akin to a site identification code, it addresses the dearth of ESPEN `site_id` codes.
+The project adds an extra geographic field to each ESPEN data set, named $identifier$.  Each set of observations that share the same co&ouml;rdinate values have the same $identifier$ code; this is akin to a site identification code, it addresses the dearth of ESPEN $site\underline{\hspace{0.125cm}}id$ codes.
+
+### Missing Data
+
+Aside from missing $site\underline{\hspace{0.125cm}}id$ codes, many ESPEN data sets are missing core variables values (\cref{tab:T0002}).  Hence, prior to deciding whether to use a data set it is important to understand the missing values patterns (@Steyerberg2010). Donald Rubin (@Rubin1976, @Steyerberg2010, @Little2019) outlines three fundamental missing data mechanisms
+
+> * Missing Completely at Random (MCAR): administrative errors, accident.
+> * Missing at Random (MAR): there's an association between a variable's missing data, and available independent variables & dependent variables.
+> * Missing Not at Random (MNAR): missing data associated with missing values of the predictor in question or with unobserved predictors.
+
+If the missing values of a data set in question are *missing completely at random* (MCAR) then complete case analysis will suffice because the complete case excerpt is akin to a random sample from a complete population (@Steyerberg2010).  If MCAR does not hold, e.g., data is *missing at random*, then the complete case excerpt is not representative of the underlying population, therefore population inference is not possible via complete case analysis.  The project uses Steyerberg's method (@Steyerberg2010, Section 7.7.1) to determine whether a data set's missing independent variables are MCAR.  In brief, the method's overarching hypotheses are
+
+> $\mathbf{H_{0}}$: The missing values of an independent variable are not predictable via the dependent variables and other independent variables.
+
+> $\mathbf{H_{1}}$: It is quite probable that the missing values of the independent variable are predictable via the dependent variables and other independent variables.
+
+The implication of rejecting the null hypothesis $H_{0}$ is that the missing values **are not missing completely at random**.  In the terms of the ESPEN project, particularly the core values of \cref{tab:T0002}, the independent variables are $year$ & $co\ddot{o}rdinates$, whereby
+
+> $$\textit{co\"{o}rdinates} = (\textit{longitude}, \textit{latitude})$$
+
+\noindent whereas dependent variables are the prevalence values vis-&agrave;-vis ascariasis, trichuriasis, and hookworm disease.
 
 \vspace{20pt}
 
 ## *Extraneous Data*
 
-\cref{tab:T0003} outlines the extraneous variables in focus.  The WaSH (water, sanitation, and hygiene) variables values are extracts from access percentage maps.  The maps are courtesy of the Institute for Health Metrics and Evaluation (IHME), and are due to a Lancet Local Burden of Disease WaSH Collaborators study [@Deshpande2020].  There are $18$ maps per WaSH variable, one for each year spanning $[2000 \; 2017]$.  An ESPEN data set observation will have WaSH variable values if, and only if,
-
-> 1. The observation has valid geographic co&ouml;rdinates, and
->
-> 2. The WaSH variable map covers the area in question.
-
-The elevation data is courtesy of [WorldClim](https://worldclim.org/data/worldclim21.html) elevation maps [@Fick2017], which are derivations of the [Shuttle Radar Topography Mission's](https://lpdaac.usgs.gov/products/srtmgl1v003/) elevation maps.  The elevation value of each examination location, that has valid geographic co&ouml;rdinate values, is an extract of the [$30$ seconds elevation map](https://biogeo.ucdavis.edu/data/worldclim/v2.1/base/wc2.1_30s_elev.zip).
-
-Finally, the project's population density values are derivations of the SEDAC (Socioeconomic Data & Applications Center) *Gridded Population of the World* estimates; `r` `geodata` [stores](https://geodata.ucdavis.edu/geodata/pop/) the population estimates maps.   The estimates are quinquennial estimates, thus far there are estimates for the years $2000$, $2005$, $2010$, $2015$, and $2020$.  For this project, the intervening years estimates are the cubic spline interpolation points.
+\cref{tab:T0003} outlines the project's extraneous variables, i.e., the extraneous independent variables.
 
 
-```{r T0003}
+```{r T0003, fig.pos = 'h!'}
 
 terms <- DescriptionExtraneous()
 
@@ -70,6 +85,26 @@ terms %>%
 
 
 
+### WaSH
+
+The WaSH (water, sanitation, and hygiene) variables values are extracts from **access percentage maps**.  The maps are courtesy of the Institute for Health Metrics and Evaluation (IHME), and are due to a Lancet Local Burden of Disease WaSH Collaborators study (@Deshpande2020); the access percentages are estimates.  There are $18$ maps per WaSH variable, one for each year spanning $[2000 \quad 2017]$.  An ESPEN data set observation will have WaSH variable values if, and only if,
+
+> 1. The observation has valid geographic co&ouml;rdinates, and
+>
+> 2. The WaSH variable map covers the area in question.
+
+\vspace{10pt}
+
+### Elevation
+
+The elevation data is courtesy of [WorldClim](https://worldclim.org/data/worldclim21.html) elevation maps (@Fick2017), which are derivations of the [Shuttle Radar Topography Mission's](https://lpdaac.usgs.gov/products/srtmgl1v003/) elevation maps; the **unit of measure is metres**.  The elevation value of each examination location, that has verified geographic co&ouml;rdinate values, is an extract of the [$30$ seconds elevation map](https://biogeo.ucdavis.edu/data/worldclim/v2.1/base/wc2.1_30s_elev.zip).
+
+
+### Population Density
+
+Finally, the project's population density values are derivations of the [Gridded Population of the World](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4) population estimates; the **unit of measure is the number of people per square kilometre**.  The `r` package `geodata` [stores](https://geodata.ucdavis.edu/geodata/pop/) the population estimates maps.
+
+The estimates are quinquennial estimates, thus far there are estimates maps for the years $2000$, $2005$, $2010$, $2015$, and $2020$.  This project extracts estimate population density values, per verified examination location co&ouml;rdinates, from these maps.  Subsequently, cubic spline interpolation provides intervening years estimates.
 
 
 

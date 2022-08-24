@@ -5,15 +5,13 @@
 
 DescriptionSpecies <- function() {
 
-  species <- c(
-    'Ascaris lumbricoides', 'Ancylostoma duodenale, Necator americanus', 'Trichuris trichiura')
+  # The diseases
+  field <- c('species', 'abbr.', 'name', '\\makecell[l]{adult \\\\ inhabits}', '\\makecell[l]{infective \\\\ stage}')
+  ascariasis <- c('\\makecell[l]{Ascaris \\\\ lumbricoides}', '\\makecell[l]{A.\\\\ lumbricoides}', 'Roundworm', '\\makecell[l]{small \\\\ intestine}', 'ova')
+  trichuriasis <- c('\\makecell[l]{Trichuris \\\\ trichiura}', '\\makecell[l]{T.\\\\ trichiura}', 'Whipworm', '\\makecell[l]{caecum, \\\\ colon}', 'ova')
+  hookworm <- c('\\makecell[l]{Ancylostoma\\\\ duodenale,\\\\ Necator\\\\ americanus}', 'A. duodenale, N. americanus', 'Hookworm', 'upper small intestine', 'larvae')
 
-  name <- c(
-    'Roundworm',
-    'Hookworms',
-    'Whipworm')
-
-  frame <- data.frame(species = species, name = name)
+  frame <- data.frame(field = field, ascariasis = ascariasis, trichuriasis = trichuriasis, hookworm.disease = hookworm)
 
   return(frame)
 

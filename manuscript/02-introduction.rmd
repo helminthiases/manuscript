@@ -1,27 +1,73 @@
 
-# *INTRODUCTION* \label{chapter:introduction}
+```{r introduction functions}
+sys.source(file = '../R/metrics/DiseasePrevalence.R', envir = knitr::knit_global())
+sys.source(file = '../R/metrics/DiseaseDALY.R', envir = knitr::knit_global())
+```
 
-Soil transmitted helminths (STH), or geohelminths, are parasitic intestinal worms that cause intestinal nematode infections (INI) such as ascariasis, trichuriasis, and hookworm disease.  According to the Lancet's latest global burden of disease study [@Lancet2020, @IHME2020] , intestinal nematode infections are amongst the most burdensome neglected tropical diseases, and the most prevalent of the diseases
-
-```{r F0014, fig.pos = 'h!', out.width = '85%', out.height = '85%', fig.align = 'center', fig.cap = 'The 9 most prevalent neglected tropical diseases as of 2019 ...'}
-knitr::include_graphics(
-  path = file.path('..', 'R', 'graphs', 'RatePrevalence.pdf'),
-  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
-  dpi = NULL,
-  error = getOption(x = "knitr.graphics.error", default = TRUE)
-)
+```{r introduction settings}
+pathstr <- dirname(getwd())
 ```
 
 
+# *INTRODUCTION* \label{chapter:introduction}
 
-Therefore, geohelminths infections are a focus of the World Health Organization (WHO).  Geohelminths infections prevention, control, and elimination activities depend on knowledge of prevalence [@Montresor2011], and prevalence metrics depend on field surveys, which are rather expensive to conduct.  They are especially expensive when there are no measures to systematically/strategically direct field scientists to survey areas.  In the absence of systematic/strategic direction, the field scientists have to survey as wide an area as possible, albeit subject to financial, accessibility, etc., constraints.
+Soil transmitted helminths (STH), or geohelminths, are parasitic intestinal worms that cause intestinal nematode infections (INI).  According to the Lancet's latest global burden of disease study (@Lancet2020, @IHME2020), as of 2019 INI - comprising *ascariasis*, *trichuriasis*, and *hookworm disease* - are the most prevalent of the neglected tropical diseases (\cref{tab:T0023}).  Additionally, INI are the second most burdensome neglected tropical diseases, after dengue (\cref{tab:T0024}).  Therefore, intestinal nematode infections are a focus of the World Health Organization (WHO).
+
+\vspace{10pt}
+
+```{r T0023}
+
+terms <- DiseasePrevalence(pathstr = pathstr)
+
+terms %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    format.args = list(big.mark = ','),
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'prev.\n per\n $100k$', 'lower', 'upper')),
+    caption = 'The five most prevalent neglected tropical diseases during the year 2019.  The unit of measure is prevalence per $100k$ inhabitants.  Data Source: \\href{https://vizhub.healthdata.org/gbd-compare/}{Institute for Health Metrics} $\\&$ \\href{https://www.thelancet.com/journals/lancet/issue/vol396no10258/PIIS0140-6736(20)X0042-0}{The Lancet Global Burden of Disease 2019}') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = 'prev.: prevalence', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, latex_column_spec = "l")
+```
+
+\vspace{10pt}
+
+Intestinal nematode infections prevention, control, and elimination activities depend on knowledge of prevalence (@Montresor2011), and prevalence metrics depend on field surveys, which are rather expensive to conduct.  They are especially expensive when there are no measures to systematically/strategically direct field scientists to survey areas (@Brooker2006).  In the absence of systematic/strategic direction, the field scientists have to survey as wide an area as possible, albeit subject to financial, accessibility, etc., constraints.
 
 <br>
 
-An option, in place of expensive field surveys, is geohelminths infections predictions.  However, prediction model development depends on probable risk factors knowledge & understanding [@Murray2020].   A key geohelminths infections prevalence hypothesis, of WHO experts, is that WaSH (water, sanitation, and hygiene) variables might be critical risk factors.
+An option, in place of expensive field surveys, is INI prevalence predictions.  Prediction model development depends on probable risk factors knowledge & understandings (@Murray2020).   In relation to geohelminths infections, WaSH (water, sanitation, and hygiene) variables are amongst the sets of probable risk factors (@Albonico2006).  However, although there are a few studies concluding that one or more WaSH variables are geohelminths infections risk factors, the evidence is contentious (@Garn2022, @Freeman2017,  @Strunz2014).  This project investigates the possibility that one or more WaSH variables are geohelminths infections risk factors.
 
-Hence, the project investigates the possibility that one or more WaSH variables are geohelminths infections risk factors that may aid geohelminths infections prevalence prediction.
+\vspace{10pt}
 
+```{r T0024}
+terms <- DiseaseDALY(pathstr = pathstr)
+
+terms %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    format.args = list(big.mark = ','),
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'DALY\n per\n $100k$', 'lower', 'upper')),
+    caption = 'The five most burdensome neglected tropical diseases during the year 2019.  The unit of measure is disability adjusted life years (DALY) per $100k$ inhabitants, i.e., the number of years lost to disability, ill-health, or early death per $100k$ inhabitants.  Data Source: \\href{https://vizhub.healthdata.org/gbd-compare/}{Institute for Health Metrics} $\\&$ \\href{https://www.thelancet.com/journals/lancet/issue/vol396no10258/PIIS0140-6736(20)X0042-0}{The Lancet Global Burden of Disease 2019}') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = 'DALY: disability adjusted life years', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, latex_column_spec = "l")
+
+```
+
+\vspace{10pt}
 
 ## *Project Aim*
 
@@ -40,5 +86,8 @@ via geostatistical models.
 
 ## *Manuscript Structure*
 
-The manuscript's parts are ...
+The *background* chapter discusses the biology, ecology, and transmission dynamics of geohelminths; and a history of prevalence prediction. Next, the *data* chapter outlines the underlying data sets of this project.  This leads unto the *exploratory analysis* chapter, which explores the relationship, or otherwise, between the prevalence of a geohelminth infectious disease and independent variables. The *preliminary investigation* & *geostatistical binomial logistic models* chapters focus on explanatory modelling.  Finally, the *conclusion*/*discussion* chapter discusses the project's observations, findings, and limitations.
+
+In this text intestinal nematode infections (INI) & geohelminth infections are synonyms, and the comprising diseases are *ascariasis*, *trichuriasis*, and *hookworm disease*.
+
 

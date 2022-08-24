@@ -7,6 +7,7 @@
 RateDALY <- function () {
 
   frame <- read.csv(file = 'data/daly_level_3.csv')
+
   frame <- frame %>%
     dplyr::arrange(desc(daly_per_100k)) %>%
     dplyr::mutate(index = seq_len(nrow(frame)), .before = 1)
@@ -15,11 +16,11 @@ RateDALY <- function () {
   excerpt <- frame[frame$index < 10, ]
 
   # Caption, CML: Cutaneous and mucocutaneous leishmaniasis
-  caption <- "INI: Intestinal Nematode Infections [geohelminths], NTD: Neglected Tropical
+  caption <- "DALY: Disability Adjusted Life Years,  INI: Intestinal Nematode Infections [geohelminths], NTD: Neglected Tropical
   Disease.  Data Source: Institute for Health Metrics & The Lancet Global Burden of Disease 2019."
 
   # Graph
-  graph <- ggplot(data = excerpt, mapping = aes(x = index, y = daly_per_100k)) +
+  diagram <- ggplot(data = excerpt, mapping = aes(x = index, y = daly_per_100k)) +
     geom_linerange(mapping = ggplot2::aes(ymin = lower, ymax = upper)) +
     geom_pointrange(mapping = aes(ymin = lower, ymax = upper)) +
     theme_minimal() +
@@ -29,14 +30,15 @@ RateDALY <- function () {
           panel.grid.major = element_line(size = 0.05),
           axis.text.x = element_blank(), axis.text.y = element_text(size = 9),
           axis.title.x = element_text(size = 11), axis.title.y = element_text(size = 11)) +
-    xlab(label = '\ndisease\n') +
+    xlab(label = '\nneglected tropical disease\n') +
     ylab(label = '\nDALY per 100k\n') +
-    labs(caption = str_wrap(caption, width = 80) ) +
-    ylim(-6.5, 60) +
-    annotate(geom = 'text', x = 0.185 + excerpt$index, y = 7.5 + excerpt$daly_per_100k,
+    labs(caption = str_wrap(caption, width = 75) ) +
+    ylim(-9.5, 60) +
+    annotate(geom = 'text', x = 0.185 + excerpt$index, y = 8.5 + excerpt$daly_per_100k,
              label = excerpt$disease, angle = 90, size = 3, colour = 'black', alpha = 0.6)
+  print(diagram)
 
-  return(graph)
-
+  ggsave(filename = file.path(getwd(), 'R', 'graphs', 'RateDALY.pdf'), width = 540, height = 290, units = 'px',
+         plot = diagram, dpi = 95, scale = 1)
 
 }
