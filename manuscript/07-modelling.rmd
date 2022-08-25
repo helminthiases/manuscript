@@ -2,28 +2,24 @@
 
 # *GEOSTATISTICAL BINOMIAL LOGISTIC MODELS* \label{chapter:geo}
 
-The predominant focus of this chapter is **explanatory modelling**, for determining whether a set of WaSH (water, sanitation, and hygiene) variables, and population density, have a significant impact on the prevalence of *Hookworm disease*.  An explanatory model determines which variables have a statistically significant impact on *Hookworm disease* prevalence, and their degree of impact.  \textcolor{duskyblue}{Additionally, the prediction is a brief focus.}
+The predominant focus of this chapter is explanatory models.  An explanatory model determines which independent variables have a statistically significant impact on a dependent variable in question, it also outlines the degree of impact of the independent variables.  Hence, and in relation to the project's aim & objectives, the objective herein is to
+\begin{minipage}[c]{0.9\textwidth}
+Determine which extraneous independent variables -  WaSH variables, population density, and elevation - have a statistically significant impact on the prevalence of *Hookworm disease* infections, and outline their degree of impact.
+\end{minipage}
 
 \vspace{10pt}
 
-The data, the exploratory analysis, and the preliminary investigation, outline a few important points
+Leading on from the data, the exploratory analysis, and the preliminary investigation chapters, a few important points
 
 > * The outcomes - prevalence - are proportions, hence the project's focus is binomial models.
 >
-> * The preliminary investigation identified Binomial generalised linear mixed models with strong evidence of residual spatial correlation.
+> * The preliminary investigation identified Binomial generalised linear mixed models with strong evidence of residual spatial correlation, hence this chapter focuses on geostatistical binomial logistic explanatory models.
 >
-> * Each identified Binomial GLMM also has a *possibly consequential* `year` random effect term.
-
-
-Hence, a strong rationale for geo-statistical binomial logistics models, and for single year data .
-
+> * Modelling is via the data set of a single year: Togo, $2015$.
 
 ## Geo-statistical binomial logistic models
 
-This section explores *geo-statistical binomial logistics models* wherein the parameter estimates are either
-
-* Monte Carlo Maximum Likelihood estimates, or
-* Bayesian estimates.
+This section explores *geo-statistical binomial logistics models* wherein the parameter estimates are either (a) Monte Carlo Maximum Likelihood estimates, or (b) Bayesian estimates.
 
 In each case, the linear predictor is
 \begin{equation}
