@@ -13,13 +13,15 @@ The previous chapter graphically explores empirical relationships between *Hookw
 
 In preparation for Binomial geostatistical modelling, the objective of this chapter is to
 
-\vspace{5pt}
+\vspace{10pt}
 
-> *investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between ``prevalence`` and ``zero or more extraneous independent variables``.*
+\begin{minipage}[c]{0.9\textwidth}
+\textit{investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between \textbf{prevalence} and \textbf{zero or more extraneous independent variables}.}
+\end{minipage}
 
-\vspace{5pt}
+\vspace{10pt}
 
-\noindent Each *preliminary empirical relationship model*, henceforth *preliminary model*, is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field (@Cressie1993, @Matheron1963).  The models of the \hyperref[chapter:geo]{geostatistical binomial logistic models} chapter are derivations of the preliminary models that exhibit residual spatial correlation, i.e., an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
+\noindent Each *preliminary empirical relationship model*, henceforth *preliminary model*, is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field (@Cressie1993, @Matheron1963).  Note that the models of the \hyperref[chapter:geo]{geostatistical binomial logistic models} chapter are derivations of preliminary models that exhibit residual spatial correlation, i.e., an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
 
 \vspace{10pt}
 
@@ -61,7 +63,7 @@ wherein
 \mathbf{c} & \sim \mathcal{N}(0, \tau^{2}_{c}\mathbf{I}_{c}) \nonumber
 \end{align}
 
-\noindent It is a Binomial GLMM because the prevalence values are proportions.  \cref{tab:T0004} defines most of the terms of the equations.  The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients.  The independent variables are one or more of the extraneous variables(\cref{tab:T0003}).
+\noindent It is a Binomial GLMM because the prevalence values are proportions.  \cref{tab:T0004} defines most of the terms of the equations.  Expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients.  The independent variables are one or more of the extraneous variables (\cref{tab:T0003}).
 
 \vspace{10pt}
 
@@ -77,34 +79,35 @@ The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of 
 
 There is a key challenge in relation to the GLMM of \cref{eq:0001} and Togo's *Hookworm disease* data:
 
-\vspace{5pt}
+\vspace{10pt}
 
-> *The residual spatial correlation tests of each preliminary model is inconclusive.  In each case the design, i.e., fixed-effect, matrix is rank deficient due to insufficient data.*
+\begin{minipage}[c]{0.9\textwidth}
+\textit{The residual spatial correlation tests of each preliminary model is inconclusive.  In each case the design, i.e., fixed-effect, matrix is rank deficient due to insufficient data.}
+\end{minipage}
 
-\vspace{5pt}
+\vspace{10pt}
 
 \noindent The linear predictors $\eta_{i}$ of two of the preliminary models in question are
+
+\vspace{-0.80cm}
+
 \begin{align}
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0029) \\
          & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
 \end{align}
 and
 \begin{align}
-\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density)}(x_{i}) (\#eq:0030) \\
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i}) (\#eq:0030) \\
 & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
 \end{align}
-Each reflects the sometimes inconclusive relationships, between *prevalence* & *extraneous independent variables*, outlined within the \hyperref[chapter:exploration]{exploratory analysis} chapter (\cref{fig:F0003,F0013,F007}).
+Each reflects the sometimes inconclusive relationships, between *prevalence* & *extraneous independent variables*, outlined within the \hyperref[chapter:exploration]{exploratory analysis} chapter (study \cref{fig:F0003,fig:F0013,fig:F0007}).
 
 In terms of the models' coefficients, in accordance with the hypotheses
-
-\vspace{5pt}
-
-> $H_{0}: \beta_{j} = 0$
->
-> $H_{1}: \beta_{j} \neq 0$
-
-\vspace{5pt}
-
+\begin{minipage}[c]{0.9\textwidth}
+$$H_{0}: \beta_{j} = 0$$
+$$H_{1}: \beta_{j} \neq 0$$
+\end{minipage}
+\vspace{10pt}
 \noindent there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at the significance level $0.05$.  However, the stability of these observations, in the presence of sufficient data, is uncertain.  Hence, **the project proceeds modelling via the single year data sets**.
 
 
@@ -122,17 +125,17 @@ wherein
 \end{equation}
 The difference between this model and  \cref{eq:0001} is the absence of a *year* random effects term in this model.  The definition of each term remains the same.
 
-Leading on from the aforementioned preliminary models, with linear predictors \cref{eq:0029,0030}, this section focuses on models with linear predictors
-
+Leading on from the aforementioned preliminary models, with linear predictors \cref{eq:0029,eq:0030}, this section focuses on models with linear predictors
 \begin{align}
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0031) \\
 & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
 \end{align}
 and
 \begin{align}
-\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density)}(x_{i}) (\#eq:0032) \\
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i}) (\#eq:0032) \\
 & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
 \end{align}
+i.e., linear predictors \cref{eq:0029,eq:0030} without a *year* random effects term.
 
 \clearpage
 
