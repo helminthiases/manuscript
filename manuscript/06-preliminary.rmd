@@ -141,10 +141,6 @@ i.e., linear predictors \cref{eq:0029,eq:0030} without *year* random effects ter
 
 ### The Estimated Coefficients
 
-\cref{tab:T0008} outlines the estimates of the coefficients of the generalised linear mixed model (\cref{eq:0006}) with fixed terms
-
-The empirical variogram of its residuals (\cref{fig:F0005}) illustrates evidence of residual spatial correlation.
-
 ```{r T0008, fig.pos = 'h!'}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
 
@@ -158,7 +154,7 @@ estimations$fixed %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
                                         'lower', 'upper', 's.e.', '$p_{value}$')),
-    caption = 'The estimated coefficients of the \\textit{Case A} GLMM Model') %>%
+    caption = 'The estimated coefficients of the GLMM Model.  $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
@@ -169,8 +165,7 @@ estimations$fixed %>%
 
 \vspace{10pt}
 
-
-```{r T0009}
+```{r T0009, fig.pos = 'h!}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
 
 estimations$fixed %>%
@@ -183,7 +178,7 @@ estimations$fixed %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
                                         'lower', 'upper', 's.e.', '$p_{value}$')),
-    caption = 'The estimated coefficients of the \\textit{Case B} GLMM Model') %>%
+    caption = 'The estimated coefficients of GLMM Model with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i}) + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
@@ -192,7 +187,7 @@ estimations$fixed %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
-
+\cref{tab:T0008} & \cref{tab:T0009} outline the coefficient estimates vis-&agrave;-vis the fixed terms of linear predictors \cref{eq:0031} & \cref{eq:0032}, respectively.
 
 
 
