@@ -104,7 +104,7 @@ The WaSH (water, sanitation, and hygiene) variables values are extracts from **a
 The elevation data is courtesy of [WorldClim](https://worldclim.org/data/worldclim21.html) elevation maps (@Fick2017), which are derivations of the [Shuttle Radar Topography Mission's](https://lpdaac.usgs.gov/products/srtmgl1v003/) elevation maps; the **unit of measure is metres**.  The elevation value of each examination location, that has verified geographic co&ouml;rdinate values, is an extract of the [$30$ seconds elevation map](https://biogeo.ucdavis.edu/data/worldclim/v2.1/base/wc2.1_30s_elev.zip).
 
 
-### Population Density
+### Population Density \label{section:density}
 
 Finally, the project's population density values are derivations of the [Gridded Population of the World](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4) population estimates; the **unit of measure is the number of people per square kilometre**.  The `r` package `geodata` [stores](https://geodata.ucdavis.edu/geodata/pop/) the population estimates maps.
 
