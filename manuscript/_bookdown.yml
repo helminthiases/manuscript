@@ -1,5 +1,5 @@
 delete_merged_file: true
 book_filename: '_manuscript'
 rmd_files: ['index.Rmd', '01-abstract.Rmd', '02-introduction.Rmd', '03-background.Rmd', '04-data.Rmd',
-            '05-exploration.Rmd', '06-preliminary.Rmd', '07-modelling.Rmd', '08-discussion.Rmd', '09-references.Rmd']
+            '05-exploration.Rmd', '06-preliminary.Rmd', '07-modelling.Rmd', '08-discussion.Rmd', '09-references.Rmd', '10-appendix.Rmd']
 output_format: 'bookdown::tufte_book2'
