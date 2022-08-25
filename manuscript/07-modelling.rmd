@@ -63,12 +63,12 @@ The \hyperref[chapter:preliminary]{preliminary investigation} chapter identifies
 
 \begin{align}
 \eta_{i} & = \color{darkolive}{\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2}} \nonumber \\
-& \quad  \color{darkolive}{+ \beta_{3}{elevation.km}(x_{i})} \color{black}{ + b_{i}} \nonumber
+& \quad  \color{darkolive}{\; + \beta_{3}{elevation.km}(x_{i})} \color{black}{\; + b_{i}} \nonumber
 \end{align}
 and
 \begin{align}
 \eta_{i} & = \color{darkolive}{\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i})} \nonumber \\
-& \quad  \color{darkolive}{+ \beta_{3}{elevation.km}(x_{i})} \color{black}{ + b_{i}} \nonumber
+& \quad  \color{darkolive}{\; + \beta_{3}{elevation.km}(x_{i})} \color{black}{\; + b_{i}} \nonumber
 \end{align}
 
 Each linear predictor's fixed-term expression is the olive coloured part of the linear predictor.  Hence, and building on these preliminary investigation fixed-term expressions, the geostatistical binomial logistic models in focus are the models with linear predictors
