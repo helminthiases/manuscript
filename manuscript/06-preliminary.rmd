@@ -125,7 +125,7 @@ wherein
 \end{equation}
 The difference between this model and  \cref{eq:0001} is the absence of a *year* random effects term in this model.  The definition of each term remains the same.
 
-Leading on from the aforementioned preliminary models, with linear predictors \cref{eq:0029,eq:0030}, this section focuses on models with linear predictors
+Leading on from the afore-stated linear predictors \cref{eq:0029,eq:0030}, this section focuses on preliminary models, with linear predictors
 \begin{align}
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0031) \\
 & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
@@ -135,19 +135,14 @@ and
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i}) (\#eq:0032) \\
 & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
 \end{align}
-i.e., linear predictors \cref{eq:0029,eq:0030} without a *year* random effects term.
+i.e., linear predictors \cref{eq:0029,eq:0030} without *year* random effects terms.
 
-\clearpage
 
-### Case A
+
+### The Estimated Coefficients
 
 \cref{tab:T0008} outlines the estimates of the coefficients of the generalised linear mixed model (\cref{eq:0006}) with fixed terms
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
-\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] (\#eq:0009)
-\end{equation}
-\normalsize
+
 The empirical variogram of its residuals (\cref{fig:F0005}) illustrates evidence of residual spatial correlation.
 
 ```{r T0008, fig.pos = 'h!'}
@@ -174,27 +169,6 @@ estimations$fixed %>%
 
 \vspace{10pt}
 
-```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The \\textit{Case A} variogram'}
-knitr::include_graphics(
-  path = file.path('..', 'warehouse', 'effects', 'architectures', 'A', 'variogram.pdf'),
-  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
-  dpi = NULL,
-  error = getOption(x = "knitr.graphics.error", default = TRUE)
-)
-```
-
-\clearpage
-
-### Case B
-
-\cref{tab:T0009} outlines the estimates of the coefficients of the generalised linear mixed model (\cref{eq:0006}) with fixed terms
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
-ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})] (\#eq:0011)
-\end{equation}
-\normalsize
-The empirical variogram of its residuals (\cref{fig:F0006}) also illustrates evidence of residual spatial correlation.
 
 ```{r T0009}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
@@ -216,6 +190,23 @@ estimations$fixed %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+
+
+
+
+### Residual Spatial Correlation
+
+The empirical variograms of \cref{fig:F0005} & \cref{fig:F0006} illustrates evidence of residual spatial correlation.
+
+```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The \\textit{Case A} variogram'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'effects', 'architectures', 'A', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
 ```
 
 \vspace{10pt}
