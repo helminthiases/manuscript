@@ -39,7 +39,7 @@ terms %>%
     escape = FALSE,
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('notation', 'description')),
-    caption = 'The notations used at various points of this chapter, ad subsequent chapters.') %>%
+    caption = 'The notations used at various points of this chapter, and subsequent chapters.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_footnote(label = '', notation = 'none')  %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
