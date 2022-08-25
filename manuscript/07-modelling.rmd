@@ -25,7 +25,7 @@ Here we explore *geostatistical binomial logistics models* wherein the parameter
 \renewcommand{\arraystretch}{1.5}
 Y_{i} & \sim Binomial(e(x_{i}), p(x_{i})) (\#eq:0037) \\
 \eta(x_{i}) & = ln \left( \frac{p(x_{i})}{1 - p(x_{i})} \right) (\#eq:0038) \\
-& = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + S(x_{i}) + U_{i} (\#eq:0039)
+& = \mathbf{\delta}(x_{i})^{T}\mathbf{\beta} + S(x_{i}) + U_{i} (\#eq:0039)
 \end{align}
 
 \vspace{10pt}
@@ -72,9 +72,15 @@ and
 \end{align}
 
 Each linear predictor's fixed-term expression is the olive coloured part of the linear predictor.  Hence, and building on these preliminary investigation fixed-term expressions, the geostatistical binomial logistic models in focus are the models with linear predictors
-
-
-
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0040) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}\nonumber
+\end{align}
+and
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i}) (\#eq:0041) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i} \nonumber
+\end{align}
 
 
 
@@ -82,17 +88,9 @@ Each linear predictor's fixed-term expression is the olive coloured part of the 
 
 \clearpage
 
-## Case A
+## Coefficients
 
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
-\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] (\#eq:0015)
-\end{equation}
-\normalsize
-
-\vspace{10pt}
-
+<!--- excludes ln(population density) --->
 ```{r T0011, fig.pos = 'h!'}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
 
@@ -119,66 +117,7 @@ coefficients %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
-
-
-```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the \\textit{Case A} Binomial Geostatistical Model.'}
-knitr::include_graphics(
-  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'variogram.pdf'),
-  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
-  dpi = NULL,
-  error = getOption(x = "knitr.graphics.error", default = TRUE)
-)
-```
-
-
-
-```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The \\textit{Case A} Binomial Geostatistical Model prevalence estimates and originals'}
-knitr::include_graphics(
-  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'diagonal.pdf'),
-  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
-  dpi = NULL,
-  error = getOption(x = "knitr.graphics.error", default = TRUE)
-)
-```
-
-
-
-```{r T0013}
-discrepancies <- estimations$discrepancies
-discrepancies <- cbind(variable = row.names(discrepancies), discrepancies)
-row.names(discrepancies) <- NULL
-
-discrepancies %>%
-  dplyr::mutate_all(linebreak) %>%
-  kableExtra::kable(
-    format = 'latex',
-    digits = 3,
-    booktabs = TRUE,
-    escape = FALSE,
-    linesep = '\\addlinespace',
-    col.names = kableExtra::linebreak(c('', 'Bias', 'RMSE')),
-    caption = 'Bias and root mean square error w.r.t. the \\textit{Case A} Binomial Geostatistical Model') %>%
-  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
-  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
-  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
-  kableExtra::column_spec(column = 3, latex_column_spec = "l")
-```
-
-
-\clearpage
-
-
-## Case B
-
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
-ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})] (\#eq:0024)
-\end{equation}
-\normalsize
-
-\vspace{10pt}
-
+<!--- includes ln(population density) --->
 ```{r T0012, fig.pos = 'h!'}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'B', 'estimations.rds'))
 
@@ -206,6 +145,24 @@ coefficients %>%
 ```
 
 
+
+
+
+\clearpage
+
+## Residual Spatial Correlation
+
+<!--- excludes ln(population density) --->
+```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the \\textit{Case A} Binomial Geostatistical Model.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+<!--- includes ln(population density) --->
 ```{r F0011, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the \\textit{Case B} Binomial Geostatistical Model.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'variogram.pdf'),
@@ -216,16 +173,55 @@ knitr::include_graphics(
 ```
 
 
-```{r F0012, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The \\textit{Case B} Binomial Geostatistical Model prevalence estimates and originals'}
+\clearpage
+
+## Prevalence Estimates
+
+<!--- excludes ln(population density) --->
+```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The \\textit{Case A} Binomial Geostatistical Model prevalence estimates and originals'}
 knitr::include_graphics(
-  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'diagonal.pdf'),
+  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'diagonal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
   dpi = NULL,
   error = getOption(x = "knitr.graphics.error", default = TRUE)
 )
 ```
 
+<!--- includes ln(population density) --->
+```{r F0012, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The \\textit{Case B} Binomial Geostatistical Model prevalence estimates and originals'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'diagonal.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE))
+```
 
+
+### Bias & RMSE
+
+<!--- excludes ln(population density) --->
+```{r T0013}
+discrepancies <- estimations$discrepancies
+discrepancies <- cbind(variable = row.names(discrepancies), discrepancies)
+row.names(discrepancies) <- NULL
+
+discrepancies %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'Bias', 'RMSE')),
+    caption = 'Bias and root mean square error w.r.t. the \\textit{Case A} Binomial Geostatistical Model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+<!--- includes ln(population density) --->
 ```{r T0014}
 discrepancies <- estimations$discrepancies
 discrepancies <- cbind(variable = row.names(discrepancies), discrepancies)
@@ -246,32 +242,3 @@ discrepancies %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
-
-
-
-
-## Bootstrapping: Case A Only [Time Permitting]
-
-This section's foci, in relation to
-
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
-\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] \nonumber
-\end{equation}
-\normalsize
-
-are
-
-* Bootstrapped estimates via MCML (Monte Carlo Maximum Likelihood) estimation for the binomial logistic model.
-* Estimates via Bayesian estimation for the binomial logistic model.
-
-
-
-
-
-
-
-
-
-
