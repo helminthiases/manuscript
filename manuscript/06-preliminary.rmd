@@ -154,7 +154,7 @@ estimations$fixed %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
                                         'lower', 'upper', 's.e.', '$p_{value}$')),
-    caption = 'The estimated coefficients of the GLMM Model.  $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$') %>%
+    caption = 'The estimated coefficients of the GLMM with linear predictor  $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
@@ -178,7 +178,7 @@ estimations$fixed %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
                                         'lower', 'upper', 's.e.', '$p_{value}$')),
-    caption = 'The estimated coefficients of GLMM Model with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i}) + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$') %>%
+    caption = 'The estimated coefficients of the GLMM with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i}) + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
@@ -201,7 +201,7 @@ $$H_{1}: \beta_{j} \neq 0$$
 
 Next, spatial correlation assessments of the residuals of the generalised linear mixed models with linear predictors \cref{eq:0031} & \cref{eq:0032}. Their empirical variograms - \cref{fig:F0005} & \cref{fig:F0006}, respectively - illustrate evidence of residual spatial correlation.  Hence, proceeding to geostatistical binomial logistic modelling with the fixed terms of the linear predictors \cref{eq:0031} & \cref{eq:0032}.
 
-```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The \\textit{Case A} variogram'}
+```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The empirical variogram of the GLMM with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'effects', 'architectures', 'A', 'variogram.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -212,7 +212,7 @@ knitr::include_graphics(
 
 \vspace{10pt}
 
-```{r F0006, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The \\textit{Case B} variogram'}
+```{r F0006, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The empirical variogram of the GLMM with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i}) + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'effects', 'architectures', 'B', 'variogram.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
