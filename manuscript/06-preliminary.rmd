@@ -187,7 +187,13 @@ estimations$fixed %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
-\cref{tab:T0008} & \cref{tab:T0009} outline the coefficient estimates vis-&agrave;-vis the fixed terms of linear predictors \cref{eq:0031} & \cref{eq:0032}, respectively.
+\cref{tab:T0008} & \cref{tab:T0009} outline the coefficient estimates vis-&agrave;-vis the fixed terms of linear predictors \cref{eq:0031} & \cref{eq:0032}, respectively.  In each case, and in accordance with the hypotheses
+\begin{minipage}[c]{0.9\textwidth}
+$$H_{0}: \beta_{j} = 0$$
+$$H_{1}: \beta_{j} \neq 0$$
+\end{minipage}
+\vspace{10pt}
+\noindent there is evidence in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at significance level $0.05$; each coefficient estimate is significant at the $0.05$ significance level.
 
 
 
