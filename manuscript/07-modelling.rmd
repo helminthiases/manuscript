@@ -3,30 +3,34 @@
 # *GEOSTATISTICAL BINOMIAL LOGISTIC MODELS* \label{chapter:geo}
 
 The predominant focus of this chapter is explanatory models.  An explanatory model determines which independent variables have a statistically significant impact on a dependent variable in question, it also outlines the degree of impact of the independent variables.  Hence, and in relation to the project's aim & objectives, the objective herein is to
+
+\vspace{10pt}
+
 \begin{minipage}[c]{0.9\textwidth}
-Determine which extraneous independent variables -  WaSH variables, population density, and elevation - have a statistically significant impact on the prevalence of *Hookworm disease* infections, and outline their degree of impact.
+\textit{Determine which extraneous independent variables -  WaSH variables, population density, and elevation - have a statistically significant impact on the prevalence of Hookworm disease infections, and outline their degree of impact.}
 \end{minipage}
 
 \vspace{10pt}
 
-Leading on from the data, the exploratory analysis, and the preliminary investigation chapters, a few important points
+Leading on from the \hyperref[chapter:data]{data}, \hyperref[chapter:exploration]{exploratory analysis}, \hyperref[chapter:preliminary]{preliminary investigation} chapters, a few important points:
 
-> * The outcomes - prevalence - are proportions, hence the project's focus is binomial models.
+> * The outcomes - prevalence - are proportions, hence the project's focus is Binomial models.
 >
-> * The preliminary investigation identified Binomial generalised linear mixed models with strong evidence of residual spatial correlation, hence this chapter focuses on geostatistical binomial logistic explanatory models.
+> * The preliminary investigation identified Binomial generalised linear mixed models with strong evidence of residual spatial correlation, hence *this chapter focuses on geostatistical binomial logistic [explanatory] models*.
 >
 > * Modelling is via the data set of a single year: Togo, $2015$.
 
 ## Geo-statistical binomial logistic models
 
-This section explores *geo-statistical binomial logistics models* wherein the parameter estimates are either (a) Monte Carlo Maximum Likelihood estimates, or (b) Bayesian estimates.
+Here we explore *geostatistical binomial logistics models* wherein the parameter estimates are either (a) Monte Carlo Maximum Likelihood estimates, or (b) Bayesian estimates.  The model structure is
 
-In each case, the linear predictor is
-\begin{equation}
-\eta(x_{i}) = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + S(x_{i}) + U_{i} (\#eq:0018)
-\end{equation}
+\begin{align}
+Y_{i} & \sim Binomial(e(x_{i}), p(x_{i})) (\#eq:0037) \\
+\eta(x_{i}) & = ln \left( \frac{p(x_{i})}{1 - p(x_{i})} \right) (\#eq:0038) \\
+& = \mathbf{\delta}(x_{i})^{T} \mathbf{\beta} + S(x_{i}) + U_{i} (\#eq:0039)
+\end{align}
 
-Again, $\mathbf{\delta}(x_{i})$ is the $i^{th}$ vector of fixed terms - i.e., the $i^{th}$ row vector of the model's design matrix - it depends on zero or more independent variables. Whilst $\mathbf{\beta}$ is the vector of the concurrent fixed effects coefficients.  $S(x_{i})$ is the stochastic process term, it models the *unexplained spatial variation* [@Diggle2019].  Herein, the assumption is that $S(\mathbf{x})$ is
+Again, \cref{tab:T0004} defines most terms.  $x_{i}$ is the spatial/geographic location of the $i^{th}$ observation.   $\mathbf{\delta}(x_{i})$ is the $i^{th}$ vector of fixed terms - i.e., the $i^{th}$ row vector of the model's design matrix - it depends on zero or more independent variables. Whilst $\mathbf{\beta}$ is the vector of the concurrent fixed effects coefficients.  $S(x_{i})$ is the stochastic process term, it models the *unexplained spatial variation* (@Diggle2019).  Herein, the assumption is that $S(\mathbf{x})$ is
 
 * A zero-mean gaussian process, i.e., the joint probability of ${S(x_{1}), \ldots, S(x_{n})}$ is multi-variate normal.
 * Stationary, i.e., it has a constant variance - denoted $\sigma^{2}$.
@@ -36,19 +40,21 @@ A consequence of these assumptions is that the covariance $\gamma(x_{i}, x_{j})$
 \begin{equation}
 \gamma(x_{i}, x_{j}) = \sigma^{2}\rho(\left\Vert x_{i} - x_{j} \right\Vert) (\#eq:0025)
 \end{equation}
-wherein $\rho(u) = \rho(\left\Vert x_{i} - x_{j} \right\Vert)$ is the correlation function; $u = \left\Vert \cdot \right\Vert$ denotes distance.  Throughout this paper correlation function in use is the *exponential correlation function* [@Diggle2019]
+wherein $\rho(u) = \rho(\left\Vert x_{i} - x_{j} \right\Vert)$ is the correlation function; $u = \left\Vert \cdot \right\Vert$ denotes distance.  Throughout this paper correlation function in use is the *exponential correlation function* (@Diggle2019)
 \begin{equation}
 \rho(u; \phi) = e^{-u/\phi}, \qquad u \geq 0 (\#eq:0016)
 \end{equation}
 The term $\phi$ is the scale parameter.
+
+\vspace{10pt}
 
 In contrast to $S(x_{i})$, $U_{i}$ are independent Normally distributed random variables
 \begin{equation}
 U_{i} \sim \mathcal{N}(0, \nu^{2}) (\#eq:0023)
 \end{equation}
 that capture the effects of unknown/unmeasured independent variables, i.e., $U_{i}$ represent the *unstructured variation
-in $Y_{i}$* [@Diggle2019].  The unknown variables either **(a)** lack a spatial structure, or **(b)** ``... are spatially
-varying but on a scale smaller than the minimum observed distance.'' [@Diggle2019].
+in $Y_{i}$* (@Diggle2019).  The unknown variables either **(a)** lack a spatial structure, or **(b)** *``... are spatially
+varying but on a scale smaller than the minimum observed distance.''* (@Diggle2019)
 
 
 ### Evaluation
