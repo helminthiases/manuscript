@@ -1,0 +1,164 @@
+
+# *APPENDIX* {-}
+
+> Project host: World Health Organization (WHO)
+> World Health Organization supervisor: Professor Antonio Montresor
+> [Centre for Health Informatics, Computing, and Statistics](https://chicas.lancaster-university.uk) / Lancaster Medical School supervisor: Dr. Emanuele
+Giorgi
+
+## Project Scope
+
+Soil transmitted helminths (STH) are parasitic intestinal worms that cause intestinal nematode infections such as ascariasis, trichuriasis, and hookworm disease.  According to the Lancet's latest global burden of disease study (@Lancet2020, @IHME2020), soil transmitted helminths infections are **(a)** the second most burdensome neglected tropical diseases, after dengue, and **(b)** the most prevalent.  Therefore, STH infections are a focus of the World Health Organization (WHO).  Soil transmitted helminths prevention, control, and elimination activities depend on knowledge of prevalence (@Montresor2011).  Prevalence metrics depend on field surveys, which are rather expensive to conduct. They are especially expensive when there are no measures to systematically/strategically direct field scientists to survey areas.  In the absence of systematic/strategic direction, the field scientists have to survey as wide an area as possible, albeit subject to financial, accessibility, etc., constraints.
+
+A key STH prevalence hypothesis, of domain experts, is that WASH (water, sanitation, and hygiene) variables might be critical prognostic factors of STH prevalence.  Therefore, the project will focus on understanding the association between STH prevalence and WASH variables, and investigate whether they are prognostic factors of STH prevalence.
+
+<br>
+
+### Project Aim
+
+> Understanding the association between STH (Soil Transmitted Helminth) prevalence and WASH (water, sanitation, and hygiene) variables,
+> and their effect, or otherwise, on STH prevalence prediction.
+
+<br>
+<br>
+
+### Project Objectives
+
+Hence, the project's objectives are to
+
+> * Understand the association between STH (Soil Transmitted Helminth) prevalence and WASH (water, sanitation, and hygiene) variables.
+>
+> * Investigate the extent to which WASH variables aid STH prevalence prediction via geostatistical models.
+
+<br>
+<br>
+
+### Project Data
+
+The project will rely on the
+
+* The soil transmitted helminths' data sets of [ESPEN](https://espen.afro.who.int/) (Expanded Special Project for Elimination of Neglected Tropical Diseases) --
+**for** ascariasis, hookworm infection, and trichuriasis examinations and cases data per site.
+
+* The estimated WASH variables of [IHME](https://www.healthdata.org/research-article/mapping-geographic-inequalities-access-drinking-water-and-sanitation-facilities-low)
+(Institute for Health Metrics and Evaluation) -- **for** determining site level WASH variables values. The [ESPEN estimates](https://espen.afro.who.int/diseases/wash), which
+depend on the IHME methodology, are implementation level estimates.
+
+* The [National Oceanic & Atmospheric Administration (NOAA)](https://www.ncdc.noaa.gov/cdo-web/datasets), [WorldClim](https://www.worldclim.org/data/index.html),
+and [DIVA GIS](https://www.diva-gis.org/Data) -- **for** historical geospatial and/or environmental variables values.
+
+<br>
+<br>
+
+### Deliverables
+
+The deliverables are
+
+* Geo-statistical STH prevalence modelling & analysis, via GitHub.
+* Thesis manuscript.
+* Datasheet [<a href="#@Gebru2018">1</a>]
+
+#### Feedback & Approval of deliveries
+
+Professor Montresor shall
+
+* Address, via email, soil transmitted helminths questions.
+* Provide feedback for each set of investigations/results that are summarised & delivered.
+
+#### Brief Progress Updates
+
+Fortnightly.  This is apart from contacting supervisors for help, which can occur any time.  The next brief progress update will
+occur on Friday 1 July 2022; fortnightly thereafter.
+
+<br>
+<br>
+
+### Timeline
+
+&nbsp; | Item
+:--- | :---
+2022/06/20 - 2022/07/08 | Addressing site level records identification issues (refer<br> to the quality constraints section further below).  The derivation<br> of site level variable values; WASH and geospatial/climatic<br> variables values.
+2022/07/12 - 2022/07/30 | &#8226; Exploratory data analysis.<br>&#8226; Exploration of geospatial binomial logistic models.
+2022/08/01 - 2022/08/21 | &#8226; Final modelling stage; two models at most.<br>&#8226; Model validation.<br>&#8226; Model testing.
+2022/08/22 - 2022/09/06 | Manuscript writing.
+2022/09/08 - 2022/09/11 | Finalise modelling & analysis repository and data sheet.
+2022/09/11 - 2022/09/15 | Poster preparation.
+
+<br>
+<br>
+
+### Out of Scope
+
+The prediction of STH Prevalence for countries outwith the continent of Africa because the ESPEN data project focuses on African
+countries only, i.e., it only has the data of a set of African countries.  Consequently, model development will be via the data of
+one or more African countries.  Additionally, model validation, internal & external, will be via ESPEN countries only.
+
+<br>
+<br>
+
+### Project Assumptions
+
+Key assumptions:
+
+* The soil transmitted helminth parasites of concern are roundworms (Ascaris lumbricoides), hookworms (Ancylostoma duodenale, Necator americanus), and whipworms (Trichuris trichiura); which cause ascariasis, hookworm infection, and trichuriasis [<a href="#@Montresor2011">1</a>].
+
+* In terms of data granularity, the focus of this project is **site level prevalence**, and hence site level measures.
+
+* The historical site level positive cases of ascariasis, hookworm infection, and trichuriasis, detailed by [ESPEN](https://espen.afro.who.int/), are dependable.  Additionally, the ascariasis, trichuriasis, and hookworm infection examinations, per site, are conducted within the same sample population of a site.
+
+* The prevalence value of any soil transmitted helminth is via the prevalence formula of Silva & Hall [<a href="#@Silva2010">2</a>], which depends on the prevalence of ascariasis, trichuriasis, and hookworm disease at a location.
+
+
+<br>
+<br>
+
+### Project Constraints
+
+<br>
+
+<table style="width: 65%; font-size: 65%; text-align: left;">
+    <colgroup>
+        <col span="1" style="width: 2.5%;">
+        <col span="1" style="width: 60%;">
+    </colgroup>
+    <tr>
+        <td>Project start date</td>
+        <td>6 June 2022</td>
+    </tr>
+    <tr>
+        <td>Project end date</td>
+        <td>9 September 2022</td>
+    </tr>
+    <tr>
+        <td>Deadlines</td>
+        <td>Masters Thesis: 9 September 2022<br>Poster Session: 16 September 2022<br>Model Repository: 12 September 2022<br>Data Sheet: 12 September 2022</td>
+    </tr>
+</table>
+
+<br>
+
+#### Time Constraints
+
+* The final week of the masters modules overlaps with the first week of the masters project, therefore only a third of the week
+ending 10 June 2022 shall be spent on the masters project.
+
+* Future planning may occasionally occur during week days, the time will be recovered during the evenings and/or weekends.
+
+#### Budget Constraints
+
+The project has no budget, i.e., no budget/payment for personnel or computational resources used; the student bears the cost of conducting the project.
+
+
+#### Quality Constraints
+
+The site level data of ESPEN has 3 core issues. Foremost, and per country, many records do not have a site level identification code.  Second, records that have the same coordinates, do not usually have the same site identification code.  Finally, records associated with the same site sometimes have slightly different coordinate values.  Prior to exploratory analysis & modelling, these discrepancies will have to be addressed, i.e.,
+
+* Each distinct site must have a unique site identifier and distinct coordinate values.
+
+* records associated with the same site must have the same unique site identifier & coordinate values.
+
+#### Equipment Constraints
+
+No equipment has been provided for this project.  The project's tasks will be, are, conducted via a personal computer.  However, it
+is quite probable that the computer will stop working any time soon; the computer is quite old, and in recent times bits & pieces
+have stopped working.  Hence, access to a fall-back laptop is critical.
