@@ -165,7 +165,7 @@ estimations$fixed %>%
 
 \vspace{10pt}
 
-```{r T0009, fig.pos = 'h!}
+```{r T0009, fig.pos = 'h!'}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
 
 estimations$fixed %>%
