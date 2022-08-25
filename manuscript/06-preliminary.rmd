@@ -110,6 +110,7 @@ $$H_{1}: \beta_{j} \neq 0$$
 \vspace{10pt}
 \noindent there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at the significance level $0.05$.  However, the stability of these observations, in the presence of sufficient data, is uncertain.  Hence, **the project proceeds modelling via the single year data sets**.
 
+\clearpage
 
 ## A Generalised Linear Mixed Model with a Single Random Effect
 
@@ -125,6 +126,8 @@ wherein
 \end{equation}
 The difference between this model and  \cref{eq:0001} is the absence of a *year* random effects term in this model.  The definition of each term remains the same.
 
+\vspace{10pt}
+
 Leading on from the afore-stated linear predictors \cref{eq:0029,eq:0030}, this section focuses on preliminary models, with linear predictors
 \begin{align}
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0031) \\
@@ -137,9 +140,19 @@ and
 \end{align}
 i.e., linear predictors \cref{eq:0029,eq:0030} without *year* random effects terms.
 
-
+\clearpage
 
 ### The Estimated Coefficients
+
+\cref{tab:T0008} & \cref{tab:T0009} outline the coefficient estimates vis-&agrave;-vis the fixed terms of linear predictors \cref{eq:0031} & \cref{eq:0032}, respectively.  In each case, and in accordance with the hypotheses
+\begin{minipage}[c]{0.9\textwidth}
+$$H_{0}: \beta_{j} = 0$$
+$$H_{1}: \beta_{j} \neq 0$$
+\end{minipage}
+\vspace{10pt}
+\noindent there is evidence in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at significance level $0.05$; each coefficient estimate is significant at the $0.05$ significance level.
+
+\vspace{10pt}
 
 ```{r T0008, fig.pos = 'h!'}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
@@ -187,19 +200,14 @@ estimations$fixed %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
-\cref{tab:T0008} & \cref{tab:T0009} outline the coefficient estimates vis-&agrave;-vis the fixed terms of linear predictors \cref{eq:0031} & \cref{eq:0032}, respectively.  In each case, and in accordance with the hypotheses
-\begin{minipage}[c]{0.9\textwidth}
-$$H_{0}: \beta_{j} = 0$$
-$$H_{1}: \beta_{j} \neq 0$$
-\end{minipage}
-\vspace{10pt}
-\noindent there is evidence in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at significance level $0.05$; each coefficient estimate is significant at the $0.05$ significance level.
 
-
+\clearpage
 
 ### Residual Spatial Correlation
 
 Next, spatial correlation assessments of the residuals of the generalised linear mixed models with linear predictors \cref{eq:0031} & \cref{eq:0032}. Their empirical variograms - \cref{fig:F0005} & \cref{fig:F0006}, respectively - illustrate evidence of residual spatial correlation.  Hence, proceeding to geostatistical binomial logistic modelling with the fixed terms of the linear predictors \cref{eq:0031} & \cref{eq:0032}.
+
+\vspace{10pt}
 
 ```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The empirical variogram of the GLMM with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$'}
 knitr::include_graphics(
