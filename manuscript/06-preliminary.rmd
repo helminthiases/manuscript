@@ -199,7 +199,7 @@ $$H_{1}: \beta_{j} \neq 0$$
 
 ### Residual Spatial Correlation
 
-The empirical variograms of \cref{fig:F0005} & \cref{fig:F0006} illustrates evidence of residual spatial correlation.
+Next, spatial correlation assessments of the residuals of the generalised linear mixed models with linear predictors \cref{eq:0031} & \cref{eq:0032}. Their empirical variograms - \cref{fig:F0005} & \cref{fig:F0006}, respectively - illustrate evidence of residual spatial correlation.  Hence, proceeding to geostatistical binomial logistic modelling with the fixed terms of the linear predictors \cref{eq:0031} & \cref{eq:0032}.
 
 ```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The \\textit{Case A} variogram'}
 knitr::include_graphics(
