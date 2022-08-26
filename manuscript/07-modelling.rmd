@@ -82,7 +82,7 @@ and
 & \quad  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i} \nonumber
 \end{align}
 
-
+The next few sections discuss the models' estimates, and whether the models successfully capture **(a)** unexplained spatial variation, and **(b)** unstructured variation in $Y_{i}$.
 
 
 
