@@ -241,23 +241,3 @@ parabolic$discrepancies %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
-
-<!--- includes ln(population density) --->
-```{r T0014}
-
-logarithmic$discrepancies %>%
-  dplyr::mutate_all(linebreak) %>%
-  kableExtra::kable(
-    format = 'latex',
-    digits = 3,
-    booktabs = TRUE,
-    escape = FALSE,
-    linesep = '\\addlinespace',
-    col.names = kableExtra::linebreak(c('', 'Bias', 'RMSE')),
-    caption = 'The bias and root mean square error values vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.') %>%
-  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
-  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
-  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
-  kableExtra::column_spec(column = 3, latex_column_spec = "l")
-```
-
