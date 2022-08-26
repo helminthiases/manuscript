@@ -108,7 +108,7 @@ coefficients %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
                                         'lower', 'upper', 's.e.', '$p_{value}$')),
-    caption = 'The estimated coefficients of the Binomial geostatistical logistic model with linear predictor $\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$') %>%
+    caption = 'The estimated coefficients of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
@@ -135,7 +135,7 @@ coefficients %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
                                         'lower', 'upper', 's.e.', '$p_{value}$')),
-    caption = 'The estimated coefficients of the Binomial geostatistical logistic model with linear predictor $\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i})  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$') %>%
+    caption = 'The estimated coefficients of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
@@ -153,7 +153,7 @@ coefficients %>%
 ## Residual Spatial Correlation
 
 <!--- excludes ln(population density) --->
-```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the Binomial geostatistical logistic model with linear predictor $\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
+```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'variogram.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -163,7 +163,7 @@ knitr::include_graphics(
 ```
 
 <!--- includes ln(population density) --->
-```{r F0011, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the Binomial geostatistical logistic model with linear predictor $\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i})  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
+```{r F0011, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'variogram.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -178,7 +178,7 @@ knitr::include_graphics(
 ## Prevalence Estimates
 
 <!--- excludes ln(population density) --->
-```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\grave{a}-vis the Binomial geostatistical logistic model with linear predictor $\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$'}
+```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'diagonal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -188,7 +188,7 @@ knitr::include_graphics(
 ```
 
 <!--- includes ln(population density) --->
-```{r F0012, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\grave{a}-vis the Binomial geostatistical logistic model with linear predictor $\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i})  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$'}
+```{r F0012, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'diagonal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
