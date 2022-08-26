@@ -175,30 +175,11 @@ parabolic$special %>%
   kableExtra::column_spec(column = 1, latex_column_spec = "c")
 ```
 
-
-```{r T0026}
-logarithmic$special %>%
-  dplyr::mutate_all(linebreak) %>%
-  kableExtra::kable(
-    format = 'latex',
-    digits = 3,
-    booktabs = TRUE,
-    escape = FALSE,
-    linesep = '\\addlinespace',
-    col.names = kableExtra::linebreak(c('', 'est.', 'lower', 'upper', '$e^{est.}$', 'lower', 'upper')),
-    caption = 'The Binomial geostatistical logistic model variance estimates vis-\\`{a}-vis $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.  $\\kappa = 0.5$') %>%
-  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 8, full_width = FALSE) %>%
-  kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2, '', 'confidence\ninterval' = 2)) %>%
-  kableExtra::add_footnote(label = 'est.: estimate', notation = 'none')  %>%
-  kableExtra::column_spec(column = 1, latex_column_spec = "c")
-```
-
-
 \clearpage
 
 ## Residual Spatial Correlation
 
-Modelling the ... is a core function of Binomial geostatistical logistic models.  Empirical variograms assess via the standardises residual errors of a model.
+The purpose of the Binomial geostatistical logistic model's linear predictor stochastic process term $S(x_{i})$ is the modelling/capturing of *unexplained spatial variation* (@Diggle2019).  If \cref{eq:0040} successfully models the unexplained spatial variation, then the associated standardised residual errors will be free of residual spatial correlation.  As before, we inspect residual spatial correlation via the empirical variogram.  Foremost, the calculation of the standardised residual errors.
 
 The standardised residual errors are
 \begin{align}
@@ -211,11 +192,7 @@ The number of observations is $n$, $\rho$ is the number of fixed effects paramet
 \end{equation}
 wherein $X$ denotes a model's design matrix.
 
-The empirical variogram w.r.t. each model's standardised residual errors
-
-
-
-were
+\cref{fig:F0008} outlines the empirical variogram of the standardised residual errors of the Binomial geostatistical logistic model with linear predictor \cref{eq:0040}.
 
 <!--- excludes ln(population density) --->
 ```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
