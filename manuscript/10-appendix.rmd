@@ -5,12 +5,10 @@
 
 # *PROJECT SCOPE*
 
-\small
-\noindent \textbf{Project host}: World Health Organization (WHO)
-
-\noindent \textbf{World Health Organization supervisor}: Professor Antonio Montresor
-
-\noindent \textbf{Lancaster Medical School/}[CHICAS](https://chicas.lancaster-university.uk) \textbf{supervisor}: Dr. Emanuele Giorgi
+\footnotesize
+\noindent \textbf{Project host}: World Health Organization (WHO)\newline
+\noindent \textbf{World Health Organization supervisor}: Professor Antonio Montresor\newline
+\noindent \textbf{Lancaster Medical School/}[CHICAS](https://chicas.lancaster-university.uk) \textbf{supervisor}: Dr. Emanuele Giorgi\newline
 \normalsize
 
 \vspace{20pt}
@@ -65,7 +63,7 @@ Hence, the project's objectives are to **(a)** understand the association betwee
 ## Timeline
 
 \begin{center}
-  \renewcommand{\arraystretch}{1.5}
+  \renewcommand{\arraystretch}{1.25}
   \begin{tabular}{ l p{0.65\linewidth}l }\footnotesize
     $\;$ & Item \\ \hline
     \footnotesize{2022/06/20 - 2022/07/08} & \small{Addressing site level records identification issues (refer to the quality constraints section further below).  The derivation of site level variable values; WASH and environmental variables values.} \\
@@ -82,8 +80,6 @@ Hence, the project's objectives are to **(a)** understand the association betwee
 
 The prediction of STH Prevalence for countries outwith the continent of Africa because the ESPEN data project focuses on African countries only, i.e., it only has the data of a set of African countries.  Consequently, model development will be via the data of one or more African countries.  Additionally, model validation, internal & external, will be via ESPEN countries only.
 
-\clearpage
-
 ## Project Assumptions
 
 Key assumptions:
@@ -91,13 +87,13 @@ Key assumptions:
 \begin{minipage}[c]{0.95\textwidth}
   \vspace{10pt}
   \begin{itemize}
-    \item The soil transmitted helminth parasites of concern are roundworms (Ascaris lumbricoides), hookworms (Ancylostoma duodenale, Necator americanus), and whipworms (Trichuris trichiura); which cause ascariasis, hookworm infection, and trichuriasis.
+    \item The soil transmitted helminth parasites of concern are roundworms (Ascaris lumbricoides), hookworms (Ancylostoma duodenale, Necator americanus), and whipworms (Trichuris trichiura).
     \item In terms of data granularity, the focus of this project is \textbf{site level prevalence}, and hence site level measures.
-    \item The historical site level positive cases of ascariasis, hookworm infection, and trichuriasis, detailed by \href{https://espen.afro.who.int/}{ESPEN}, are dependable.  Additionally, the ascariasis, trichuriasis, and hookworm infection examinations, per site, are conducted within the same sample population of a site.
+    \item The historical site level positive cases of ascariasis, hookworm infection, and trichuriasis, detailed by \href{https://espen.afro.who.int/}{ESPEN}, are dependable.
   \end{itemize}
 \end{minipage}
 
-\vspace{25pt}
+\clearpage
 
 ## Project Constraints
 
