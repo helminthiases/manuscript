@@ -110,7 +110,7 @@ $$H_{1}: \beta_{j} \neq 0$$
 \vspace{10pt}
 \noindent there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at the significance level $0.05$.  However, the stability of these observations, in the presence of sufficient data, is uncertain.
 
-Hence, **the project proceeds with the data set of a single year.  Specifically, it uses the $2015$ data of Togo.**  Using Togo's $2009$ data, rather than the $2015$ data, means depending on population density estimates that are derivations of [Gridded Population of the World](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4) quinquennial population density estimates, as outlined in the \hyperref[section:density]{data} chapter; at present, the quinquennial population estimates are for the years $2000$, $2005$, $2010$, $2015$, and $2020$.
+Hence, **the project proceeds with the data set of a single year.  Specifically, it uses the $2015$ data of Togo.**  Using Togo's $2009$ data, rather than the $2015$ data, means depending on population density estimates that are derivations of [Gridded Population of the World](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4) quinquennial population density estimates, as outlined in the \hyperref[section:data-density]{data} chapter; at present, the quinquennial population estimates are for the years $2000$, $2005$, $2010$, $2015$, and $2020$.
 
 \clearpage
 
@@ -144,7 +144,7 @@ i.e., linear predictors \cref{eq:0029,eq:0030} without *year* random effects ter
 
 \clearpage
 
-### The Estimated Coefficients
+### The Estimated Coefficients \label{section:preliminary-coefficients}
 
 \cref{tab:T0008} & \cref{tab:T0009} outline the coefficient estimates vis-&agrave;-vis the fixed terms of linear predictors \cref{eq:0031} & \cref{eq:0032}, respectively.  In each case, and in accordance with the hypotheses
 \begin{minipage}[c]{0.9\textwidth}
