@@ -155,7 +155,7 @@ logarithmic$coefficients %>%
 
 ## The Variance Estimates
 
-\cref{tab:T0025} & \cref{tab:T0026} outline the variance, and scale parameter, estimates of linear predictors \cref{eq:0040} & \cref{eq:0041}, respectively.  The confidence intervals of ...
+\cref{tab:T0025} & \cref{tab:T0026} outline the variance, and scale parameter, estimates of linear predictors \cref{eq:0040} & \cref{eq:0041}, respectively.  The estimates are different.  In general, \cref{tab:T0026} has narrower confidence interval widths; however the stochastic process $S(\mathbf{x})$ variances,  $\sigma^{2}$, of \cref{tab:T0025} & \cref{tab:T0026} have similar interval widths.
 
 ```{r T0025}
 parabolic$special %>%
@@ -196,6 +196,25 @@ logarithmic$special %>%
 \clearpage
 
 ## Residual Spatial Correlation
+
+Modelling the ... is a core function of Binomial geostatistical logistic models.  Empirical variograms assess via the standardises residual errors of a model.
+
+The standardised residual errors are
+\begin{align}
+r_{i} & = \frac{1}{\psi} \epsilon_{i}\left(1 - h_{i}\right)^{-1/2}, \quad \text{\textit{wherein}}  (\#eq:0010) \\
+\psi^{2} & = \frac{1}{n - \rho} \sum^{n}_{i = 1}{\epsilon^{2}_{i}}   (\#eq:0011)
+\end{align}
+The number of observations is $n$, $\rho$ is the number of fixed effects parameters, i.e., the number of model coefficients.  The raw residuals are ${\epsilon_{1}, \ldots, \epsilon_{n}}$; each $\epsilon_{i}$ is the difference between observed outcome $Y_{i}$ and its fitted value. $\psi$ is the standard error of the raw residuals.  Finally, $h_{i}$ is the leverage of the $i^{th}$ observation.  The definition of leverage value is
+\begin{equation}
+\mathbf{h} = diag \Bigl( X\bigl(X^{T}X\bigr)^{-1}X^{T}  \Bigr) (\#eq:0012)
+\end{equation}
+wherein $X$ denotes a model's design matrix.
+
+The empirical variogram w.r.t. each model's standardised residual errors 
+
+
+
+were
 
 <!--- excludes ln(population density) --->
 ```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
