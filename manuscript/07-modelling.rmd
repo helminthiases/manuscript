@@ -104,7 +104,7 @@ In contrast, not all the fixed-term coefficient estimates of \cref{tab:T0012} ar
 
 \vspace{10pt}
 
-<!--- excludes ln(population density) --->
+<!--- coefficients --->
 ```{r T0011, fig.pos = 'h!'}
 parabolic <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
 
@@ -128,7 +128,7 @@ parabolic$coefficients %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
-<!--- includes ln(population density) --->
+<!--- coefficients --->
 ```{r T0012, fig.pos = 'h!'}
 logarithmic <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'B', 'estimations.rds'))
 
@@ -154,10 +154,11 @@ logarithmic$coefficients %>%
 
 \clearpage
 
-## The Variance Estimates
+## The Variance & Scale Estimates
 
 \cref{tab:T0025} outlines the variance, and scale parameter, estimates of linear predictor \cref{eq:0040}.  The confidence interval of the scale parameter $\phi$ is rather wide.  On the other hand, $\sigma^{2}$, the variance of the stochastic process $S(\mathbf{x})$, has a rather narrow confidence interval.
 
+<!--- variance & scale estimates  --->
 ```{r T0025}
 parabolic$special %>%
   dplyr::mutate_all(linebreak) %>%
@@ -194,7 +195,7 @@ wherein $X$ denotes a model's design matrix.
 
 \cref{fig:F0008} outlines the empirical variogram of the standardised residual errors of the Binomial geostatistical logistic model with linear predictor \cref{eq:0040}.  The empirical variogram does not exhibit residual spatial correlation, i.e., the Binomial geostatistical logistic model in question successfully models the unexplained spatial variation.
 
-<!--- excludes ln(population density) --->
+<!--- empirical variogram --->
 ```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'variogram.pdf'),
