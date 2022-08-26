@@ -88,17 +88,27 @@ The next few sections discuss the models' estimates, and whether the models succ
 
 \clearpage
 
-## Coefficients
+## The Estimated Coefficients
+
+\cref{tab:T0011} & \cref{tab:T0012} outline the coefficient estimates vis-&agrave;-vis the fixed-terms of linear predictors \cref{eq:0040} & \cref{eq:0041}, respectively.    By the hypotheses
+\begin{minipage}[c]{0.9\textwidth}
+$$H_{0}: \beta_{j} = 0$$
+$$H_{1}: \beta_{j} \neq 0$$
+\end{minipage}
+\vspace{10pt}
+\noindent each fixed-term coefficient estimate of \cref{tab:T0011} is statistically significant at the $0.05$ significance level, i.e., there is evidence in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at significance level $0.05$.  These \cref{tab:T0011} observations are in-line with the \hyperref[section:preliminary-coefficients]{preliminary investigation's estimated coefficients} observations.
+
+In contrast, not all the fixed-term coefficient estimates of \cref{tab:T0012} are significant; the coefficients of the $piped\underline{\hspace{0.125cm}}sewer$ & $ln(p\underline{\hspace{0.125cm}}density.k)$ terms are not statistically significant at the $0.05$ significance level.
+
+
+\vspace{10pt}
 
 <!--- excludes ln(population density) --->
 ```{r T0011, fig.pos = 'h!'}
-estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
+parabolic <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
 
-coefficients <- estimations$coefficients
-coefficients$variable <- c('1', 'piped\\underline{\\hspace{0.125cm}}sewer',
-                           'piped\\underline{\\hspace{0.125cm}}sewer$^{2}$', 'elevation.km')
 
-coefficients %>%
+parabolic$coefficients %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
     format = 'latex',
@@ -119,13 +129,10 @@ coefficients %>%
 
 <!--- includes ln(population density) --->
 ```{r T0012, fig.pos = 'h!'}
-estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'B', 'estimations.rds'))
+logarithmic <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'B', 'estimations.rds'))
 
-coefficients <- estimations$coefficients
-coefficients$variable <- c('1', 'piped\\underline{\\hspace{0.125cm}}sewer',
-                           'ln(p\\underline{\\hspace{0.125cm}}density.k)', 'elevation.km')
 
-coefficients %>%
+logarithmic$coefficients %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
     format = 'latex',
@@ -144,8 +151,26 @@ coefficients %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
+\clearpage
 
+## The Variance Estimates
 
+```{r}
+parabolic$special %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'est.', 'lower', 'upper', '$e^{est.}$', 'lower', 'upper')),
+    caption = 'The Binomial geostatistical logistic model variance estimates vis-\\`{a}-vis $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.  $\\kappa = 0.5$') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 8, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2, '', 'confidence\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = 'est.: estimate', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, latex_column_spec = "c")
+```
 
 
 \clearpage
@@ -178,7 +203,7 @@ knitr::include_graphics(
 ## Prevalence Estimates
 
 <!--- excludes ln(population density) --->
-```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$'}
+```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'diagonal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -188,7 +213,7 @@ knitr::include_graphics(
 ```
 
 <!--- includes ln(population density) --->
-```{r F0012, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$'}
+```{r F0012, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'diagonal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -201,11 +226,8 @@ knitr::include_graphics(
 
 <!--- excludes ln(population density) --->
 ```{r T0013}
-discrepancies <- estimations$discrepancies
-discrepancies <- cbind(variable = row.names(discrepancies), discrepancies)
-row.names(discrepancies) <- NULL
 
-discrepancies %>%
+parabolic$discrepancies %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
     format = 'latex',
@@ -214,7 +236,7 @@ discrepancies %>%
     escape = FALSE,
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'Bias', 'RMSE')),
-    caption = 'Bias and root mean square error w.r.t. the \\textit{Case A} Binomial Geostatistical Model') %>%
+    caption = 'The bias and root mean square error values vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
@@ -223,11 +245,8 @@ discrepancies %>%
 
 <!--- includes ln(population density) --->
 ```{r T0014}
-discrepancies <- estimations$discrepancies
-discrepancies <- cbind(variable = row.names(discrepancies), discrepancies)
-row.names(discrepancies) <- NULL
 
-discrepancies %>%
+logarithmic$discrepancies %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
     format = 'latex',
@@ -236,9 +255,10 @@ discrepancies %>%
     escape = FALSE,
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'Bias', 'RMSE')),
-    caption = 'Bias and root mean square error w.r.t. the \\textit{Case B} Binomial Geostatistical Model') %>%
+    caption = 'The bias and root mean square error values vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
+
