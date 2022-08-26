@@ -50,7 +50,7 @@ The term $\phi$ is the scale parameter.
 
 In contrast to $S(x_{i})$, $U_{i}$ are independent Normally distributed random variables
 \begin{equation}
-U_{i} \sim \mathcal{N}(0, \nu^{2}) (\#eq:0023)
+U_{i} \sim \mathcal{N}(0, \tau^{2}) (\#eq:0023)
 \end{equation}
 that capture the effects of unknown/unmeasured independent variables, i.e., $U_{i}$ represent the *unstructured variation
 in $Y_{i}$* (@Diggle2019).  The unknown variables either **(a)** lack a spatial structure, or **(b)** *``... are spatially
@@ -155,7 +155,9 @@ logarithmic$coefficients %>%
 
 ## The Variance Estimates
 
-```{r}
+\cref{tab:T0025} & \cref{tab:T0026} outline the variance, and scale parameter, estimates of linear predictors \cref{eq:0040} & \cref{eq:0041}, respectively.  The confidence intervals of ...
+
+```{r T0025}
 parabolic$special %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
@@ -166,6 +168,24 @@ parabolic$special %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'est.', 'lower', 'upper', '$e^{est.}$', 'lower', 'upper')),
     caption = 'The Binomial geostatistical logistic model variance estimates vis-\\`{a}-vis $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.  $\\kappa = 0.5$') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 8, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2, '', 'confidence\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = 'est.: estimate', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, latex_column_spec = "c")
+```
+
+
+```{r T0026}
+logarithmic$special %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'est.', 'lower', 'upper', '$e^{est.}$', 'lower', 'upper')),
+    caption = 'The Binomial geostatistical logistic model variance estimates vis-\\`{a}-vis $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.  $\\kappa = 0.5$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 8, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2, '', 'confidence\ninterval' = 2)) %>%
   kableExtra::add_footnote(label = 'est.: estimate', notation = 'none')  %>%
