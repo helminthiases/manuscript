@@ -108,7 +108,7 @@ coefficients %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
                                         'lower', 'upper', 's.e.', '$p_{value}$')),
-    caption = 'The estimated coefficients of the \\textit{Case A} Binomial Geostatistical Model') %>%
+    caption = 'The estimated coefficients of the Binomial geostatistical logistic model with linear predictor $\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
