@@ -178,7 +178,7 @@ knitr::include_graphics(
 ## Prevalence Estimates
 
 <!--- excludes ln(population density) --->
-```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The \\textit{Case A} Binomial Geostatistical Model prevalence estimates and originals'}
+```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\grave{a}-vis the Binomial geostatistical logistic model with linear predictor $\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'diagonal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -188,7 +188,7 @@ knitr::include_graphics(
 ```
 
 <!--- includes ln(population density) --->
-```{r F0012, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The \\textit{Case B} Binomial Geostatistical Model prevalence estimates and originals'}
+```{r F0012, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\grave{a}-vis the Binomial geostatistical logistic model with linear predictor $\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i})  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'diagonal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
