@@ -204,17 +204,6 @@ knitr::include_graphics(
 )
 ```
 
-<!--- includes ln(population density) --->
-```{r F0011, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
-knitr::include_graphics(
-  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'B', 'variogram.pdf'),
-  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
-  dpi = NULL,
-  error = getOption(x = "knitr.graphics.error", default = TRUE)
-)
-```
-
-
 \clearpage
 
 ## Prevalence Estimates
