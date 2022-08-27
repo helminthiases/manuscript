@@ -108,6 +108,11 @@ $$H_{1}: \beta_{j} \neq 0$$
 ```{r T0011, fig.pos = 'h!'}
 parabolic <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
 
+# The intercept, the coefficient of the linear (CPL) & quadratic (CPQ) piped sewage terms, the coefficient of the linear elevation term
+intercept <- round(parabolic$coefficients[2, 'est'], digits = 3)
+CPL <- round(parabolic$coefficients[2, 'est'], digits = 3)
+CPQ <- round(parabolic$coefficients[3, 'est'], digits = 3)
+CEL <- round(parabolic$coefficients[4, 'est'], digits = 3)
 
 parabolic$coefficients %>%
   dplyr::mutate_all(linebreak) %>%
@@ -127,6 +132,8 @@ parabolic$coefficients %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
+
+\vspace{10pt}
 
 <!--- coefficients --->
 ```{r T0012, fig.pos = 'h!'}
@@ -152,19 +159,46 @@ logarithmic$coefficients %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
-In contrast, not all the fixed-term coefficient estimates of \cref{tab:T0012} are significant; the coefficients of the $piped\underline{\hspace{0.125cm}}sewer$ & $ln(p\underline{\hspace{0.125cm}}density.k)$ terms are not statistically significant at the $0.05$ significance level.  \textbf{Hence, the rest of this chapter} discusses the estimates of the Binomial geostatistical logistic model with linear predictor \cref{eq:0040}.
+\vspace{10pt}
+
+\noindent In contrast, not all the fixed-term coefficient estimates of \cref{tab:T0012} are significant; the coefficients of the $piped\underline{\hspace{0.125cm}}sewer$ & $ln(p\underline{\hspace{0.125cm}}density.k)$ terms are not statistically significant at the $0.05$ significance level.  \textbf{Hence, the rest of this chapter} discusses the estimates of the Binomial geostatistical logistic model with linear predictor \cref{eq:0040}.
 
 \vspace{10pt}
 
-\textbf{The coefficients estimates} are measures of variable impact ... focusing on the fixed-term effects of \cref{eq:0040}
+\textbf{A variable's coefficient estimate} is a direct, or indirect, measure of the variable's impact on an outcome.  Focusing on the fixed-term effects of \cref{eq:0040}
 
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} \nonumber \\
+& \quad  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}\nonumber
+\end{align}
+$\Rightarrow$
 \begin{equation}
-\frac{p(x_{i})}{1 - p(x_{i})} \prop exp^{\beta_{0}}  exp^{\beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})}  exp^{\beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2}} exp^{\beta_{3}{elevation.km}(x_{i})}  (\#eq:0047)
+\frac{p(x_{i})}{1 - p(x_{i})} \propto \large{e}^{\beta_{0}}  e^{\beta_{1}{piped\underline{\hspace{0.1cm}}sewer}(x_{i})}  e^{\beta_{2}{piped\underline{\hspace{0.1cm}}sewer}(x_{i})^{2}} e^{\beta_{3}{elevation.km}(x_{i})}  (\#eq:0047)
 \end{equation}
+by \cref{eq:0037,eq:0038,eq:0039,eq:0040}.  The effects $piped\underline{\hspace{0.125cm}}sewer$ and *elevation.km* on prevalence are deducible via \cref{eq:0047}.
 
-by \cref{eq:0037,eq:0038,eq:0039,eq:0040}
+\vspace{25pt}
+
+\textbf{Piped Sewage Facilities}: Equating the derivative of \cref{eq:0047} w.r.t. (with respect to) $piped\underline{\hspace{0.125cm}}sewer$ to zero leads to
+\begin{equation}
+`r CPL` + \bigl(2 \times `r CPQ` \times piped\underline{\hspace{0.125cm}}sewer\bigr) = 0  (\#eq:0049)
+\end{equation}
+This suggests that the effect of $piped\underline{\hspace{0.125cm}}sewer$ on *Hookworm disease* infections prevalence varies about the inflection point $`r -CPL`/`r 2*CPQ` = `r round(0.5*CPL/CPQ, digits = 3)`$.  As access to piped sewage facilities increases from $0$ to $`r round(0.5*CPL/CPQ, digits = 3)`$ the prevalence odds decrease.  Beyond the inflection point, however, the prevalence odds increase as access to piped sewage facilities increases; the range is $(`r round(0.5*CPL/CPQ, digits = 3)` \quad 1]$.  The increasing prevalence odds after the inflection point might due to a mix of
+
+> * access density
+> * poor maintenance
+
+The measure $piped\underline{\hspace{0.125cm}}sewer$ denotes the percentage of an area's inhabitants that have access to piped sewage facilities.  The measure does not give an insight into access density, i.e., the median number of people per piped [defaecation] facility.  Defaecation facilities that have high access densities require hygiene maintaining cleaning schedules - which might not be budgeted for. Consequently, potential facility users might opt for public health impacting options.
 
 \clearpage
+
+\textbf{Elevation}: For every unit increase in elevation, i.e., every kilometre increase in elevation, the prevalence odds declines
+\begin{equation}
+  100 \times \bigl(e^{`r CEL`} - 1\bigr) = `r round(100 * (exp(CEL) - 1), digits = 3)`  (\#eq:0050)
+\end{equation}
+i.e., decreases by $`r -round(100 * (exp(CEL) - 1), digits = 3)`%$.
+
+
 
 ### The Variance & Scale Estimates
 
