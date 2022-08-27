@@ -212,7 +212,7 @@ knitr::include_graphics(
 
 ## Prevalence Estimates
 
-The project set aside a portion of Togo's $2015$ data set for preliminary prediction analysis purposes.  Thus far, the portion of the Togo $2015$ data set in use is, more or less, the *training* data set.  
+The project set aside a portion of Togo's $2015$ data set for preliminary prediction analysis purposes.  Thus far, the portion of the Togo $2015$ data set in use is, more or less, the *training* data set.
 
 <!--- prevalence --->
 ```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
