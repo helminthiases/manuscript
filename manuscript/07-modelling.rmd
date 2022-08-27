@@ -176,11 +176,12 @@ parabolic$special %>%
   kableExtra::column_spec(column = 1, latex_column_spec = "c")
 ```
 
-\clearpage
 
 ## Residual Spatial Correlation
 
-The purpose of the Binomial geostatistical logistic model's linear predictor stochastic process term $S(x_{i})$ is the modelling/capturing of *unexplained spatial variation* (@Diggle2019).  If \cref{eq:0040} successfully models the unexplained spatial variation, then the associated standardised residual errors will be free of residual spatial correlation.  As before, we inspect residual spatial correlation via the empirical variogram.  Foremost, the calculation of the standardised residual errors.
+The purpose of the Binomial geostatistical logistic model's [linear predictor] stochastic term $S(x_{i})$ is the modelling/capturing of *unexplained spatial variation* (@Diggle2019).  If the $S(x_{i})$ term of \cref{eq:0040} successfully models the unexplained spatial variation, then the associated standardised residual errors will be free of residual spatial correlation.  As before, we test for residual spatial correlation via the empirical variogram.  Foremost, the calculation of the standardised residual errors.
+
+\vspace{10pt}
 
 The standardised residual errors are
 \begin{align}
@@ -192,6 +193,8 @@ The number of observations is $n$, $\rho$ is the number of fixed effects paramet
 \mathbf{h} = diag \Bigl( X\bigl(X^{T}X\bigr)^{-1}X^{T}  \Bigr) (\#eq:0012)
 \end{equation}
 wherein $X$ denotes a model's design matrix.
+
+\vspace{10pt}
 
 \cref{fig:F0008} outlines the empirical variogram of the standardised residual errors of the Binomial geostatistical logistic model with linear predictor \cref{eq:0040}.  The empirical variogram does not exhibit residual spatial correlation, i.e., the Binomial geostatistical logistic model in question successfully models the unexplained spatial variation.
 
@@ -208,6 +211,8 @@ knitr::include_graphics(
 \clearpage
 
 ## Prevalence Estimates
+
+The project set aside a portion of Togo's $2015$ data set for preliminary prediction analysis purposes.  Thus far, the portion of the Togo $2015$ data set in use is, more or less, the *training* data set.  
 
 <!--- prevalence --->
 ```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
