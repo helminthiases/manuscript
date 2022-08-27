@@ -59,7 +59,7 @@ varying but on a scale smaller than the minimum observed distance.''* (@Diggle20
 
 ### Linear Predictors
 
-The \hyperref[chapter:preliminary]{preliminary investigation} chapter identifies two generalised linear mixed models whose **(a)** residuals exhibit spatial correlation, and **(b)**  coefficient estimates $\beta_{j}$ are significant $\forall \; j$, at significance level $0.05$.  The linear predictors of these models are
+The \hyperref[chapter:preliminary]{preliminary investigation} chapter identifies two generalised linear mixed models whose **(a)** residuals exhibit spatial correlation, and **(b)**  coefficient estimates $\beta_{j}$ are significant $\forall \; j$, at significance level $0.05$.  The linear predictors of those models are
 
 \begin{align}
 \eta_{i} & = \color{darkolive}{\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2}} \nonumber \\
