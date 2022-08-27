@@ -185,10 +185,14 @@ by \cref{eq:0037,eq:0038,eq:0039,eq:0040}.  The effects $piped\underline{\hspace
 \end{equation}
 This suggests that the effect of $piped\underline{\hspace{0.125cm}}sewer$ on *Hookworm disease* infections prevalence varies about the inflection point $`r -CPL`/`r 2*CPQ` = `r round(0.5*CPL/CPQ, digits = 3)`$.  As access to piped sewage facilities increases from $0$ to $`r round(0.5*CPL/CPQ, digits = 3)`$ the prevalence odds decrease.  Beyond the inflection point, however, the prevalence odds increase as access to piped sewage facilities increases; the range is $(`r round(0.5*CPL/CPQ, digits = 3)` \quad 1]$.  The increasing prevalence odds after the inflection point might due to a mix of
 
+\small
+
 > * access density
 > * poor maintenance
 
-The measure $piped\underline{\hspace{0.125cm}}sewer$ denotes the percentage of an area's inhabitants that have access to piped sewage facilities.  The measure does not give an insight into access density, i.e., the median number of people per piped [defaecation] facility.  Defaecation facilities that have high access densities require hygiene maintaining cleaning schedules - which might not be budgeted for. Consequently, potential facility users might opt for public health impacting options.
+\normalsize
+
+The measure $piped\underline{\hspace{0.125cm}}sewer$ denotes the percentage of an area's inhabitants that have access to piped sewage facilities.  The measure does not give an insight into access density, i.e., the median number of people per piped [defaecation] facility.  Defaecation facilities that have high access densities require robust *hygiene maintaining cleaning schedules*, which might not be budgeted for.  Consequently, potential facility users might sometime opt for options detrimental to public health.
 
 \clearpage
 
