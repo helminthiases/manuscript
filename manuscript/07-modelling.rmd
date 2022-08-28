@@ -306,9 +306,19 @@ parabolic$discrepancies %>%
 ```
 
 
+\clearpage
+
 ## The Bayesian Estimates
 
-```{r T0043}
+This section briefly reviews the Bayesian estimates w.r.t. the Binomial geostatistical model of \cref{eq:0040}, i.e., w.r.t.
+
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} \nonumber \\
+& \quad  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i} \nonumber
+\end{align}
+
+
+```{r T0043, fig.pos = 'h!'}
 
 bayes <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blb', 'A', 'estimations.rds'))
 
@@ -330,4 +340,29 @@ bayes$coefficients %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "c")
 ```
+
+\vspace{20pt}
+
+```{r T0044, fig.pos = 'h!'}
+
+bayes$special %>%
+  dplyr::select(!Mode) %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'Mean',
+                                        'Median', 's.e.', 'hpd$_{0.025}$', 'hpd$_{0.975}$')),
+    caption = 'The variance \\& scale estimates w.r.t. the Binomial geostatistical model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', '', 'credible\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 's.e.: standard error', 'hpd: highest posterior density'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "c")
+```
+
+
 
