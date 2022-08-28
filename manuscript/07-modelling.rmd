@@ -163,9 +163,9 @@ logarithmic$coefficients %>%
 
 \noindent In contrast, not all the fixed-term coefficient estimates of \cref{tab:T0012} are significant; the coefficients of the $piped\underline{\hspace{0.125cm}}sewer$ & $ln(p\underline{\hspace{0.125cm}}density.k)$ terms are not statistically significant at the $0.05$ significance level.  \textbf{Hence, the rest of this chapter} discusses the estimates of the Binomial geostatistical logistic model with linear predictor \cref{eq:0040}.
 
-\vspace{10pt}
+### The Impact of the Estimated Coefficients
 
-\textbf{A variable's coefficient estimate} is a direct, or indirect, measure of the variable's impact on an outcome.  Focusing on the fixed-term effects of \cref{eq:0040}
+A variable's coefficient estimate is a direct, or indirect, measure of the variable's impact on an outcome.  Focusing on the fixed-term effects of \cref{eq:0040}
 
 \begin{align}
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} \nonumber \\
@@ -179,13 +179,15 @@ by \cref{eq:0037,eq:0038,eq:0039,eq:0040}.  The effects $piped\underline{\hspace
 
 \vspace{25pt}
 
-\textbf{Piped Sewage Facilities}: Equating the derivative of \cref{eq:0047} w.r.t. (with respect to) $piped\underline{\hspace{0.125cm}}sewer$ to zero leads to
+\textsc{Piped Sewage Facilities}\newline
+
+Equating the derivative of \cref{eq:0047} w.r.t. (with respect to) $piped\underline{\hspace{0.125cm}}sewer$ to zero leads to
 \begin{equation}
 `r CPL` + \bigl(2 \times `r CPQ` \times piped\underline{\hspace{0.125cm}}sewer\bigr) = 0  (\#eq:0049)
 \end{equation}
-This suggests that the effect of $piped\underline{\hspace{0.125cm}}sewer$ on *Hookworm disease* infections prevalence varies about the inflection point $`r -CPL`/`r 2*CPQ` = `r round(0.5*CPL/CPQ, digits = 3)`$.  As access to piped sewage facilities increases from $0$ to $`r round(0.5*CPL/CPQ, digits = 3)`$ the prevalence odds decrease.  Beyond the inflection point, however, the prevalence odds increase as access to piped sewage facilities increases; the range is $(`r round(0.5*CPL/CPQ, digits = 3)` \quad 1]$.  The increasing prevalence odds after the inflection point might due to a mix of
+This suggests that the effect of $piped\underline{\hspace{0.125cm}}sewer$ on *Hookworm disease* infections prevalence varies about the inflection point $`r -CPL`/`r 2*CPQ` = `r round(-0.5*CPL/CPQ, digits = 3)`$.  As access to piped sewage facilities increases from $0$ to $`r round(-0.5*CPL/CPQ, digits = 3)`$ the prevalence odds decrease.  Beyond the inflection point, however, the prevalence odds increase as access to piped sewage facilities increases; the range is $(`r round(-0.5*CPL/CPQ, digits = 3)` \quad 1]$.  The increasing prevalence odds after the inflection point might due to a mix of
 
-\small
+\normalsize
 
 > * access density
 > * poor maintenance
@@ -196,11 +198,13 @@ The measure $piped\underline{\hspace{0.125cm}}sewer$ denotes the percentage of a
 
 \clearpage
 
-\textbf{Elevation}: For every unit increase in elevation, i.e., every kilometre increase in elevation, the prevalence odds declines
+\textsc{Elevation}\newline
+
+For every unit increase in elevation, i.e., every kilometre increase in elevation, the prevalence odds declines
 \begin{equation}
   100 \times \bigl(e^{`r CEL`} - 1\bigr) = `r round(100 * (exp(CEL) - 1), digits = 3)`  (\#eq:0050)
 \end{equation}
-i.e., decreases by $`r -round(100 * (exp(CEL) - 1), digits = 3)`%$.
+i.e., decreases by $`r -round(100 * (exp(CEL) - 1), digits = 3)`\%$.
 
 
 
@@ -275,8 +279,12 @@ knitr::include_graphics(
 ```
 
 
+The training data's original & estimated prevalence values are not quite equivalent.  In general, the estimates are under-estimates, hence the negative bias value in \cref{tab:T0013}.  Hence, this model requires further adjustment.  An adjustment option is additional factors; potential factors include land surface temperature, enhanced vegetation index values, and soil moisture (@Brooker2006).
 
-Bias & RMSE
+Unsurprisingly, the prediction performance illustrated by the testing data set is poor.  The  predominant focus is explanatory modelling, with a special focus on WaSH variables; not all possible variables that might impact geohelminths infections prevalence.  Sometimes the range of factors considered during explanatory modelling are sufficient for prediction purposes, sometimes they are not.
+
+Interestingly, Brooker et al. (@Brooker2006) report moderate accuracy w.r.t. the prediction of *Hookworm disease* infections prevalence via binomial logistic regression analysis.  Therein the independent variables are land surface temperature, normalized difference vegetation index, and elevation.  Hence, extending ...
+
 
 <!--- bias & rmse --->
 ```{r T0013}
@@ -296,3 +304,30 @@ parabolic$discrepancies %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
+
+
+## The Bayesian Estimates
+
+```{r T0043}
+
+bayes <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blb', 'A', 'estimations.rds'))
+
+bayes$coefficients %>%
+  dplyr::select(!Mode) %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'Mean',
+                                        'Median', 's.e.', 'hpd$_{0.025}$', 'hpd$_{0.975}$')),
+    caption = 'The estimated coefficients of the Bayes model') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', '', '', 'credible\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 's.e.: standard error', 'hpd: highest posterior density'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "c")
+```
+
