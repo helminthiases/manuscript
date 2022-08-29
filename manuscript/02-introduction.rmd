@@ -75,15 +75,15 @@ Are any WaSH (water, sanitation, and hygiene) variables *geohelminths infections
 
 ## *Project Aim*
 
-Understanding the association between geohelminths infections prevalence and WaSH (water, sanitation, and hygiene) variables, and their effect, or otherwise, on geohelminths infections prevalence prediction.
+Determine whether one or more WaSH (water, sanitation, and hygiene) variables are geohelminths infections prevalence risk factors.
 
 ## *Project Objectives*
 
 Hence, the project's objectives are to
 
-> 1. Understand the association between geohelminths infections prevalence and WaSH (water, sanitation, and hygiene) variables.
+> 1. Determine which WaSH (water, sanitation, and hygiene) variables have a statistically significant impact on geohelminths infections prevalence.
 >
-> 2. Determine the extent to which WaSH variables aid STH prevalence prediction
+> 2. Determine, estimate, the degree to which impacting WaSH variables affect geohelminths infections prevalence.
 
 \noindent via geostatistical models.
 
