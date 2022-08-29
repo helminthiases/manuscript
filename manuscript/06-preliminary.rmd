@@ -108,7 +108,9 @@ $$H_{0}: \beta_{j} = 0$$
 $$H_{1}: \beta_{j} \neq 0$$
 \end{minipage}
 \vspace{10pt}
-\noindent there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at the significance level $0.05$.  However, the stability of these observations, in the presence of sufficient data, is uncertain.
+\noindent there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at the significance level $0.05$.  However, the stability of these observations is uncertain.
+
+\vspace{10pt}
 
 Hence, **the project proceeds with the data set of a single year.  Specifically, it uses the $2015$ data of Togo.**  Using Togo's $2009$ data, rather than the $2015$ data, means depending on population density estimates that are derivations of [Gridded Population of the World](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4) quinquennial population density estimates, as outlined in the \hyperref[section:data-density]{data} chapter; at present, the quinquennial population estimates are for the years $2000$, $2005$, $2010$, $2015$, and $2020$.
 
