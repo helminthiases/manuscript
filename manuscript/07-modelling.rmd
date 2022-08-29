@@ -310,7 +310,7 @@ parabolic$discrepancies %>%
 
 ## The Bayesian Estimates
 
-This section briefly reviews the Bayesian estimates w.r.t. the Binomial geostatistical model of \cref{eq:0040}, i.e., w.r.t.
+This section briefly discusses the Bayesian estimates w.r.t. the Binomial geostatistical model of \cref{eq:0040}, i.e., w.r.t.
 
 \begin{align}
 \eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} \nonumber \\
