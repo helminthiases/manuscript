@@ -179,7 +179,9 @@ by \cref{eq:0037,eq:0038,eq:0039,eq:0040}.  The effects $piped\underline{\hspace
 
 \vspace{25pt}
 
-\textsc{Piped Sewage Facilities}\newline
+\textsc{textbf{Piped Sewage Facilities}}
+
+\vspace{5pt}
 
 Equating the derivative of \cref{eq:0047} w.r.t. (with respect to) $piped\underline{\hspace{0.125cm}}sewer$ to zero leads to
 \begin{equation}
@@ -198,7 +200,9 @@ The measure $piped\underline{\hspace{0.125cm}}sewer$ denotes the percentage of a
 
 \clearpage
 
-\textsc{Elevation}\newline
+\textsc{\textbf{Elevation}}
+
+\vspace{5pt}
 
 For every unit increase in elevation, i.e., every kilometre increase in elevation, the prevalence odds declines
 \begin{equation}
@@ -279,11 +283,11 @@ knitr::include_graphics(
 ```
 
 
-The training data's original & estimated prevalence values are not quite equivalent.  In general, the estimates are under-estimates, hence the negative bias value in \cref{tab:T0013}.  Hence, this model requires further adjustment.  An adjustment option is additional factors; potential factors include land surface temperature, enhanced vegetation index values, and soil moisture (@Brooker2006).
+The training data's original & estimated prevalence values are not quite equivalent.  In general, the estimates are under-estimates, hence the negative bias value in \cref{tab:T0013}.  Hence, this model requires further adjustment.  An adjustment option is additional risk factors; potential factors include land surface temperature, enhanced vegetation index values, and soil moisture (@Brooker2006).
 
 Unsurprisingly, the prediction performance illustrated by the testing data set is poor.  The  predominant focus is explanatory modelling, with a special focus on WaSH variables; not all possible variables that might impact geohelminths infections prevalence.  Sometimes the range of factors considered during explanatory modelling are sufficient for prediction purposes, sometimes they are not.
 
-Interestingly, Brooker et al. (@Brooker2006) report moderate accuracy w.r.t. the prediction of *Hookworm disease* infections prevalence via binomial logistic regression analysis.  Therein the independent variables are land surface temperature, normalized difference vegetation index, and elevation.  Hence, extending ...
+Interestingly, Brooker et al. (@Brooker2006) report moderate accuracy w.r.t. the prediction of *Hookworm disease* infections prevalence via binomial logistic regression analysis.  Therein the independent variables are land surface temperature, normalized difference vegetation index, and elevation.
 
 
 <!--- bias & rmse --->
@@ -346,6 +350,8 @@ bayes$coefficients %>%
 > * The credible intervals of the Bayesian estimates are generally narrower than the confidence intervals of the MCML estimates.
 >
 > * There is quite a difference between their $\beta_{2}$ estimates.
+>
+> * Additionally, the standard errors of the Bayesian coefficients estimates $\beta_{1}$ & $\beta_{2}$ - for $piped\underline{\hspace{0.125cm}}sewer$ & $piped\underline{\hspace{0.125cm}}sewer^{2}$, respectively, are relatively quite smaller than the MCML standard errors (\cref{tab:T0011}).
 
 \vspace{10pt}
 
