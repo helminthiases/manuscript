@@ -311,12 +311,10 @@ parabolic$discrepancies %>%
 ## The Bayesian Estimates
 
 This section briefly discusses the Bayesian estimates w.r.t. the Binomial geostatistical model of \cref{eq:0040}, i.e., w.r.t.
-
 \begin{align}
-\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} \nonumber \\
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} \qquad (\ref{eq:0040}) \nonumber \\
 & \quad  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i} \nonumber
 \end{align}
-
 
 ```{r T0043, fig.pos = 'h!'}
 
@@ -333,7 +331,7 @@ bayes$coefficients %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'Mean',
                                         'Median', 's.e.', 'hpd$_{0.025}$', 'hpd$_{0.975}$')),
-    caption = 'The estimated coefficients of the Bayes model') %>%
+    caption = 'The Bayesian coefficients estimates w.r.t. the Binomial geostatistical logistic model with linear predictor \\cref{eq:0040}') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', '', '', 'credible\ninterval' = 2)) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 's.e.: standard error', 'hpd: highest posterior density'), notation = 'none')  %>%
@@ -342,6 +340,42 @@ bayes$coefficients %>%
 ```
 
 \vspace{20pt}
+
+\cref{tab:T0011} & \cref{tab:T0043} outline the Monte Carlo Maximum Likelihood (MCML) & Bayesian parameter estimates, respectively, of the Binomial geostatistical model with linear predictor \cref{eq:0040}.  The estimates are similar, \cref{tab:T0060}, but
+
+> * The credible intervals of the Bayesian estimates are generally narrower than the confidence intervals of the MCML estimates.
+>
+> * There is quite a difference between their $\beta_{2}$ estimates.
+
+\vspace{10pt}
+
+```{r T0060}
+T <- cbind(parabolic$coefficients[, c('variable', 'coefficient', 'est', '2.5 %', '97.5 %')],
+           bayes$coefficients[, c('Median', 'HPD 0.025', 'HPD 0.975')])
+
+T %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'MCML\n est.', 'lower\n 2.5\\%', 'upper\n 97.5\\%', 'Bayesian\n est.', 'hpd$_{0.025}$', 'hpd$_{0.975}$')),
+    caption = 'The MCML \\& median Bayesian estimates w.r.t. \\cref{eq:0040}') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', 'credible\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 'hpd: highest posterior density'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, latex_column_spec = 'l') %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = 'c')
+```
+
+
+\clearpage
+
+\cref{tab:T0044} outlines the Bayesian variance, and scale parameter, w.r.t. linear predictor \cref{eq:0040}.  The credible interval of the scale parameter $\phi$ is rather wide; the confidence interval of the MCML $\phi$ estimate is also rather wide (\cref{tab:T0025}).  On the other hand, $\sigma^{2}$, the variance of the stochastic process $S(\mathbf{x})$, has a rather narrow confidence interval.
+
+\vspace{10pt}
 
 ```{r T0044, fig.pos = 'h!'}
 
