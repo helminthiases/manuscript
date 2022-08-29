@@ -69,6 +69,10 @@ terms %>%
 
 \vspace{10pt}
 
+## *Research Question*
+
+Are any WaSH (water, sanitation, and hygiene) variables *geohelminths infections prevalence* risk factors?
+
 ## *Project Aim*
 
 Understanding the association between geohelminths infections prevalence and WaSH (water, sanitation, and hygiene) variables, and their effect, or otherwise, on geohelminths infections prevalence prediction.
