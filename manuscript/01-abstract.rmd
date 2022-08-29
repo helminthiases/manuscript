@@ -1,3 +1,8 @@
 
 # *ABSTRACT* {-}
 
+Soil transmitted helminths (STH), i.e., geohelminths, are parasitic intestinal worms that cause intestinal nematode infections (INI).  According to the Lancet's 2019 global burden of disease study INI - comprising *ascariasis*, *trichuriasis*, and *hookworm disease* - are the most prevalent of the neglected tropical diseases.  Additionally, INI are the second most burdensome neglected tropical diseases, after dengue.
+
+... the investigation suggests that
+
+The explanatory models suggest a non-linear association between that piped sewage facilities access and *Hookworm disease* prevalence.  Up to a certain point - approximately $24\%$ access -  as the percentage of inhabitants that have access to piped sewage facilities increases *Hookworm disease* prevalence odds declines.  Beyond the $24\%$ access point, *Hookworm disease* prevalence odds start increasing with increasing access percentage.  The increasing prevalence odds at this inflection point might due to a mix of access density & poor maintenance.  The piped sewage facilities access percentage is the percentage of an area’s inhabitants that have access to piped sewage facilities. The measure does not give an insight into access density, i.e., the median number of people per piped [defaecation] facility. Defaecation facilities that have high access densities might not be well-maintained.
