@@ -13,7 +13,7 @@ The increasing prevalence odds after the $`r round(-100*0.5*CPL/CPQ, digits = 2)
 
 ## Assumptions
 
-The key/implicit assumptions:
+\noindent The key/implicit assumptions:
 
 > * The ESPEN (Expanded Special Project for Elimination Neglected Tropical Diseases) survey measures, when available, are error free.\newline
 > * If an ESPEN record's *number of survey examinations* value is zero or null, then the examinations' data is missing.\newline
@@ -32,12 +32,12 @@ It is quite possible that the accuracy of the WaSH access percentage estimates, 
 
 ## Validity
 
-Finally, the project's validity (@Trochim2006) can be understood via
+\noindent Finally, the project's validity (@Trochim2006) can be understood via
 
-* Internal Validity [design]: The project's focus is not the determination of a cause & effect relationship, hence an internal validity valuation is inapplicable.
+> * **Internal Validity**: The project's focus is not the determination of a cause & effect relationship, hence an internal validity valuation is inapplicable.
 
-* Construct Validity [measurement]: Each explanatory model determines **(a)** whether there is a statistically significant association between an extraneous independent variable and *Hookworm disease* infections prevalence, and subsequently **(b)** the variable's impact.  This is in line with the project's aim & objectives, i.e., the operational setting does reflect the construct.
+> * **Construct Validity**: Each explanatory model determines **(a)** whether there is a statistically significant association between an extraneous independent variable and *Hookworm disease* infections prevalence, and subsequently **(b)** the variable's impact.  This is in line with the project's aim & objectives, i.e., the operational setting does reflect the construct.
 
-* External Validity [sampling]: At present, the study's conclusions can be generalised to Togo only.
+> * **External Validity**: At present, the study's conclusions can be generalised to Togo only.
 
-* Conclusion Validity [analysis]: Each of the resulting model's MCML (Monte Carlo Maximum Likelihood) coefficient estimates is statistically significant, additionally a different estimation method - Bayesian parameter estimation - produces similar estimates.  Hence, it is reasonable to conclude that $piped\underline{\hspace{0.1cm}}sewer$ is probably a risk factor. The case would be stronger in the case of a *temporal Binomial geostatistical logistic model*.
+> * **Conclusion Validity**: Each of the resulting model's MCML (Monte Carlo Maximum Likelihood) coefficient estimates is statistically significant, additionally a different estimation method - Bayesian parameter estimation - produces similar estimates.  Hence, it is reasonable to conclude that $piped\underline{\hspace{0.1cm}}sewer$ is probably a risk factor. The case would be stronger in the case of a *temporal Binomial geostatistical logistic model*.
