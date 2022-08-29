@@ -90,8 +90,8 @@ Hence, the project's objectives are to
 
 ## *Manuscript Structure*
 
-The \hyperref[chapter:background]{background} chapter discusses the biology, ecology, and transmission dynamics of geohelminths. Next, the \hyperref[chapter:data]{data} chapter outlines the underlying data sets of this project.  This leads unto the \hyperref[chapter:exploration]{exploratory analysis} chapter, which explores the relationship, or otherwise, between the prevalence of a geohelminth infectious disease and independent variables. The \hyperref[chapter:preliminary]{preliminary investigation} & \hyperref[chapter:geo]{geostatistical binomial logistic models} chapters focus on explanatory modelling.  Finally, the *conclusion*/*discussion* chapter discusses the project's observations, findings, and limitations.
+The \hyperref[chapter:background]{background} chapter discusses the biology, ecology, and transmission dynamics of geohelminths. Next, the \hyperref[chapter:data]{data} chapter outlines the underlying data sets of this project.  This leads unto the \hyperref[chapter:exploration]{exploratory analysis} chapter, which explores the relationship, or otherwise, between the prevalence of a geohelminth infectious disease and independent variables. The \hyperref[chapter:preliminary]{preliminary investigation} & \hyperref[chapter:geo]{geostatistical binomial logistic models} chapters focus on explanatory modelling.  Finally, the [chapter:discussion]{discussion} chapter discusses the project's observations, findings, and limitations.
 
-In this text intestinal nematode infections (INI) & geohelminth infections are synonyms, and the comprising diseases are *ascariasis*, *trichuriasis*, and *hookworm disease*.
+In this text intestinal nematode infections (INI) & geohelminths infections are synonyms, and the comprising diseases are *ascariasis*, *trichuriasis*, and *hookworm disease*.
 
 
