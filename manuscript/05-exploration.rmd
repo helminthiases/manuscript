@@ -89,7 +89,7 @@ in acknowledgement of the fact that the project's focus is Binomial models.  The
 
 It is difficult to definitively state the relationship patterns of \cref{fig:F0003}.  The $piped \; sewer$ graph exhibits the strongest relationship pattern  - according to the fitting function $y = mx + c$, each year's prevalence decreases with increasing access to piped sewers.
 
-```{r F0003, fig.pos = 'h!', out.height = '77.5%', out.width = '77.5%', fig.align = 'center', fig.cap = 'The relationships between $\\textit{Hookworm disease}$ prevalence $\\&$ access to sewage facilities; $1 \\equiv 100\\%$, which means $100\\%$ of the population has access.  The fitted lines are for pattern observation purposes, and the fitting functions are $y = mx + c$ $\\&$ $\\textit{cubic splines}$, dashed lines $\\&$ solid lines, respectively.'}
+```{r F0003, fig.pos = 'h!', out.height = '82.5%', out.width = '82.5%', fig.align = 'center', fig.cap = 'The relationships between $\\textit{Hookworm disease}$ prevalence $\\&$ access to sewage facilities; $1 \\equiv 100\\%$, which means $100\\%$ of the population has access.  The fitted lines are for pattern observation purposes, and the fitting functions are $y = mx + c$ $\\&$ $\\textit{cubic splines}$, dashed lines $\\&$ solid lines, respectively.'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'sewer', 'disaggregateSewerReal.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),

@@ -23,12 +23,12 @@ A key STH prevalence hypothesis, of domain experts, is that WASH (water, sanitat
 
 ## Project Aim
 
-The project's aim is to \textit{understand the association between geohelminths infections prevalence and WASH (water, sanitation, and hygiene) variables, and their effect, or otherwise, on geohelminths infections prevalence prediction}.
+Determine whether one or more WaSH (water, sanitation, and hygiene) variables are geohelminths infections prevalence risk factors.
 
 
 ## Project Objectives
 
-Hence, the project's objectives are to **(a)** understand the association between geohelminths infections prevalence and WASH (water, sanitation, and hygiene) variables, and **(b)** investigate whether WASH variables aid geohelminths infections prevalence prediction via geostatistical models.
+Hence, the project's objectives are to **(a)** determine which WaSH (water, sanitation, and hygiene) variables have a statistically significant impact on geohelminths infections prevalence, and **(b)** determine, estimate, the degree to which impacting WaSH variables affect geohelminths infections prevalence --- via geostatistical models.
 
 
 ## Project Data

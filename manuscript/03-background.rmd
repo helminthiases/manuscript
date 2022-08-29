@@ -78,5 +78,5 @@ terms %>%
 
 \vspace{10pt}
 
-Altogether, the transmission dynamics suggests that WaSH factors are possible risk factors, whereas the ecological associations between geohelminths distributions and a variety of environmental factors suggests that a mix of climatic, topographic, and edaphic factors are also possible risk factors.  This project predominantly focuses on WaSH factors, this means - most probably - an insufficient collection variables for a predictive model, but sufficient for **an explanatory model that models the association between a dependent variable and independent variables, whilst concurrently modelling missing knowledge**.
+Altogether, the transmission dynamics suggests that WaSH factors are possible risk factors, whereas the ecological associations between geohelminths distributions and a variety of environmental factors suggests that a mix of climatic, topographic, and edaphic factors are also possible risk factors.  This project predominantly focuses on WaSH factors, this means - most probably - an insufficient collection of variables for a predictive model, but sufficient for **an explanatory model that models the association between a dependent variable and independent variables, whilst concurrently modelling missing knowledge**.
 
