@@ -13,7 +13,7 @@ pathstr <- dirname(getwd())
 
 # *BACKGROUND* \label{chapter:background}
 
-An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to proposing possible prevalence risk factors.  Herein, geohelminths infections comprises *ascariasis*, *trichuriasis*, & *hookworm disease*, and the underlying parasites are *A. lumbricoides*, *T. trichiura* & *A. duodenale/N. americanus*, respectively (\cref{tab:T0001}).
+An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to proposing possible prevalence risk factors.  As previously noted, geohelminths infections comprises *ascariasis*, *trichuriasis*, and *hookworm disease*.  The underlying parasites are *A. lumbricoides*, *T. trichiura*, and *A. duodenale/N. americanus*, respectively (\cref{tab:T0001}).
 
 \vspace{10pt}
 
@@ -53,7 +53,7 @@ These transmission dynamics illustrate why WaSH variables are plausible risk fac
 
 \vspace{10pt}
 
-In the environment, soil, a number of environmental factors aid or affect the survival of the pre-infective eggs, infective eggs (*A. lumbricoides*, *T. trichiura*), and infective larvae (*A. duodenale/N. americanus*).  Brooker et al. (@Brooker2006, @Brooker2000) review probable and known **(a)** environmental factors, **(b)** ecological associations between geohelminths distributions and a variety of environmental factors.  The factors include temperature, soil moisture, relative atmospheric humidity, altitude, and more.  A rather critical observation of these reviews is that each species has a different, particular, spectrum of relationships with environmental factors.  Hence, this project focuses on Hookworm disease only, it is the most burdensome of the three diseases (\cref{tab:T0010}).
+In the environment/soil a number of environmental factors aid or affect the survival of the pre-infective eggs, infective eggs (*A. lumbricoides*, *T. trichiura*), and infective larvae (*A. duodenale/N. americanus*).  Brooker et al. (@Brooker2006, @Brooker2000) review probable and known **(a)** environmental factors, and **(b)** ecological associations between geohelminths distributions and a variety of environmental factors.  The factors include temperature, soil moisture, relative atmospheric humidity, altitude, and more.  A rather critical observation in these reviews is that each species has a different, particular, spectrum of relationships with environmental factors.  Hence, this project focuses on a single disease only: Hookworm disease, as of $2019$ it is the most burdensome of the three diseases (\cref{tab:T0010}).
 
 \vspace{10pt}
 
@@ -78,5 +78,5 @@ terms %>%
 
 \vspace{10pt}
 
-Altogether, the transmission dynamics suggests that WaSH factors are possible risk factors, whereas the ecological associations between geohelminths distributions and a variety of environmental factors suggests that a mix of climatic, topographic, and edaphic factors are also possible risk factors.  This project predominantly focuses on WaSH factors, this means - most probably - an insufficient collection variables for a predictive model, but sufficient for an explanatory model that models the association between a dependent variable and independent variables and concurrently models missing knowledge.
+Altogether, the transmission dynamics suggests that WaSH factors are possible risk factors, whereas the ecological associations between geohelminths distributions and a variety of environmental factors suggests that a mix of climatic, topographic, and edaphic factors are also possible risk factors.  This project predominantly focuses on WaSH factors, this means - most probably - an insufficient collection variables for a predictive model, but sufficient for **an explanatory model that models the association between a dependent variable and independent variables, whilst concurrently modelling missing knowledge**.
 

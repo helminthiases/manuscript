@@ -7,16 +7,23 @@ sys.source(file = '../R/descriptions/DescriptionAlgorithms.R', envir = knitr::kn
 
 # *PRELIMINARY INVESTIGATION* \label{chapter:preliminary}
 
-The previous chapter graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This chapter explores plausible empirical relationships models.
+The previous chapter graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This chapter explores plausible empirical relationships models.  As noted before, this project's outcome of interest is [*Hookworm disease*] *prevalence*, which is a proportion value.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.
 
-As noted before, this project's outcome of interest is *prevalence*, i.e., *Hookworm disease* prevalence.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.  In preparation for Binomial geostatistical modelling, the objective of this chapter is to
+\vspace{10pt}
 
-> *investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between ``prevalence`` and ``zero or more extraneous independent variables``.*
+In preparation for Binomial geostatistical modelling, the objective of this chapter is to
 
-Each **preliminary model** is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field [@Cressie1993], [@Matheron1963].
+\vspace{10pt}
 
-The models of the next chapter are derivations of the preliminary models that exhibit residual spatial correlation, i.e., an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
+\begin{minipage}[c]{0.9\textwidth}
+\textit{investigate evidence of residual spatial correlation in the residuals of preliminary empirical relationship models between \textbf{prevalence} and \textbf{zero or more extraneous independent variables}.}
+\end{minipage}
 
+\vspace{10pt}
+
+\noindent Each *preliminary empirical relationship model*, henceforth *preliminary model*, is a Binomial generalised linear mixed model (GLMM).  Evidence of residual spatial correlation, in a preliminary model's residuals, is determined via the empirical variogram; the empirical variogram function determines the degree of spatial correlation in a stochastic process or random field (@Cressie1993, @Matheron1963).  Note that the models of the \hyperref[chapter:geo]{geostatistical binomial logistic models} chapter are derivations of preliminary models that exhibit residual spatial correlation, i.e., an implicit purpose of this chapter is the determination of plausible fixed term effects vectors for geo-statistical modelling.
+
+\vspace{10pt}
 
 \cref{tab:T0004} summarises this chapter's common notations.
 
@@ -32,7 +39,7 @@ terms %>%
     escape = FALSE,
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('notation', 'description')),
-    caption = 'The notations used at various points of this chapter.') %>%
+    caption = 'The notations used at various points of this chapter, and subsequent chapters.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_footnote(label = '', notation = 'none')  %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
@@ -42,17 +49,9 @@ terms %>%
 
 \vspace{25pt}
 
-## The Generalised Linear Mixed Models
+## A Generalised Linear Mixed Model with Multiple Random Effects
 
-The key assumptions of these models are
-
-> * The observations are independent.
->
-> * The values of each independent variable are error free.
-
-\vspace{10pt}
-
-The **preliminary model** structure of interest is the **generalised linear mixed model** (GLMM) of structure
+In general, the key assumptions of generalised linear mixed models are **(a)** the observations are independent, and **(b)** the values of each independent variable are error free.  Initially, the preliminary model structure of interest is the GLMM
 \begin{align}
 Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0001) \\
 \eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
@@ -64,9 +63,11 @@ wherein
 \mathbf{c} & \sim \mathcal{N}(0, \tau^{2}_{c}\mathbf{I}_{c}) \nonumber
 \end{align}
 
-It is a Binomial GLMM because the outcome values, prevalence, are proportions.  \cref{tab:T0004} defines the terms of each equation.  The expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ (\cref{eq:0001}) is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients (\cref{tab:T0001}).  In this investigation, the independent variables are the aforementioned WaSH variables, population density, and elevation (\cref{tab:T0003}), i.e., the extraneous variables.
+\noindent It is a Binomial GLMM because the prevalence values are proportions.  \cref{tab:T0004} defines most of the terms of the equations.  Expression $\mathbf{\delta}(x_{i})^{T} \mathbf{\beta}$ is the *fixed effects* expression; $\mathbf{\delta}(x_{i})$ is a vector of terms that depend on one or more independent variables, whilst $\mathbf{\beta}$ is the vector of associated regression coefficients.  The independent variables are one or more of the extraneous variables (\cref{tab:T0003}).
 
-Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``identifier`` & ``year``, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
+\vspace{10pt}
+
+Additionally, $b_{i}$ & $c_{i}$ are the random effects terms, in relation to *identifier* & *year*, respectively.  \cref{eq:0002} outlines the assumptions underlying the random effects vectors, i.e., each is
 
 > * Mutually independent, and identically distributed.
 >
@@ -74,9 +75,50 @@ Additionally, $b_{i}$ & $c_{i}$ are the random effects terms in relation to ``id
 
 The length of the diagonal of identity matrix $\mathbf{I}_{b}$ is the number of distinct locations, whilst the diagonal length of $\mathbf{I}_{c}$ is the number of distinct years.
 
+### Limitations
+
+There is a key challenge in relation to the GLMM of \cref{eq:0001} and Togo's *Hookworm disease* data:
+
 \vspace{10pt}
 
-A second  **generalised linear mixed model** (GLMM) structure
+\begin{minipage}[c]{0.9\textwidth}
+\textit{The residual spatial correlation tests of each preliminary model is inconclusive.  In each case the design, i.e., fixed-effect, matrix is rank deficient due to insufficient data.}
+\end{minipage}
+
+\vspace{10pt}
+
+\noindent The linear predictors $\eta_{i}$ of two of the preliminary models in question are
+
+\vspace{-0.80cm}
+
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0029) \\
+         & \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
+\end{align}
+and
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i}) (\#eq:0030) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} + c_{i} \nonumber
+\end{align}
+Each reflects the sometimes inconclusive relationships, between *prevalence* & *extraneous independent variables*, outlined within the \hyperref[chapter:exploration]{exploratory analysis} chapter (study \cref{fig:F0003,fig:F0013,fig:F0007}).
+
+In terms of the models' coefficients, in accordance with the hypotheses
+\begin{minipage}[c]{0.9\textwidth}
+$$H_{0}: \beta_{j} = 0$$
+$$H_{1}: \beta_{j} \neq 0$$
+\end{minipage}
+\vspace{10pt}
+\noindent there is *preliminary evidence* in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at the significance level $0.05$.  However, the stability of these observations is uncertain.
+
+\vspace{10pt}
+
+Hence, **the project proceeds with the data set of a single year.  Specifically, it uses the $2015$ data of Togo.**  Using Togo's $2009$ data, rather than the $2015$ data, means depending on population density estimates that are derivations of [Gridded Population of the World](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4) quinquennial population density estimates, as outlined in the \hyperref[section:data-density]{data} chapter; at present, the quinquennial population estimates are for the years $2000$, $2005$, $2010$, $2015$, and $2020$.
+
+\clearpage
+
+## A Generalised Linear Mixed Model with a Single Random Effect
+
+In the case of single year data sets, the GLMM becomes
 \begin{align}
 Y_{i} & \sim Binomial(e_{i}, p_{i}) (\#eq:0006) \\
 \eta_{i} & = ln \left( \frac{p_{i}}{1 - p_{i}} \right) \nonumber \\
@@ -86,54 +128,35 @@ wherein
 \begin{equation}
 \mathbf{b} \sim \mathcal{N}(0, \tau^{2}_{b}\mathbf{I}_{b}) (\#eq:0007)
 \end{equation}
-models the data of a single year.
-
-\vspace{25pt}
-
-## Modes of Evaluation
-
-The assessment of each considered GLMM model is via the hypotheses
-
-> $H_{0}: \beta_{j} = 0$
->
-> $H_{1}: \beta_{j} \neq 0$
-
-Let $0.05$ be the $p_{value}$ significance level, then there is evidence in favour of the alternative hypothesis, $H_{1}$, if the estimated coefficient's $p_{value} < 0.05$.  The comparison of the models, w.r.t. the same GLMM structure, is via deviance/AIC (Akaike Information Criterion).
-
-
-\vspace{25pt}
-
-
-## The Viable Preliminary Models
-
-Togo's data set is a data set of two years: $2009$, $2015$.  Due to rank deficiency, insufficient data, in relation to \cref{eq:0001}, it is not possible to model the data of both years together.  Hence, the focus is a single year's data - $2015$; for modelling purposes, the $2009$ data set is rather small, relative to its spatial spread (\cref{fig:F0001}).
+The difference between this model and  \cref{eq:0001} is the absence of a *year* random effects term in this model.  The definition of each term remains the same.
 
 \vspace{10pt}
 
-... the models with fixed term vectors
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) =
-\begin{cases}
-[1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}), \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] \\
-[1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}), ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})]
-\end{cases} (\#eq:0005)
-\end{equation}
-\normalsize
-were the viable models for geo-statistical extensions.
+Leading on from the afore-stated linear predictors \cref{eq:0029,eq:0030}, this section focuses on preliminary models, with linear predictors
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0031) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
+\end{align}
+and
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i}) (\#eq:0032) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
+\end{align}
+i.e., linear predictors \cref{eq:0029,eq:0030} without *year* random effects terms.
 
 \clearpage
 
-### Case A
+### The Estimated Coefficients \label{section:preliminary-coefficients}
 
-\cref{tab:T0008} outlines the estimates of the coefficients of the generalised linear mixed model (\cref{eq:0006}) with fixed terms
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
-\textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i})^{2}, \textit{elevation.km}(x_{i})] (\#eq:0009)
-\end{equation}
-\normalsize
-The empirical variogram of its residuals (\cref{fig:F0005}) illustrates evidence of residual spatial correlation.
+\cref{tab:T0008} & \cref{tab:T0009} outline the coefficient estimates vis-&agrave;-vis the fixed terms of linear predictors \cref{eq:0031} & \cref{eq:0032}, respectively.  In each case, and in accordance with the hypotheses
+\begin{minipage}[c]{0.9\textwidth}
+$$H_{0}: \beta_{j} = 0$$
+$$H_{1}: \beta_{j} \neq 0$$
+\end{minipage}
+\vspace{10pt}
+\noindent there is evidence in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at significance level $0.05$; each coefficient estimate is significant at the $0.05$ significance level.
+
+\vspace{10pt}
 
 ```{r T0008, fig.pos = 'h!'}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
@@ -148,7 +171,7 @@ estimations$fixed %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
                                         'lower', 'upper', 's.e.', '$p_{value}$')),
-    caption = 'The estimated coefficients of the \\textit{Case A} GLMM Model') %>%
+    caption = 'The estimated coefficients of the GLMM with linear predictor  $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
@@ -159,29 +182,7 @@ estimations$fixed %>%
 
 \vspace{10pt}
 
-```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The \\textit{Case A} variogram'}
-knitr::include_graphics(
-  path = file.path('..', 'warehouse', 'effects', 'architectures', 'A', 'variogram.pdf'),
-  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
-  dpi = NULL,
-  error = getOption(x = "knitr.graphics.error", default = TRUE)
-)
-```
-
-\clearpage
-
-### Case B
-
-\cref{tab:T0009} outlines the estimates of the coefficients of the generalised linear mixed model (\cref{eq:0006}) with fixed terms
-\small
-\begin{equation}
-\mathbf{\delta}(x_{i}) = [1, \textit{piped}\underline{\hspace{0.125cm}}\textit{sewer}(x_{i}),
-ln(p\underline{\hspace{0.125cm}}density.k(x_{i})), \textit{elevation.km}(x_{i})] (\#eq:0011)
-\end{equation}
-\normalsize
-The empirical variogram of its residuals (\cref{fig:F0006}) also illustrates evidence of residual spatial correlation.
-
-```{r T0009}
+```{r T0009, fig.pos = 'h!'}
 estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
 
 estimations$fixed %>%
@@ -194,7 +195,7 @@ estimations$fixed %>%
     linesep = '\\addlinespace',
     col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
                                         'lower', 'upper', 's.e.', '$p_{value}$')),
-    caption = 'The estimated coefficients of the \\textit{Case B} GLMM Model') %>%
+    caption = 'The estimated coefficients of the GLMM with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i}) + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
   kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
@@ -203,9 +204,27 @@ estimations$fixed %>%
   kableExtra::column_spec(column = 3, latex_column_spec = "l")
 ```
 
+
+\clearpage
+
+### Residual Spatial Correlation
+
+Next, spatial correlation assessments of the residuals of the generalised linear mixed models with linear predictors \cref{eq:0031} & \cref{eq:0032}. Their empirical variograms - \cref{fig:F0005} & \cref{fig:F0006}, respectively - illustrate evidence of residual spatial correlation.  Hence, proceeding to geostatistical binomial logistic modelling with the fixed terms of the linear predictors \cref{eq:0031} & \cref{eq:0032}.
+
 \vspace{10pt}
 
-```{r F0006, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The \\textit{Case B} variogram'}
+```{r F0005, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The empirical variogram of the GLMM with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'effects', 'architectures', 'A', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+\vspace{10pt}
+
+```{r F0006, fig.pos = 'h!', out.width = '50%', fig.align = 'center', fig.cap = 'The empirical variogram of the GLMM with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i}) + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'effects', 'architectures', 'B', 'variogram.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),

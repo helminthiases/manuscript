@@ -7,6 +7,7 @@
 \usepackage{xcolor}
 \usepackage[nameinlink, capitalize]{cleveref}
 \usepackage{makecell}
+\usepackage{color}
 
 
 % Settings
@@ -17,15 +18,17 @@
 \definecolor{darkgrey}{HTML}{4a4a4a}
 \definecolor{duskyblue}{HTML}{6C779C}
 \definecolor{wine}{rgb}{.44,.18,.21}
+\definecolor{darkolive}{HTML}{546A2F}
 
 
+% Setting the format of the section titles: SMALL CAPS
+\titleformat*{\section}{\scshape}
 
 
+% Spacing: left, before, after
+\titlespacing{\section}{0pt}{30pt}{10pt}
+\titlespacing{\subsection}{0pt}{20pt}{*1}
 
 
-
-
-
-
-
-
+% References
+\creflabelformat{equation}{#2\textup{#1}#3}

@@ -6,7 +6,7 @@
 
 Activate <- function () {
 
-  packages <- c('tidyverse', 'moments', 'rmarkdown', 'latex2exp', 'mapview', 'tufte',
+  packages <- c('tidyverse', 'geoR', 'PrevMap', 'moments', 'rmarkdown', 'latex2exp', 'mapview', 'tufte',
                 'roxygen2', 'kableExtra', 'bookdown', 'sf', 'raster', 'tmap', 'terra',
                 'spData', 'tidygeocoder', 'rnaturalearth', 'geodata', 'leaflet',
                 'splancs', 'paletteer', 'ggthemes', 'ggcorrplot')

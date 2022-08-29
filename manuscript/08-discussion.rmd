@@ -1,0 +1,19 @@
+
+# *DISCUSSION* \label{chapter:discussion}
+
+## [Validity](https://conjointly.com/kb/conclusion-validity/)
+
+* Internal Validity [design]: The project's focus is not the determination of a cause & effect relationship, hence an internal validity valuation is inapplicable.
+
+* Construct Validity [measurement]: Each explanatory model determines (a) whether there is a statistically significant association between an extraneous independent variable and *Hookworm disease* infections prevalence, and subsequently (b) the variable's impact.  This is in line with the project's aim, i.e., the operational setting does reflect the construct.
+
+* External Validity [sampling]: The study's conclusions can be generalised to Togo,
+
+* Conclusion Validity [analysis]: ...  hence, it is probably reasonable to conclude that $piped\underline{\hspace{0.1cm}}sewer$ is a plausible prognostic risk factor.
+
+
+## Limitations, biases, noise
+
+
+## Assumptions
+
