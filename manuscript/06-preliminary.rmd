@@ -7,7 +7,7 @@ sys.source(file = '../R/descriptions/DescriptionAlgorithms.R', envir = knitr::kn
 
 # *PRELIMINARY INVESTIGATION* \label{chapter:preliminary}
 
-The previous chapter graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables.  This chapter explores plausible empirical relationships models.  As noted before, this project's outcome of interest is [*Hookworm disease*] *prevalence*, which is a proportion value.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.
+The previous chapter graphically explores empirical relationships between *Hookworm disease* prevalence & a few extraneous independent variables, i.e., probable risk factors.  This chapter explores plausible empirical relationships models.  As noted before, this project's outcome of interest is [*Hookworm disease*] *prevalence*, which is a proportion value.  Hence, all empirical relationship model investigations - between *prevalence* and *zero or more extraneous independent variables* - are **Binomial model** investigations.
 
 \vspace{10pt}
 
