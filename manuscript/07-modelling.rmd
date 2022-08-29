@@ -179,7 +179,7 @@ by \cref{eq:0037,eq:0038,eq:0039,eq:0040}.  The effects $piped\underline{\hspace
 
 \vspace{25pt}
 
-\textsc{textbf{Piped Sewage Facilities}}
+\noindent \textsc{Piped Sewage Facilities}
 
 \vspace{5pt}
 
@@ -200,7 +200,7 @@ The measure $piped\underline{\hspace{0.125cm}}sewer$ denotes the percentage of a
 
 \clearpage
 
-\textsc{\textbf{Elevation}}
+\noindent \textsc{Elevation}
 
 \vspace{5pt}
 
@@ -345,13 +345,13 @@ bayes$coefficients %>%
 
 \vspace{20pt}
 
-\cref{tab:T0011} & \cref{tab:T0043} outline the Monte Carlo Maximum Likelihood (MCML) & Bayesian parameter estimates, respectively, of the Binomial geostatistical model with linear predictor \cref{eq:0040}.  The estimates are similar, \cref{tab:T0060}, but
+\cref{tab:T0011} & \cref{tab:T0043} outline the Monte Carlo Maximum Likelihood (MCML) & Bayesian parameter estimates, respectively, of the Binomial geostatistical model with linear predictor \cref{eq:0040}.  The estimates, partly summarised in \cref{tab:T0060}, are similar but
 
 > * The credible intervals of the Bayesian estimates are generally narrower than the confidence intervals of the MCML estimates.
 >
 > * There is quite a difference between their $\beta_{2}$ estimates.
 >
-> * Additionally, the standard errors of the Bayesian coefficients estimates $\beta_{1}$ & $\beta_{2}$ - for $piped\underline{\hspace{0.125cm}}sewer$ & $piped\underline{\hspace{0.125cm}}sewer^{2}$, respectively, are relatively quite smaller than the MCML standard errors (\cref{tab:T0011}).
+> * Additionally, the standard errors of the Bayesian coefficients estimates $\beta_{1}$ & $\beta_{2}$ --- for $piped\underline{\hspace{0.125cm}}sewer$ & $piped\underline{\hspace{0.125cm}}sewer^{2}$, respectively --- are relatively quite smaller than the MCML standard errors (\cref{tab:T0011}).
 
 \vspace{10pt}
 
