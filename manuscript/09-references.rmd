@@ -1,5 +1,0 @@
-# *REFERENCES* {-}
-
-<div id="refs"></div>
-
-\clearpage

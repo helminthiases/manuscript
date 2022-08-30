@@ -1,0 +1,311 @@
+
+
+# *GEOSTATISTICAL BINOMIAL LOGISTIC MODELS* \label{chapter:geo}
+
+The predominant focus of this chapter is explanatory models.  An explanatory model determines which independent variables have a statistically significant impact on a dependent variable in question, it also outlines the degree of impact of the independent variables.  Hence, and in relation to the project's aim & objectives, the objective herein is to
+
+\begin{minipage}[c]{0.9\textwidth}
+
+\vspace{15pt}
+
+\textit{Determine which extraneous independent variables -  WaSH variables, population density, and elevation - have a statistically significant impact on the prevalence of Hookworm disease infections, and outline their degree of impact.}
+
+\vspace{15pt}
+
+\end{minipage}
+
+Leading on from the \hyperref[chapter:data]{data}, \hyperref[chapter:exploration]{exploratory analysis}, \hyperref[chapter:preliminary]{preliminary investigation} chapters, a few important points:  **(a)** The outcomes - prevalence - are proportions, hence the project's focus is Binomial models. **(b)** The preliminary investigation identified Binomial generalised linear mixed models with strong evidence of residual spatial correlation, hence \textit{this chapter focuses on geostatistical binomial logistic [explanatory] models}. **(c)** Modelling is via the data set of a single year; Togo, $2015$.
+
+
+## Geo-statistical binomial logistic modelling
+
+Here we explore *geostatistical binomial logistics models* wherein the parameter estimates are Monte Carlo Maximum Likelihood estimates.  The model structure is
+
+\begin{align}
+\renewcommand{\arraystretch}{1.5}
+Y_{i} & \sim Binomial(e(x_{i}), p(x_{i})) (\#eq:0037) \\
+\eta(x_{i}) & = ln \left( \frac{p(x_{i})}{1 - p(x_{i})} \right) (\#eq:0038) \\
+& = \mathbf{\delta}(x_{i})^{T}\mathbf{\beta} + S(x_{i}) + U_{i} (\#eq:0039)
+\end{align}
+
+\vspace{10pt}
+
+Again, \cref{tab:T0004} defines most terms.  $x_{i}$ is the spatial/geographic location of the $i^{th}$ observation.   $\mathbf{\delta}(x_{i})$ is the $i^{th}$ vector of fixed terms - i.e., the $i^{th}$ row vector of the model's design matrix - it depends on zero or more independent variables. Whilst $\mathbf{\beta}$ is the vector of the concurrent fixed effects coefficients.  $S(x_{i})$ is the stochastic process term, it models the *unexplained spatial variation* (@Diggle2019).  Herein, the assumption is that $S(\mathbf{x})$ is
+
+> * A zero-mean gaussian process, i.e., the joint probability of ${S(x_{1}), \ldots, S(x_{n})}$ is multi-variate normal.\newline
+> * Stationary, i.e., it has a constant variance - denoted $\sigma^{2}$.\newline
+> * Isotropic, i.e., the correlation between $S(x_{i})$ & $S(x_{j})$ depends on the distance between $x_{i}$ & $x_{j}$ only.\newline
+
+A consequence of these assumptions is that the covariance $\gamma(x_{i}, x_{j})$ is defined as
+\begin{equation}
+\gamma(x_{i}, x_{j}) = \sigma^{2}\rho(\left\Vert x_{i} - x_{j} \right\Vert) (\#eq:0025)
+\end{equation}
+wherein $\rho(u) = \rho(\left\Vert x_{i} - x_{j} \right\Vert)$ is the correlation function; $u = \left\Vert \cdot \right\Vert$ denotes distance.  Throughout this paper correlation function in use is the *exponential correlation function* (@Diggle2019)
+\begin{equation}
+\rho(u; \phi) = e^{-u/\phi}, \qquad u \geq 0 (\#eq:0016)
+\end{equation}
+The term $\phi$ is the scale parameter.
+
+\vspace{10pt}
+
+In contrast to $S(x_{i})$, $U_{i}$ are independent Normally distributed random variables
+\begin{equation}
+U_{i} \sim \mathcal{N}(0, \tau^{2}) (\#eq:0023)
+\end{equation}
+that capture the effects of unknown/unmeasured independent variables, i.e., $U_{i}$ represent the *unstructured variation
+in $Y_{i}$* (@Diggle2019).  The unknown variables either **(a)** lack a spatial structure, or **(b)** *``... are spatially
+varying but on a scale smaller than the minimum observed distance.''* (@Diggle2019)
+
+
+### Linear Predictors
+
+The \hyperref[chapter:preliminary]{preliminary investigation} chapter identifies two generalised linear mixed models whose **(a)** residuals exhibit spatial correlation, and **(b)**  coefficient estimates $\beta_{j}$ are significant $\forall \; j$, at significance level $0.05$.  The linear predictors of those models are
+
+\begin{align}
+\eta_{i} & = \color{darkolive}{\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2}} \nonumber \\
+& \quad  \color{darkolive}{\; + \; \beta_{3}{elevation.km}(x_{i})} \color{black}{\; + \; b_{i}} \nonumber
+\end{align}
+and
+\begin{align}
+\eta_{i} & = \color{darkolive}{\beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i})} \nonumber \\
+& \quad  \color{darkolive}{\; + \; \beta_{3}{elevation.km}(x_{i})} \color{black}{\; + \; b_{i}} \nonumber
+\end{align}
+
+Each linear predictor's fixed-term expression is the olive coloured part of the linear predictor.  Hence, and building on these preliminary investigation fixed-term expressions, the geostatistical binomial logistic models in focus are the models with linear predictors
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} (\#eq:0040) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}\nonumber
+\end{align}
+and
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i}) (\#eq:0041) \\
+& \quad  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i} \nonumber
+\end{align}
+
+The next few sections discuss the models' estimates, and whether the models successfully capture **(a)** unexplained spatial variation, and **(b)** unstructured variation in $Y_{i}$.
+
+
+
+\clearpage
+
+## The Models
+
+In this section all parameter estimates are Monte Carlo Maximum Likelihood estimates.
+
+### The Estimated Coefficients
+
+\cref{tab:T0011} & \cref{tab:T0012} outline the coefficient estimates vis-&agrave;-vis the fixed-terms of linear predictors \cref{eq:0040} & \cref{eq:0041}, respectively.    By the hypotheses
+\begin{minipage}[c]{0.9\textwidth}
+$$H_{0}: \beta_{j} = 0$$
+$$H_{1}: \beta_{j} \neq 0$$
+\end{minipage}
+\vspace{10pt}
+\noindent each fixed-term coefficient estimate of \cref{tab:T0011} is statistically significant at the $0.05$ significance level, i.e., there is evidence in favour of the alternative hypothesis, $H_{1}$, $\forall \; j$, at significance level $0.05$.  These \cref{tab:T0011} observations are in-line with the \hyperref[section:preliminary-coefficients]{preliminary investigation's estimated coefficients} observations.
+
+\vspace{10pt}
+
+<!--- coefficients --->
+```{r T0011, fig.pos = 'h!'}
+parabolic <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'A', 'estimations.rds'))
+
+# The intercept, the coefficient of the linear (CPL) & quadratic (CPQ) piped sewage terms, the coefficient of the linear elevation term
+intercept <- round(parabolic$coefficients[2, 'est'], digits = 3)
+CPL <- round(parabolic$coefficients[2, 'est'], digits = 3)
+CPQ <- round(parabolic$coefficients[3, 'est'], digits = 3)
+CEL <- round(parabolic$coefficients[4, 'est'], digits = 3)
+
+parabolic$coefficients %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
+                                        'lower', 'upper', 's.e.', '$p_{value}$')),
+    caption = 'The estimated coefficients of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+\vspace{10pt}
+
+<!--- coefficients --->
+```{r T0012, fig.pos = 'h!'}
+logarithmic <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'models', 'nugget', 'blm', 'B', 'estimations.rds'))
+
+
+logarithmic$coefficients %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'coef.', 'coef.\nest.',
+                                        'lower', 'upper', 's.e.', '$p_{value}$')),
+    caption = 'The estimated coefficients of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i})  + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', '', 'confidence\ninterval' = 2, '', '')) %>%
+  kableExtra::add_footnote(label = c('coef.: coefficient', 'est.: estimate', 's.e.: standard error'), notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+
+\vspace{10pt}
+
+\noindent In contrast, not all the fixed-term coefficient estimates of \cref{tab:T0012} are significant; the coefficients of the $piped\underline{\hspace{0.125cm}}sewer$ & $ln(p\underline{\hspace{0.125cm}}density.k)$ terms are not statistically significant at the $0.05$ significance level.  \textbf{Hence, the rest of this chapter} discusses the estimates of the Binomial geostatistical logistic model with linear predictor \cref{eq:0040}.
+
+### The Impact of the Estimated Coefficients
+
+A variable's coefficient estimate is a direct, or indirect, measure of the variable's impact on an outcome.  Focusing on the fixed-term effects of \cref{eq:0040}
+
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} \nonumber \\
+& \quad  + \beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}\nonumber
+\end{align}
+$\Rightarrow$
+\begin{equation}
+\frac{p(x_{i})}{1 - p(x_{i})} \propto \large{e}^{\beta_{0}}  e^{\beta_{1}{piped\underline{\hspace{0.1cm}}sewer}(x_{i})}  e^{\beta_{2}{piped\underline{\hspace{0.1cm}}sewer}(x_{i})^{2}} e^{\beta_{3}{elevation.km}(x_{i})}  (\#eq:0047)
+\end{equation}
+by \cref{eq:0037,eq:0038,eq:0039,eq:0040}.  The effects $piped\underline{\hspace{0.125cm}}sewer$ and *elevation.km* on prevalence are deducible via \cref{eq:0047}.
+
+\vspace{25pt}
+
+\noindent \textsc{Piped Sewage Facilities}
+
+\vspace{5pt}
+
+Equating the derivative of \cref{eq:0047} w.r.t. (with respect to) $piped\underline{\hspace{0.125cm}}sewer$ to zero leads to
+\begin{equation}
+`r CPL` + \bigl(2 \times `r CPQ` \times piped\underline{\hspace{0.125cm}}sewer\bigr) = 0  (\#eq:0049)
+\end{equation}
+This suggests that the effect of $piped\underline{\hspace{0.125cm}}sewer$ on *Hookworm disease* infections prevalence varies about the inflection point $`r -CPL`/`r 2*CPQ` = `r round(-0.5*CPL/CPQ, digits = 3)`$.  As access to piped sewage facilities increases from $0$ to $`r round(-0.5*CPL/CPQ, digits = 3)`$ the prevalence odds decrease.  Beyond the inflection point, however, the prevalence odds increase as access to piped sewage facilities increases; the range is $(`r round(-0.5*CPL/CPQ, digits = 3)` \quad 1]$.  The increasing prevalence odds after the inflection point might due to a mix of
+
+\normalsize
+
+> * access density
+> * poor maintenance
+
+\normalsize
+
+The measure $piped\underline{\hspace{0.125cm}}sewer$ denotes the percentage of an area's inhabitants that have access to piped sewage facilities.  The measure does not give an insight into access density, i.e., the median number of people per piped [defaecation] facility.  Defaecation facilities that have high access densities require robust *hygiene maintaining cleaning schedules*, which might not be budgeted for.  Consequently, potential facility users might sometime opt for options detrimental to public health.
+
+\clearpage
+
+\noindent \textsc{Elevation}
+
+\vspace{5pt}
+
+For every unit increase in elevation, i.e., every kilometre increase in elevation, the prevalence odds declines
+\begin{equation}
+  100 \times \bigl(e^{`r CEL`} - 1\bigr) = `r round(100 * (exp(CEL) - 1), digits = 3)`  (\#eq:0050)
+\end{equation}
+i.e., decreases by $`r -round(100 * (exp(CEL) - 1), digits = 3)`\%$.
+
+
+
+### The Variance & Scale Estimates
+
+\cref{tab:T0025} outlines the variance, and scale parameter, estimates of linear predictor \cref{eq:0040}.  The confidence interval of the scale parameter $\phi$ is rather wide.  On the other hand, $\sigma^{2}$, the variance of the stochastic process $S(\mathbf{x})$, has a rather narrow confidence interval.
+
+<!--- variance & scale estimates  --->
+```{r T0025}
+parabolic$special %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'est.', 'lower', 'upper', '$e^{est.}$', 'lower', 'upper')),
+    caption = 'The Binomial geostatistical logistic model variance estimates vis-\\`{a}-vis $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.  $\\kappa = 0.5$') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 8, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2, '', 'confidence\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = 'est.: estimate', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, latex_column_spec = "c")
+```
+
+
+### Residual Spatial Correlation
+
+The purpose of the Binomial geostatistical logistic model's [linear predictor] stochastic term $S(x_{i})$ is the modelling/capturing of *unexplained spatial variation* (@Diggle2019).  If the $S(x_{i})$ term of \cref{eq:0040} successfully models the unexplained spatial variation, then the associated standardised residual errors will be free of residual spatial correlation.  As before, we test for residual spatial correlation via the empirical variogram.  Foremost, the calculation of the standardised residual errors.
+
+\vspace{10pt}
+
+The standardised residual errors are
+\begin{align}
+r_{i} & = \frac{1}{\psi} \epsilon_{i}\left(1 - h_{i}\right)^{-1/2}, \quad \text{\textit{wherein}}  (\#eq:0010) \\
+\psi^{2} & = \frac{1}{n - \rho} \sum^{n}_{i = 1}{\epsilon^{2}_{i}}   (\#eq:0011)
+\end{align}
+The number of observations is $n$, $\rho$ is the number of fixed effects parameters, i.e., the number of model coefficients.  The raw residuals are ${\epsilon_{1}, \ldots, \epsilon_{n}}$; each $\epsilon_{i}$ is the difference between observed outcome $Y_{i}$ and its fitted value. $\psi$ is the standard error of the raw residuals.  Finally, $h_{i}$ is the leverage of the $i^{th}$ observation.  The definition of leverage value is
+\begin{equation}
+\mathbf{h} = diag \Bigl( X\bigl(X^{T}X\bigr)^{-1}X^{T}  \Bigr) (\#eq:0012)
+\end{equation}
+wherein $X$ denotes a model's design matrix.
+
+\vspace{10pt}
+
+\cref{fig:F0008} outlines the empirical variogram of the standardised residual errors of the Binomial geostatistical logistic model with linear predictor \cref{eq:0040}.  The empirical variogram does not exhibit residual spatial correlation, i.e., the Binomial geostatistical logistic model in question successfully models the unexplained spatial variation.
+
+<!--- empirical variogram --->
+```{r F0008, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The variogram of the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'variogram.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+\clearpage
+
+### Prevalence Estimates
+
+The project set aside a portion of Togo's $2015$ data set for preliminary prediction analysis purposes.  Thus far, the portion of the Togo $2015$ data set in use is, more or less, the *training* data set.
+
+<!--- prevalence --->
+```{r F0009, fig.pos = 'h!', out.width = '85%', fig.align = 'center', fig.cap = 'The prevalence estimates and originals vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'models', 'nugget', 'blm', 'A', 'diagonal.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+
+The training data's original & estimated prevalence values are not quite equivalent.  In general, the estimates are under-estimates, hence the negative bias value in \cref{tab:T0013}.  Hence, this model requires further adjustment.  An adjustment option is additional risk factors; potential factors include land surface temperature, enhanced vegetation index values, and soil moisture (@Brooker2006).
+
+Unsurprisingly, the prediction performance illustrated by the testing data set is poor.  The  predominant focus is explanatory modelling, with a special focus on WaSH variables; not all possible variables that might impact geohelminths infections prevalence.  Sometimes the range of factors considered during explanatory modelling are sufficient for prediction purposes, sometimes they are not.
+
+Interestingly, Brooker et al. (@Brooker2006) report moderate accuracy w.r.t. the prediction of *Hookworm disease* infections prevalence via binomial logistic regression analysis.  Therein the independent variables are land surface temperature, normalized difference vegetation index, and elevation.
+
+
+<!--- bias & rmse --->
+```{r T0013}
+
+parabolic$discrepancies %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('', 'Bias', 'RMSE')),
+    caption = 'The bias and root mean square error values vis-\\`{a}-vis the Binomial geostatistical logistic model with linear predictor $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 2, latex_column_spec = "l") %>%
+  kableExtra::column_spec(column = 3, latex_column_spec = "l")
+```
+

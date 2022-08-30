@@ -1,0 +1,127 @@
+
+\appendix
+
+<!--- # *APPENDIX* {-} --->
+
+# *PROJECT SCOPE*
+
+\footnotesize
+\noindent \textbf{Project host}: World Health Organization (WHO)\newline
+\noindent \textbf{World Health Organization supervisor}: Professor Antonio Montresor\newline
+\noindent \textbf{Lancaster Medical School/}[CHICAS](https://chicas.lancaster-university.uk) \textbf{supervisor}: Dr. Emanuele Giorgi\newline
+\normalsize
+
+\vspace{20pt}
+
+Soil transmitted helminths (STH), i.e., geohelminths, are parasitic intestinal worms that cause intestinal nematode infections such as ascariasis, trichuriasis, and hookworm disease.  According to the Lancet's latest global burden of disease study (@Lancet2020, @IHME2020), soil transmitted helminths infections are the **(a)** second most burdensome neglected tropical diseases, after dengue, and **(b)** most prevalent.  Therefore, geohelminths infections are a focus of the World Health Organization (WHO).  Geohelminths infections prevention, control, and elimination activities depend on knowledge of prevalence (@Montresor2011).  Prevalence metrics depend on field surveys, which are rather expensive to conduct. They are especially expensive when there are no measures to systematically/strategically direct field scientists to survey areas.  In the absence of systematic/strategic direction, the field scientists have to survey as wide an area as possible, albeit subject to financial, accessibility, etc., constraints.
+
+\vspace{10pt}
+
+A key STH prevalence hypothesis, of domain experts, is that WASH (water, sanitation, and hygiene) variables might be critical prognostic factors of STH prevalence.  Therefore, the project will focus on understanding the association between STH prevalence and WASH variables, and investigate whether they are prognostic factors of STH prevalence.
+
+\clearpage
+
+## Project Aim
+
+Determine whether one or more WaSH (water, sanitation, and hygiene) variables are geohelminths infections prevalence risk factors.
+
+
+## Project Objectives
+
+Hence, the project's objectives are to **(a)** determine which WaSH (water, sanitation, and hygiene) variables have a statistically significant impact on geohelminths infections prevalence, and **(b)** determine, estimate, the degree to which impacting WaSH variables affect geohelminths infections prevalence --- via geostatistical models.
+
+
+## Project Data
+
+\noindent The project will rely on the
+
+\begin{minipage}[c]{0.95\textwidth}
+  \vspace{10pt}
+  \begin{itemize}
+    \item The soil transmitted helminths' data sets of \href{https://espen.afro.who.int/}{ESPEN} (Expanded Special Project for Elimination of Neglected Tropical Diseases) -- \textbf{for} ascariasis, hookworm infection, and trichuriasis examinations and cases data per site.
+    \item The estimated WASH variables of \href{https://www.healthdata.org/research-article/mapping-geographic-inequalities-access-drinking-water-and-sanitation-facilities-low}{IHME}
+(Institute for Health Metrics and Evaluation) -- \textbf{for} determining site level WASH variables values. The \href{https://espen.afro.who.int/diseases/wash}{ESPEN estimates}, which depend on the IHME methodology, are implementation level estimates.
+    \item The \href{https://www.ncdc.noaa.gov/cdo-web/datasets}{National Oceanic \& Atmospheric Administration (NOAA)}, \href{https://www.worldclim.org/data/index.html}{WorldClim}, and \href{https://www.diva-gis.org/Data}{DIVA GIS} -- \textbf{for} historical geospatial and/or environmental variables values.
+  \end{itemize}
+\end{minipage}
+
+## Deliverables
+
+\noindent The deliverables are
+
+\begin{minipage}[c]{0.95\textwidth}
+  \vspace{10pt}
+  \begin{itemize}
+    \item Geo-statistical STH prevalence modelling \& analysis, via GitHub.
+    \item Thesis manuscript.
+    \item Datasheet.
+  \end{itemize}
+\end{minipage}
+
+\clearpage
+
+## Timeline
+
+\begin{center}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabular}{ l p{0.65\linewidth}l }\footnotesize
+    $\;$ & Item \\ \hline
+    \footnotesize{2022/06/20 - 2022/07/08} & \small{Addressing site level records identification issues (refer to the quality constraints section further below).  The derivation of site level variable values; WASH and environmental variables values.} \\
+    \footnotesize{2022/07/12 - 2022/07/30} & \small{Exploratory data analysis.{\par}Exploration of geospatial binomial logistic models.} \\
+    \footnotesize{2022/08/01 - 2022/08/21} & \small{Final modelling stage; two models at most.{\par}Model validation.{\par}Model testing.} \\
+    \footnotesize{2022/08/22 - 2022/09/06} & \small{Manuscript writing.} \\
+    \footnotesize{2022/09/08 - 2022/09/11} & \small{Finalise modelling and analysis, repository and data sheet.} \\
+    \footnotesize{2022/09/11 - 2022/09/15} & \small{Poster preparation.} \\
+  \end{tabular}
+\end{center}
+
+
+## Out of Scope
+
+The prediction of STH Prevalence for countries outwith the continent of Africa because the ESPEN data project focuses on African countries only, i.e., it only has the data of a set of African countries.  Consequently, model development will be via the data of one or more African countries.  Additionally, model validation, internal & external, will be via ESPEN countries only.
+
+## Project Assumptions
+
+Key assumptions:
+
+\begin{minipage}[c]{0.95\textwidth}
+  \vspace{10pt}
+  \begin{itemize}
+    \item The soil transmitted helminth parasites of concern are roundworms (Ascaris lumbricoides), hookworms (Ancylostoma duodenale, Necator americanus), and whipworms (Trichuris trichiura).
+    \item In terms of data granularity, the focus of this project is \textbf{site level prevalence}, and hence site level measures.
+    \item The historical site level positive cases of ascariasis, hookworm infection, and trichuriasis, detailed by \href{https://espen.afro.who.int/}{ESPEN}, are dependable.
+  \end{itemize}
+\end{minipage}
+
+\clearpage
+
+## Project Constraints
+
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l p{0.5\linewidth}l}\footnotesize
+$\;$ & Date \\ \hline
+Project start date & 6 June 2022 \\
+Project end date & 9 September 2022 \\
+Deadlines & Masters Thesis: 9 September 2022{\par}Poster Session: 16 September 2022{\par}Model Repository: 12 September 2022{\par}Data Sheet: 12 September 2022 \\
+\end{tabular}
+\normalsize
+
+\vspace{20pt}
+
+### *Time Constraints*
+The final week of the masters modules overlaps with the first week of the masters project, therefore only a third of the week ending 10 June 2022 shall be spent on the masters project.  Future planning may occasionally occur during week days, the time will be recovered during the evenings and/or weekends.
+
+
+### *Budget Constraints*
+The project has no budget, i.e., no budget/payment for personnel or computational resources used; the student bears the cost of conducting the project.
+
+
+### *Quality Constraints*
+
+The site level data of ESPEN has 3 core issues. Foremost, and per country, many records do not have a site level identification code.  Second, records that have the same coordinates, do not usually have the same site identification code.  Finally, records associated with the same site sometimes have slightly different coordinate values.  Prior to exploratory analysis & modelling, these discrepancies will have to be addressed, i.e., **(a)** each distinct site must have a unique site identifier and distinct coordinate values, and **(b)** records associated with the same site must have the same unique site identifier & coordinate values.
+
+
+### *Equipment Constraints*
+
+No equipment has been provided for this project.  The project's tasks will be, are, conducted via a personal computer.  However, it is quite probable that the computer will stop working any time soon; the computer is quite old, and in recent times bits & pieces have stopped working.  Hence, access to a fall-back laptop is critical.
