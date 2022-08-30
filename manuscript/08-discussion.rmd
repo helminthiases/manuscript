@@ -40,4 +40,4 @@ It is quite possible that the accuracy of the WaSH access percentage estimates, 
 
 > * **External Validity**: At present, the study's conclusions can be generalised to Togo only.
 
-> * **Conclusion Validity**: Each of the resulting model's MCML (Monte Carlo Maximum Likelihood) coefficient estimates is statistically significant, additionally a different estimation method - Bayesian parameter estimation - produces similar estimates.  Hence, it is reasonable to conclude that $piped\underline{\hspace{0.1cm}}sewer$ is probably a risk factor. The case would be stronger in the case of a *temporal Binomial geostatistical logistic model*.
+> * **Conclusion Validity**: Each of the resulting model's MCML (Monte Carlo Maximum Likelihood) coefficient estimates is statistically significant.  Hence, it is reasonable to conclude that $piped\underline{\hspace{0.1cm}}sewer$ is probably a risk factor. The case would be stronger in the case of a *temporal Binomial geostatistical logistic model*.
