@@ -73,7 +73,7 @@ terms %>%
 
 \vspace{10pt}
 
-## *Background* \label{sec:background}
+## Geohelminths
 
 
 An understanding of the biology, ecology, and transmission dynamics of geohelminths is key to proposing possible prevalence risk factors.  As previously noted, geohelminths infections comprises *ascariasis*, *trichuriasis*, and *hookworm disease*.  The underlying parasites are *A. lumbricoides*, *T. trichiura*, and *A. duodenale/N. americanus*, respectively (\cref{tab:T0001}).
@@ -145,17 +145,19 @@ Altogether, the transmission dynamics suggests that WaSH factors are possible ri
 
 
 
-
-
-## *Research Question*
+## Research Question
 
 Are any WaSH (water, sanitation, and hygiene) variables *geohelminths infections prevalence* risk factors?
 
-## *Project Aim*
+
+
+## Project Aim
 
 Determine whether one or more WaSH (water, sanitation, and hygiene) variables are geohelminths infections prevalence risk factors.
 
-## *Project Objectives*
+
+
+## Project Objectives
 
 Hence, the project's objectives are to
 
@@ -166,10 +168,9 @@ Hence, the project's objectives are to
 \noindent via geostatistical models.
 
 
-## *Manuscript Structure*
+
+## Manuscript Structure
 
 The \hyperref[chapter:background]{background} chapter discusses the biology, ecology, and transmission dynamics of geohelminths. Next, the \hyperref[chapter:data]{data} chapter outlines the underlying data sets of this project.  This leads unto the \hyperref[chapter:exploration]{exploratory analysis} chapter, which explores the relationship, or otherwise, between the prevalence of a geohelminth infectious disease and independent variables. The \hyperref[chapter:preliminary]{preliminary investigation} & \hyperref[chapter:geo]{geostatistical binomial logistic models} chapters focus on explanatory modelling.  Finally, the [chapter:discussion]{discussion} chapter discusses the project's observations, findings, and limitations.
 
 In this text intestinal nematode infections (INI) & geohelminths infections are synonyms, and the comprising diseases are *ascariasis*, *trichuriasis*, and *hookworm disease*.
-
-
