@@ -131,7 +131,7 @@ knitr::include_graphics(
 
 Setting aside the disparate $2009$ & $2015$ sites, do the prevalence distributions reflect *generic patterns of prevalence distributions overtime due to interventions*?    Unclear.  Yes, the aim of interventions is the reduction of INI prevalence over time, but it is improbable that all interventions have been successful, and patterns of prevalence distribution over time probably depend on starting prevalence values.
 
-\vspace{5pt}
+\vspace{10pt}
 
 <!--- prevalence --->
 ```{r F0002, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections prevalence during the years 2009 and 2015'}
@@ -197,3 +197,5 @@ knitr::include_graphics(
   error = getOption(x = "knitr.graphics.error", default = TRUE)
 )
 ```
+
+\clearpage
