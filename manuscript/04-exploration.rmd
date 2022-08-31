@@ -74,7 +74,7 @@ knitr::include_graphics(
 
 ## Geohelminths Infections Survey Experiments: Distributions of Sites & Prevalence
 
-```{r T0007, fig.pos = 'h!}
+```{r T0007, fig.pos = 'h!'}
 T <- read.csv(file = file.path(dirname(getwd()), 'warehouse', 'reference', 'frequencies', 'timeFrequencies.csv'))
 
 T %>%
@@ -106,17 +106,6 @@ T %>%
 
 \vspace{5pt}
 
-\noindent These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.
-
-\vspace{10pt}
-
-\cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.
-
-\vspace{10pt}
-
-Setting aside the disparate $2009$ & $2015$ sites, do the prevalence distributions reflect *generic patterns of prevalence distributions overtime due to interventions*?    Unclear.  Yes, the aim of interventions is the reduction of INI prevalence over time, but it is improbable that all interventions have been successful, and patterns of prevalence distribution over time probably depend on starting prevalence values.
-
-\vspace{5pt}
 
 <!--- survey experiments sites
       trim: left bottom right top --->
@@ -128,6 +117,19 @@ knitr::include_graphics(
   error = getOption(x = "knitr.graphics.error", default = TRUE)
 )
 ```
+
+\vspace{5pt}
+
+
+\noindent These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.
+
+\vspace{10pt}
+
+\cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.
+
+\vspace{10pt}
+
+Setting aside the disparate $2009$ & $2015$ sites, do the prevalence distributions reflect *generic patterns of prevalence distributions overtime due to interventions*?    Unclear.  Yes, the aim of interventions is the reduction of INI prevalence over time, but it is improbable that all interventions have been successful, and patterns of prevalence distribution over time probably depend on starting prevalence values.
 
 \vspace{5pt}
 
