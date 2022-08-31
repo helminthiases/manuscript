@@ -3,6 +3,36 @@
 
 The \hyperref[chapter:background]{background} chapter notes that this project focuses on *Hookworm disease*, henceforth all data explorations, modelling, and analysis are in relation to *Hookworm disease*, and prevalence is the dependent/outcome variable in every case.  In terms of data, the project's underlying data set is the Togo data set.  It is the best data set vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records; the missing data pattern is *missing completely at random*.
 
+
+## In focus: Togo
+
+The country of Togo lies within West Africa.  Its bordering countries are the Republic of Ghana, the Republic of Benin, and Burkina Faso.  The climate is a tropical wet dry climate (@CIA); the far northern tip is semi-arid.  \cref{fig:F0067} illustrates the elevation pattern across Togo, most of the country has an elevation less than $400$ metres.  In general, most of Togo's citizens live in rural areas with a population density in the range $(0 \quad 1k]$ per square kilometre (\cref{fig:F0067}).
+
+```{r F0068, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '80%', out.width = '80%', fig.align = 'center', fig.cap = 'The elevation pattern across Togo'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'reference', 'extraneous', 'mapElevation.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+\vspace
+
+```{r F0067, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '80%', out.width = '80%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections survey experiments sites in Togo during the years $2009$ $\\&$ $2015$; the years only have 4 sites in common.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'reference', 'extraneous', 'mapPopulation.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+
+
+
+## Geohelminths Infections Survey Experiments: Distributions of Sites & Prevalence
+
 ```{r T0007}
 T <- read.csv(file = file.path(dirname(getwd()), 'warehouse', 'reference', 'frequencies', 'timeFrequencies.csv'))
 
@@ -13,18 +43,17 @@ T %>%
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
-    col.names = kableExtra::linebreak(c('year', '\\makecell[l]{number of \\\\ records}')),
-    caption = 'A tally of Togo\'s geohelminths infections survey experiments records.') %>%
+    col.names = kableExtra::linebreak(c('year', '\\makecell[l]{number of \\\\ sites}')),
+    caption = 'A tally of Togo\'s geohelminths infections survey experiments sites, i.e., records; per year a site is associated with a single record.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "m{0.135\\\\linewidth}l", latex_valign = 'm')
 
 ```
 
+\vspace{10pt}
 
-## Geohelminths Infections Survey Experiments: Distributions of Sites & Prevalence
-
-\cref{fig:F0001} illustrates the distribution of survey experiments sites across Togo.  The data set's survey experiments occurred during the years $2009$ & $2015$.  However, the years only have $4$ survey experiments sites in common, hence the questions
+\cref{fig:F0001} illustrates the distribution of survey experiments sites across Togo; \cref{tab:T0007} summarises the number of sites per year.  The data set's survey experiments occurred during the years $2009$ & $2015$.  However, the years only have $4$ survey experiments sites in common, hence the questions
 
 \vspace{5pt}
 
