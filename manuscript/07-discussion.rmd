@@ -23,7 +23,7 @@ The increasing prevalence odds after the $`r round(-100*0.5*CPL/CPQ, digits = 2)
 
 ## Limitations
 
-The assumptions hint at the project's limitations.  The data sets of a number of countries have [missing data cells](https://helminthiases.github.io/data/missing.html#missing-spatiotemporal-data); the critical missing data being geographic co&ouml;rdinates, year, the number of examinations, and the number of positive tests.  In the end, instead of a place agnostic model, the project's models use the data of a single country: Togo.  However, the model can be extended in the future.
+The assumptions hint at the project's limitations.  The data sets of a number of countries have [missing data cells](https://helminthiases.github.io/data/missing.html#missing-spatiotemporal-data); the critical missing data being geographic co&ouml;rdinates, year, the number of examinations, and the number of positive tests.  In the end, instead of a place agnostic model, the project's models use the data of a single country: Togo.  Extending to a place agnostic explanatory model for, e.g., every country affected by *Hookworm disease*, means using a data set with geographic co&ouml;rdinates spanning these countries.
 
 \vspace{10pt}
 
