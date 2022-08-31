@@ -232,3 +232,5 @@ knitr::include_graphics(
   error = getOption(x = "knitr.graphics.error", default = TRUE)
 )
 ```
+
+\clearpage
