@@ -210,7 +210,7 @@ For every unit increase in elevation, i.e., every kilometre increase in elevatio
 \end{equation}
 i.e., decreases by $`r -round(100 * (exp(CEL) - 1), digits = 3)`\%$.
 
-
+\vspace{20pt}
 
 ### The Variance & Scale Estimates
 
@@ -234,6 +234,7 @@ parabolic$special %>%
   kableExtra::column_spec(column = 1, latex_column_spec = "c")
 ```
 
+\vspace{20pt}
 
 ### The Distribution of the Random Effects
 
