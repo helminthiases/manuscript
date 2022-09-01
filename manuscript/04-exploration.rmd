@@ -49,7 +49,7 @@ terms %>%
 \vspace{10pt}
 
 
-```{r F0068, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '65%', out.width = '65%', fig.align = 'center', fig.cap = 'The elevation pattern across Togo'}
+```{r F0068, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '65%', out.width = '65%', fig.align = 'center', fig.cap = 'The elevation pattern across Togo.  Data Source: \\href{https://worldclim.org/data/worldclim21.html}{WorldClim}'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'extraneous', 'mapElevation.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
@@ -60,7 +60,7 @@ knitr::include_graphics(
 
 \vspace{10pt}
 
-```{r F0067, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '65%', out.width = '65%', fig.align = 'center', fig.cap = 'The 2015 population density pattern across Togo.'}
+```{r F0067, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '65%', out.width = '65%', fig.align = 'center', fig.cap = 'The 2015 population density pattern across Togo.  Data Source: \\href{https://sedac.ciesin.columbia.edu/data/collection/gpw-v4}{Gridded Population of the World}'}
 knitr::include_graphics(
   path = file.path('..', 'warehouse', 'reference', 'extraneous', 'mapPopulation.pdf'),
   auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
