@@ -159,9 +159,9 @@ $$H_{1}: \beta_{j} \neq 0$$
 \vspace{10pt}
 
 ```{r T0008, fig.pos = 'h!'}
-estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
+parabolic <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'A', 'estimations.rds'))
 
-estimations$fixed %>%
+parabolic$fixed %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
     format = 'latex',
@@ -183,9 +183,9 @@ estimations$fixed %>%
 \vspace{10pt}
 
 ```{r T0009, fig.pos = 'h!'}
-estimations <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
+logarithmic <- readRDS(file = file.path(dirname(getwd()), 'warehouse', 'effects', 'architectures', 'B', 'estimations.rds'))
 
-estimations$fixed %>%
+logarithmic$fixed %>%
   dplyr::mutate_all(linebreak) %>%
   kableExtra::kable(
     format = 'latex',
@@ -232,3 +232,36 @@ knitr::include_graphics(
   error = getOption(x = "knitr.graphics.error", default = TRUE)
 )
 ```
+
+\clearpage
+
+### The Random Effects
+
+The two models, with linear predictors \cref{eq:0031} & \cref{eq:0032}, have similar *estimated random intercept values* distributions, and the variances of these distributions are more or less equal.
+
+\vspace{10pt}
+
+\noindent \textbf{In the case of}
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{piped\underline{\hspace{0.125cm}}sewer}(x_{i})^{2} \qquad \qquad (\ref{eq:0031}) \nonumber \\
+& \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
+\end{align}
+the variance $\tau_{_{b}}^{2}$ of the random effects vector $\mathbf{b}$ is $`r round(parabolic$random[1, 'deviation'], digits = 3)`$.  \cref{fig:F0070} is the quantile-quantile plot of the random intercept values $b_{i}$ --- the distribution is approximately normal.
+
+```{r F0070, fig.pos = 'h!', out.width = '40%', fig.width = 2.5, fig.height = 2.5, dpi = 85, fig.align = 'center', fig.cap = "The quantile-quantile plot of the random intercept estimates w.r.t. the GLMM with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$ "}
+parabolic$randomgraph_
+```
+
+\vspace{20pt}
+
+\noindent \textbf{In the case of}
+\begin{align}
+\eta_{i} & = \beta_{0} + \beta_{1}{piped\underline{\hspace{0.125cm}}sewer}(x_{i}) + \beta_{2}{ln(p\underline{\hspace{0.125cm}}density.k)}(x_{i}) \qquad \qquad (\ref{eq:0032}) \nonumber \\
+& \quad  + \beta_{3}{elevation.km}(x_{i}) + b_{i} \nonumber
+\end{align}
+the variance $\tau_{_{b}}^{2}$ of the random effects vector $\mathbf{b}$ is $`r round(logarithmic$random[1, 'deviation'], digits = 3)`$.  \cref{fig:F0070} is the quantile-quantile plot of the random intercept values $b_{i}$ --- the distribution is approximately normal.
+
+```{r F0071, fig.pos = 'h!', out.width = '40%', fig.width = 2.5, fig.height = 2.5, dpi = 85, fig.align = 'center', fig.cap = "The quantile-quantile plot of the random intercept estimates w.r.t. the GLMM with linear predictor $\\eta_{i} = \\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{ln(p\\underline{\\hspace{0.125cm}}density.k)}(x_{i}) + \\beta_{3}{elevation.km}(x_{i}) + b_{i}$"}
+logarithmic$randomgraph_
+```
+

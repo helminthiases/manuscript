@@ -1,9 +1,80 @@
 
+<!--- functions --->
+```{r exploration functions}
+sys.source(file = '../R/metrics/HookwormTG.R', envir = knitr::knit_global())
+```
+
+<!--- settings --->
+```{r exploration settings}
+pathstr <- dirname(getwd())
+```
+
+
 # *EXPLORATORY ANALYSIS* \label{chapter:exploration}
 
 The \hyperref[chapter:background]{background} chapter notes that this project focuses on *Hookworm disease*, henceforth all data explorations, modelling, and analysis are in relation to *Hookworm disease*, and prevalence is the dependent/outcome variable in every case.  In terms of data, the project's underlying data set is the Togo data set.  It is the best data set vis-&agrave;-vis minimal missing points, missing data pattern, and the number of records after excluding incomplete records; the missing data pattern is *missing completely at random*.
 
-```{r T0007}
+
+## In focus: Togo
+
+The country of Togo lies within West Africa.  Its bordering countries are the Republic of Ghana, the Republic of Benin, and Burkina Faso.  The climate is a tropical wet dry climate (@CIA); the far northern tip is semi-arid.  \cref{fig:F0067} illustrates the elevation pattern across Togo, most of the country has an elevation value less than $400$ metres.  In general, most of Togo's citizens live in rural areas across the country (@CIA), and the estimated population density across most of the country is within the range $(0 \quad 1k]$ per square kilometre (\cref{fig:F0067}).
+
+\vspace{10pt}
+
+In terms of *Hookworm disease*, the focus of this project, \cref{tab:T0069} outlines Togo's latest **(a)** disability adjusted life years (DALY) per $100k$ inhabitants, i.e., the number of years lost to disability, ill-health, or early death per $100k$ inhabitants, and **(b)** prevalence per $100k$ inhabitants (@Lancet2020, @IHME2020).  The estimate of each metric is much higher than the global [average] estimate; cf. \cref{tab:T0069}, \cref{tab:T0023}, and \cref{tab:T0024}.  Over time Togo's prevalence per $100k$ inhabitants has peaked & troughed (@IHME2020).   The reason is not quite clear, but a mass drug administration study by Bronzan et al. (@Bronzan2018) \textit{``... found that in areas with high baseline prevalence of hookworm the risk of rebound of infection is high among children who do not receive bi-annual treatment.''}; this hints at a possible programme design problem.
+
+
+```{r T0069}
+terms <- HookwormTG(pathstr = pathstr)
+
+terms %>%
+  dplyr::mutate_all(linebreak) %>%
+  kableExtra::kable(
+    format = 'latex',
+    digits = 3,
+    format.args = list(big.mark = ','),
+    booktabs = TRUE,
+    escape = FALSE,
+    linesep = '\\addlinespace',
+    col.names = kableExtra::linebreak(c('metric', 'estimate', 'lower', 'upper')),
+    caption = 'The 2019 disability adjusted life years (DALY) per $100k$ inhabitants, and prevalence per $100k$ inhabitants.  Data Source: \\href{https://vizhub.healthdata.org/gbd-compare/}{Institute for Health Metrics} $\\&$ \\href{https://www.thelancet.com/journals/lancet/issue/vol396no10258/PIIS0140-6736(20)X0042-0}{The Lancet Global Burden of Disease 2019}') %>%
+  kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
+  kableExtra::add_header_above(c('', '', 'confidence\ninterval' = 2)) %>%
+  kableExtra::add_footnote(label = 'prev.: Prevalence', notation = 'none')  %>%
+  kableExtra::column_spec(column = 1, latex_column_spec = "l")
+
+```
+
+
+\vspace{10pt}
+
+
+```{r F0068, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '65%', out.width = '65%', fig.align = 'center', fig.cap = 'The elevation pattern across Togo'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'reference', 'extraneous', 'mapElevation.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+\vspace{10pt}
+
+```{r F0067, fig.pos = 'h!', out.extra = 'trim=5 5 15 5, clip', out.height = '65%', out.width = '65%', fig.align = 'center', fig.cap = 'The 2015 population density pattern across Togo.'}
+knitr::include_graphics(
+  path = file.path('..', 'warehouse', 'reference', 'extraneous', 'mapPopulation.pdf'),
+  auto_pdf = getOption(x = "knitr.graphics.auto_pdf", default = TRUE),
+  dpi = NULL,
+  error = getOption(x = "knitr.graphics.error", default = TRUE)
+)
+```
+
+
+
+
+## Geohelminths Infections Survey Experiments: Distributions of Sites & Prevalence
+
+```{r T0007, fig.pos = 'h!'}
 T <- read.csv(file = file.path(dirname(getwd()), 'warehouse', 'reference', 'frequencies', 'timeFrequencies.csv'))
 
 T %>%
@@ -13,18 +84,17 @@ T %>%
     booktabs = TRUE,
     escape = FALSE,
     linesep = '\\addlinespace',
-    col.names = kableExtra::linebreak(c('year', '\\makecell[l]{number of \\\\ records}')),
-    caption = 'A tally of Togo\'s geohelminths infections survey experiments records.') %>%
+    col.names = kableExtra::linebreak(c('year', '\\makecell[l]{number of \\\\ sites}')),
+    caption = 'A tally of Togo\'s geohelminths infections survey experiments sites, i.e., records; per year a site is associated with a single record.') %>%
   kableExtra::kable_styling(position = 'center', latex_options = 'hold_position', font_size = 7, full_width = FALSE) %>%
   kableExtra::column_spec(column = 1, italic = TRUE, latex_column_spec = "l") %>%
   kableExtra::column_spec(column = 2, latex_column_spec = "m{0.135\\\\linewidth}l", latex_valign = 'm')
 
 ```
 
+\vspace{10pt}
 
-## Geohelminths Infections Survey Experiments: Distributions of Sites & Prevalence
-
-\cref{fig:F0001} illustrates the distribution of survey experiments sites across Togo.  The data set's survey experiments occurred during the years $2009$ & $2015$.  However, the years only have $4$ survey experiments sites in common, hence the questions
+\cref{fig:F0001} illustrates the distribution of survey experiments sites across Togo; \cref{tab:T0007} summarises the number of sites per year.  The data set's survey experiments occurred during the years $2009$ & $2015$.  However, the years only have $4$ survey experiments sites in common, hence the questions
 
 \vspace{5pt}
 
@@ -36,17 +106,6 @@ T %>%
 
 \vspace{5pt}
 
-\noindent These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.
-
-\vspace{10pt}
-
-\cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.
-
-\vspace{10pt}
-
-Setting aside the disparate $2009$ & $2015$ sites, do the prevalence distributions reflect *generic patterns of prevalence distributions overtime due to interventions*?    Unclear.  Yes, the aim of interventions is the reduction of INI prevalence over time, but it is improbable that all interventions have been successful, and patterns of prevalence distribution over time probably depend on starting prevalence values.
-
-\vspace{5pt}
 
 <!--- survey experiments sites
       trim: left bottom right top --->
@@ -60,6 +119,19 @@ knitr::include_graphics(
 ```
 
 \vspace{5pt}
+
+
+\noindent These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.
+
+\vspace{10pt}
+
+\cref{fig:F0002} illustrates the prevalence distributions during the years $2009$ & $2015$.  It is tempting to state that *there have been improvements, over time, in relation to reducing prevalence*; alas, the statement is questionable because the years only have $4$ sites in common.
+
+\vspace{10pt}
+
+Setting aside the disparate $2009$ & $2015$ sites, do the prevalence distributions reflect *generic patterns of prevalence distributions overtime due to interventions*?    Unclear.  Yes, the aim of interventions is the reduction of INI prevalence over time, but it is improbable that all interventions have been successful, and patterns of prevalence distribution over time probably depend on starting prevalence values.
+
+\vspace{10pt}
 
 <!--- prevalence --->
 ```{r F0002, fig.pos = 'h!', out.width = '60%', fig.align = 'center', fig.cap = 'The distribution of geohelminths infections prevalence during the years 2009 and 2015'}
@@ -125,3 +197,5 @@ knitr::include_graphics(
   error = getOption(x = "knitr.graphics.error", default = TRUE)
 )
 ```
+
+\clearpage

@@ -62,7 +62,7 @@ The project uses Steyerberg's method (@Steyerberg2010, Section 7.7.1) to determi
 
 \vspace{20pt}
 
-## *Extraneous Data*
+## Extraneous Data
 
 \cref{tab:T0003} outlines the project's extraneous variables, i.e., the extraneous independent variables.
 
@@ -109,12 +109,4 @@ The elevation data is courtesy of [WorldClim](https://worldclim.org/data/worldcl
 Finally, the project's population density values are derivations of the [Gridded Population of the World](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4) population estimates; the **unit of measure is the number of people per square kilometre**.  The `r` package `geodata` [stores](https://geodata.ucdavis.edu/geodata/pop/) the population estimates maps.
 
 The estimates are quinquennial estimates, thus far there are estimates maps for the years $2000$, $2005$, $2010$, $2015$, and $2020$.  This project extracts estimate population density values, per verified examination location co&ouml;rdinates, from these maps.  Subsequently, cubic spline interpolation provides intervening years estimates.
-
-
-
-
-
-
-
-
 
