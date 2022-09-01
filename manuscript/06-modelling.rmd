@@ -235,6 +235,26 @@ parabolic$special %>%
 ```
 
 
+### The Distribution of the Random Effects
+
+\cref{fig:F0072} is the Normal quantile-quantile plot of the medians of the random effects samples w.r.t. \cref{eq:0040}.  According to the plot, the medians of the random effects samples have a Normal distribution, line with model definition expectations.
+
+```{r F0072, fig.pos = 'h!', out.width = '40%', fig.width = 2.5, fig.height = 2.5, dpi = 75, fig.align = 'center', fig.cap = 'The Normal quantile-quantile plot of the medians of the random effects samples w.r.t.  $\\beta_{0} + \\beta_{1}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i}) + \\beta_{2}{piped\\underline{\\hspace{0.125cm}}sewer}(x_{i})^{2} + \\beta_{3}{elevation.km}(x_{i})  + S(x_{i}) + U_{i}$.  $\\kappa = 0.5$'}
+
+midpoints <- parabolic$model$samples %>% colMedians()
+ggplot(data = data.frame(sample = midpoints), aes(sample = sample)) +
+  stat_qq() +
+  stat_qq_line() +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank(),
+        panel.grid.major = element_line(size = 0.05),
+        axis.title.x = element_text(size = 11), axis.title.y = element_text(size = 11),
+        axis.text.x = element_text(size = 10), axis.text.y = element_text(size = 10)) +
+  xlab(label = '\nTheoretical Quantiles\n') +
+  ylab(label = '\nSample Quantiles\n')
+```
+
+
 ### Residual Spatial Correlation
 
 The purpose of the Binomial geostatistical logistic model's [linear predictor] stochastic term $S(x_{i})$ is the modelling/capturing of *unexplained spatial variation* (@Diggle2019).  If the $S(x_{i})$ term of \cref{eq:0040} successfully models the unexplained spatial variation, then the associated standardised residual errors will be free of residual spatial correlation.  As before, we test for residual spatial correlation via the empirical variogram.  Foremost, the calculation of the standardised residual errors.
