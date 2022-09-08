@@ -120,7 +120,6 @@ knitr::include_graphics(
 
 \vspace{5pt}
 
-
 \noindent These questions have a bearing on explanatory model development, and partly define the limitations of any developed models.
 
 \vspace{10pt}
@@ -197,5 +196,3 @@ knitr::include_graphics(
   error = getOption(x = "knitr.graphics.error", default = TRUE)
 )
 ```
-
-\clearpage
