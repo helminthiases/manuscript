@@ -1,5 +1,4 @@
 
-
 # *GEOSTATISTICAL BINOMIAL LOGISTIC MODELS* \label{chapter:geo}
 
 The predominant focus of this chapter is explanatory models.  An explanatory model determines which independent variables have a statistically significant impact on a dependent variable in question, it also outlines the degree of impact of the independent variables.  Hence, and in relation to the project's aim & objectives, the objective herein is to
