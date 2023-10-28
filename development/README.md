@@ -26,6 +26,14 @@ References:
 <br>
 <br>
 
+### Disk Documents
+
+* docs/papers/hay_2017_burden_of_diseases.pdf
+* manuscript.pdf
+
+<br>
+<br>
+
 ### Independent Development Environment
 
 * Edit the help file skeletons in 'man', possibly combining help files
