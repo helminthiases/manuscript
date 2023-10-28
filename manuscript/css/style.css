@@ -1,0 +1,10 @@
+
+h1 {
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+h2 {
+  font-variant: small-caps;
+  font-style: normal;
+}
